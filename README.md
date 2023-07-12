@@ -114,33 +114,6 @@ Here we are going to focus on 2. Creating a Topical Branch:
 
 9. Now wait for mentor approval. Once approved, you can merge the pull request.
 
-## ESLint & Prettier
-
-[Setup ESLint & Prettier in VS Code](https://jsmastery.notion.site/Setup-ESLint-Prettier-in-VS-Code-56e50002b82b45b88e36265c5eafbb24)
-
-1. Make sure to create VS Code Workspace Settings.
-
-- CTRL + SHIFT + P
-- Preferences: Open Workspace Settings (JSON)
-
-2. Paste into:
-
-```json
-{
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.addMissingImports": true
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
-}
-```
-
-3. Install ESLint and Prettier from the Extensions Marketplace.
-
 #
 
 ###
