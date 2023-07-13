@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import React from "react";
+import { Providers } from "./providers";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -16,8 +17,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${manrope.className} bg-natural-3`}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`h-screen bg-natural-3 dark:bg-black ${manrope.className}`}
+      >
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
