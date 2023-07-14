@@ -51,6 +51,69 @@ body {
     @apply text-[22px] leading-8 font-semibold;
   }
 
+  /* CUSTOMS STYLE FOR BODY. Refer to figma > Style Guide to understand */
+
+  .body-1 {
+    @apply text-lg leading-6 font-bold;
+  }
+  .body-2 {
+    @apply text-lg leading-6 font-semibold;
+  }
+  .body-3 {
+    @apply text-lg leading-6 font-medium;
+  }
+  .body-4 {
+    @apply text-lg leading-6 font-normal;
+  }
+  .body-5 {
+    @apply text-base leading-6 font-bold;
+  }
+  .body-6 {
+    @apply text-base leading-6 font-semibold;
+  }
+  .body-7 {
+    @apply text-base leading-6 font-medium;
+  }
+  .body-8 {
+    @apply text-base leading-6 font-normal;
+  }
+  .body-9 {
+    @apply text-[15px] leading-6 font-bold;
+  }
+  .body-10 {
+    @apply text-[15px] leading-6 font-semibold;
+  }
+  .body-11 {
+    @apply text-[15px] leading-6 font-medium;
+  }
+  .body-12 {
+    @apply text-[15px] leading-[22px] font-normal;
+  }
+  .body-13 {
+    @apply text-sm leading-6 font-bold;
+  }
+  .body-14 {
+    @apply text-sm leading-6 font-semibold;
+  }
+  .body-15 {
+    @apply text-sm leading-5 font-medium;
+  }
+  .body-16 {
+    @apply text-sm leading-[22px] font-normal;
+  }
+  .body-17 {
+    @apply text-[13px] leading-6 font-bold;
+  }
+  .body-18 {
+    @apply text-[13px] leading-5 font-semibold;
+  }
+  .body-19 {
+    @apply text-[13px] leading-[18px] font-medium;
+  }
+  .body-20 {
+    @apply text-[13px] leading-[22px] font-normal;
+  }
+
   /* CUSTOMS STYLE FOR BUTTONS */
 
   /* button with primary color background */
