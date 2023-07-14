@@ -21,20 +21,20 @@ const ToggleTheme = () => {
   };
 
   return (
-    <div className="flex gap-4">
+    <div className="flex gap-2">
       <Image
         src="img/iconography/sun.svg"
         alt={"Moon Icon"}
-        width={20}
-        height={20}
+        width={24}
+        height={24}
       />
       <button
-        className="flex w-[49px] rounded-xl bg-natural2 p-[2px] transition duration-150 ease-in-out dark:bg-darkBG3"
+        className="flex w-11 rounded-xl bg-natural2 p-[2px] transition duration-150 ease-in-out dark:bg-darkBG3"
         data-isOn={isOn}
         onClick={toggleSwitch}
       >
         <motion.div
-          className="relative h-[20px] w-[20px] rounded-full bg-primary dark:left-6"
+          className="relative h-[20px] w-[20px] rounded-full bg-primary dark:left-5"
           layout
           transition={spring}
         />
@@ -42,8 +42,8 @@ const ToggleTheme = () => {
       <Image
         src="img/iconography/moon.svg"
         alt={"Moon Icon"}
-        width={20}
-        height={20}
+        width={24}
+        height={24}
       />
     </div>
   );
