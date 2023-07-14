@@ -5,7 +5,7 @@ import ErrorFallback from "../components/ErrorFallback";
 const Home = () => {
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
-      <div className="padding-layout"></div>
+      <main className="padding-layout"></main>
     </ErrorBoundary>
   );
 };
