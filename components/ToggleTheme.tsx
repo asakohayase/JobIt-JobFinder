@@ -15,7 +15,7 @@ const ToggleTheme = () => {
 
   const [isOn, setIsOn] = useState(theme === "dark");
   const toggleSwitch = () => {
-    setIsOn(!isOn);
+    setIsOn((prevIsOn) => !prevIsOn);
     setTheme(theme === "dark" ? "light" : "dark");
   };
 
