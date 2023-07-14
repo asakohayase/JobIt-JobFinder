@@ -9,7 +9,7 @@ const Home = () => {
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       {/* EXAMPLE OF REUSABLE COMPONENTS AND DIFFERENT TYPOGRAPHIE CUSTOM CLASS */}
 
-      <div className="padding-layout flex h-full flex-col gap-5 bg-white p-10">
+      <main className="padding-layout flex h-full flex-col gap-5 bg-natural-3 p-10 dark:bg-black">
         <div className="flex flex-row gap-5">
           <Button
             title={"Submit"}
@@ -78,7 +78,7 @@ const Home = () => {
           <p className="body-19">This is the body-19 custom class</p>
           <p className="body-20">This is the body-20 custom class</p>
         </div>
-      </div>
+      </main>
     </ErrorBoundary>
   );
 };
