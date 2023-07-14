@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`h-screen bg-natural3 transition duration-150 ease-in-out dark:bg-black ${manrope.className}`}
+        className={`h-screen bg-natural-3 transition duration-150 ease-in-out dark:bg-black ${manrope.className}`}
       >
         <Providers>{children}</Providers>
       </body>

@@ -29,12 +29,12 @@ const ToggleTheme = () => {
         height={24}
       />
       <button
-        className="flex w-11 rounded-xl bg-natural2 p-[2px] transition duration-150 ease-in-out dark:bg-darkBG3"
+        className="flex w-11 rounded-xl bg-natural-2 p-[2px] transition duration-150 ease-in-out dark:bg-darkBG-3"
         data-isOn={isOn}
         onClick={toggleSwitch}
       >
         <motion.div
-          className="relative h-[20px] w-[20px] rounded-full bg-primary dark:left-5"
+          className="relative h-5 w-5 rounded-full bg-primary dark:left-5"
           layout
           transition={spring}
         />
