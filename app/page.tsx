@@ -3,13 +3,19 @@ import { ErrorBoundary } from "react-error-boundary";
 import ErrorFallback from "../components/ErrorFallback";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
+import JobCard from "@components/JobCard";
+import JobCardLarge from "@components/JobCardLarge";
 
 const Home = () => {
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       {/* EXAMPLE OF REUSABLE COMPONENTS AND DIFFERENT TYPOGRAPHIE CUSTOM CLASS */}
 
-      <main className="padding-layout flex h-full flex-col gap-5 bg-natural-3 p-10 dark:bg-black">
+      <div className="padding-layout dark:bg-darkBG-1 flex h-full flex-col gap-5 bg-white p-10">
+        <JobCardLarge />
+
+        <JobCard />
+
         <div className="flex flex-row gap-5">
           <Button
             title={"Submit"}
@@ -78,7 +84,7 @@ const Home = () => {
           <p className="body-19">This is the body-19 custom class</p>
           <p className="body-20">This is the body-20 custom class</p>
         </div>
-      </main>
+      </div>
     </ErrorBoundary>
   );
 };
