@@ -3,9 +3,21 @@ import React from "react";
 import Badge from "./Badge";
 import Button from "./Button";
 
-type Props = {};
+type Props = {
+  data: {
+    title: string;
+    description: string;
+    peopleApplied: number;
+    postedDate: string;
+    averagePay: string;
+    technologies?: string[];
+    logo: string;
+    company: string;
+    city: string;
+  };
+};
 
-const JobCard = (props: Props) => {
+const JobCard = ({ data }: Props) => {
   const {
     title,
     description,
@@ -16,18 +28,7 @@ const JobCard = (props: Props) => {
     logo,
     company,
     city,
-  } = {
-    title: "Passionate Programmer",
-    description:
-      "Here at UIHUT, we are a passionate, fun-loving, growing team. We are looking for passionate programmers who want to solve technical challenges and learn and incorporate new technologies into their skillset to join our team and grow with us.",
-    peopleApplied: 45,
-    postedDate: "07/13/23",
-    company: "inVision",
-    city: "Sylhet, BD",
-    averagePay: "15k-20k",
-    technologies: ["PHP", "Laravel", "CSS", "React"],
-    logo: "/img/company-logo/invision.svg",
-  };
+  } = data;
 
   const getSincePostedDate = (date: string) => {
     const postedDate = new Date(date);
@@ -84,8 +85,8 @@ const JobCard = (props: Props) => {
         {description}
       </p>
       <div className="flex gap-[5px]">
-        {technologies.map((technologie, i) => (
-          <Badge key={i} style={"btn-tag"} title={technologie} />
+        {technologies?.map((technology, i) => (
+          <Badge key={i} style={"btn-tag"} title={technology} />
         ))}
       </div>
       <div className="flex flex-col items-center justify-between space-y-[30px] md:flex-row md:space-y-0">

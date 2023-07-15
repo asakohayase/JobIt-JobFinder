@@ -3,9 +3,21 @@ import React from "react";
 import Badge from "./Badge";
 import Button from "./Button";
 
-type Props = {};
+type Props = {
+  data: {
+    title: string;
+    description: string;
+    peopleApplied: number;
+    postedDate: string;
+    averagePay: string;
+    technologies?: string[];
+    logo: string;
+    link: string;
+    jobType: string;
+  };
+};
 
-const JobCard = (props: Props) => {
+const JobCard = ({ data }: Props) => {
   const {
     title,
     description,
@@ -16,25 +28,14 @@ const JobCard = (props: Props) => {
     logo,
     link,
     jobType,
-  } = {
-    title: "Passionate Programmer",
-    description:
-      "Here at UIHUT, we are a passionate, fun-loving, growing team. We are looking for passionate programmers who want to solve technical challenges and learn and incorporate new technologies into their skillset to join our team and grow with us.",
-    peopleApplied: 45,
-    postedDate: "07/13/23",
-    jobType: "Full Time",
-    averagePay: "15k-20k",
-    technologies: ["PHP", "Laravel", "CSS", "React"],
-    logo: "/img/company-logo/invision.svg",
-    link: "/",
-  };
+  } = data;
 
   const getSincePostedDate = (date: string) => {
     const postedDate = new Date(date);
     const currentDate = new Date();
     const timeDiff = currentDate.getTime() - postedDate.getTime();
     const daysSincePosted = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-    return Number(daysSincePosted);
+    return daysSincePosted;
   };
 
   return (
@@ -64,13 +65,8 @@ const JobCard = (props: Props) => {
             />
           </div>
           <div className="flex gap-[5px]">
-            {technologies.map((technologie, i) => (
-              <Button
-                key={i}
-                style={"btn-tag"}
-                title={technologie}
-                href={"/"}
-              />
+            {technologies?.map((technology, i) => (
+              <Badge key={i} style={"btn-tag"} title={technology} />
             ))}
           </div>
         </div>
