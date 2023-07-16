@@ -2,10 +2,10 @@ import Image from "next/image";
 import React from "react";
 
 type Props = {
-  jobTitle: "Product Design";
-  city: "California, USA";
-  companyName: "Google";
-  jobType: "Full-Time";
+  jobTitle: string;
+  city: string;
+  companyName: string;
+  jobType: string;
 };
 
 const InlineJobCard = ({ data }: Props) => {
