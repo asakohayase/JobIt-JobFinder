@@ -89,6 +89,9 @@
   .body-20 {
     @apply text-[13px] leading-[22px] font-normal;
   }
+  .body-21 {
+    @apply text-[13px] leading-5 font-normal;
+  }
 
   /* CUSTOMS STYLE FOR BUTTONS */
 
