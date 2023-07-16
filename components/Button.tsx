@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 type Props = {
@@ -26,7 +26,6 @@ const Button = ({ title, style, href, icon }: Props) => {
         )}
         <span>{title}</span>s
       </Link>
-      <ToastContainer />
     </>
   );
 };
