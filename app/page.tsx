@@ -5,7 +5,8 @@ import Button from "@/components/Button";
 import Input from "@/components/Input";
 import JobCard from "@components/JobCard";
 import JobCardLarge from "@components/JobCardLarge";
-import { smallJobCardData, largeJobCardData } from "@/data";
+import { smallJobCardData, largeJobCardData, inlineJobCard } from "@/data";
+import InlineJobCard from "@components/InlineJobCard";
 
 const Home = () => {
   return (
@@ -13,8 +14,8 @@ const Home = () => {
       {/* EXAMPLE OF REUSABLE COMPONENTS AND DIFFERENT TYPOGRAPHIE CUSTOM CLASS */}
 
       <div className="padding-layout dark:bg-darkBG-1 flex h-full flex-col gap-5 bg-white p-10">
+        <InlineJobCard data={inlineJobCard} />
         <JobCardLarge data={largeJobCardData} />
-
         <JobCard data={smallJobCardData} />
 
         <div className="flex flex-row gap-5">

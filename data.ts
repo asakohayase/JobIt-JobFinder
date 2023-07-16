@@ -23,3 +23,11 @@ export const smallJobCardData = {
     technologies: ["PHP", "Laravel", "CSS", "React"],
     logo: "/img/company-logo/invision.svg",
   };
+
+  export const inlineJobCard = {
+    jobTitle: "Product Design",
+    city: "California, USA",
+    companyName: "Google",
+    jobType: "Full-Time",
+    averagePayPerHour: "70-80"
+  }
