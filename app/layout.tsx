@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import React from "react";
 import { Providers } from "./providers";
+import Nav from "@components/Nav";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({
       <body
         className={`h-screen bg-white transition duration-150 ease-in-out ${manrope.className}`}
       >
+        <Nav />
         <Providers>{children}</Providers>
       </body>
     </html>
