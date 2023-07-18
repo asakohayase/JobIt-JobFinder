@@ -1,15 +1,27 @@
 import React from "react";
+import { fetchJobs } from "@utils";
 import { ErrorBoundary } from "react-error-boundary";
-import ErrorFallback from "../components/ErrorFallback";
+import ErrorFallback from "@/components/ErrorFallback";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
+import JobCard from "@components/JobCard";
+import JobCardLarge from "@components/JobCardLarge";
+import { smallJobCardData, largeJobCardData, inlineJobCard } from "@/data";
+import InlineJobCard from "@components/InlineJobCard";
 
-const Home = () => {
+const Home = async () => {
+  const allJobs = await fetchJobs();
+  console.log(allJobs);
+
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       {/* EXAMPLE OF REUSABLE COMPONENTS AND DIFFERENT TYPOGRAPHIE CUSTOM CLASS */}
 
-      <div className="padding-layout flex h-full flex-col gap-5 bg-white p-10">
+      <div className="padding-layout flex h-full flex-col gap-5 bg-white p-10 dark:bg-darkBG-1">
+        <InlineJobCard data={inlineJobCard} />
+        <JobCardLarge data={largeJobCardData} />
+        <JobCard data={smallJobCardData} />
+
         <div className="flex flex-row gap-5">
           <Button
             title={"Submit"}
