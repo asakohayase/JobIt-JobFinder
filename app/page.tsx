@@ -9,7 +9,7 @@ const Home = () => {
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       {/* EXAMPLE OF REUSABLE COMPONENTS AND DIFFERENT TYPOGRAPHIE CUSTOM CLASS */}
 
-      <main className="padding-layout flex h-full flex-col gap-5 bg-natural-3 p-10 dark:bg-black">
+      <main className="padding-layout h-full flex flex-col gap-5 bg-natural-3 p-10 dark:bg-black">
         <div className="flex flex-row gap-5">
           <Button
             title={"Submit"}

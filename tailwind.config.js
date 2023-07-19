@@ -28,6 +28,9 @@ module.exports = {
         black: "#171725",
       },
     },
+    height: {
+      70: "70px",
+    },
   },
   plugins: [],
 };

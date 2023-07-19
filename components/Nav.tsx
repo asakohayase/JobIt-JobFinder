@@ -1,37 +1,38 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
+import ToggleTheme from "./ToggleTheme";
 import Image from "next/image";
 
 const Nav = () => {
   return (
-    <nav className="flex h-16 items-center border border-slate-50 border-b-natural-5">
-      <ul className="flex flex-row justify-around gap-5">
-        <li className="py-6 text-primary">
-          <Link href="/">JOBIT</Link>
+    <nav className="flex h-70 items-center border border-slate-50 border-b-natural-5 dark:border-darkBG-3">
+      <ul className="flex w-full flex-row items-center justify-around">
+        <li>
+          <Link href="/">
+            <Image
+              src="img/company-logo/jobit.svg"
+              alt={"Jobit Icon"}
+              width={80}
+              height={80}
+            />
+          </Link>
         </li>
-        <li className="border border-slate-50 py-6 text-natural-6 hover:border-b-primary hover:text-primary">
-          <Link href="/">Overview</Link>
-        </li>
-        <li className=" border border-slate-50 py-6 text-natural-6 hover:border-b-primary hover:text-primary">
-          <Link href="/">Job Search</Link>
-        </li>
-        <li className=" border border-slate-50 py-6 text-natural-6 hover:border-b-primary hover:text-primary">
-          <Link href="/">Estimated Salaries</Link>
-        </li>
-
-        <Image
-          src="/img/iconography/sun.svg"
-          width={24}
-          height={24}
-          alt="sun logo"
-        />
-
-        <Image
-          src="/img/iconography/moon.svg"
-          width={24}
-          height={24}
-          alt="moon logo"
-        />
+        <div className="flex gap-3">
+          <li className="border-b-2 border-transparent px-4 py-6 text-natural-6 hover:border-primary hover:text-primary">
+            <Link href="/">Overview</Link>
+          </li>
+          <li className="border-b-2 border-transparent px-4 py-6 text-natural-6 hover:border-primary hover:text-primary">
+            <Link href="/">Job Search</Link>
+          </li>
+          <li className=" border-b-2 border-transparent px-4 py-6 text-natural-6 hover:border-primary hover:text-primary">
+            <Link href="/">Estimated Salaries</Link>
+          </li>
+        </div>
+        <div className="flex items-center">
+          <ToggleTheme />
+        </div>
       </ul>
     </nav>
   );
