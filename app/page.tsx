@@ -1,26 +1,90 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import { fetchJobs } from "@utils";
 import { ErrorBoundary } from "react-error-boundary";
 import ErrorFallback from "@/components/ErrorFallback";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
-import JobCard from "@components/JobCard";
-import JobCardLarge from "@components/JobCardLarge";
-import { smallJobCardData, largeJobCardData, inlineJobCard } from "@/data";
-import InlineJobCard from "@components/InlineJobCard";
+import JobCard from "@/components/JobCard";
+import JobCardLarge from "@/components/JobCardLarge";
+import InlineJobCard from "@/components/InlineJobCard";
 
-const Home = async () => {
-  const allJobs = await fetchJobs();
-  console.log(allJobs);
+type Job = {
+  job_id: number;
+  job_title: string;
+  job_is_remote: boolean;
+  employer_name: string;
+  job_city: string;
+  job_employment_type: string;
+  job_description: string;
+  job_posted_at_datetime_utc: string;
+  job_min_salary: number;
+  job_max_salary: number;
+  job_required_skills: string[];
+  employer_logo: string;
+  job_apply_link: string;
+};
+
+const Home = () => {
+  const [allJobs, setAllJobs] = useState<Job[]>([]);
+
+  const fetchAllJobs = async () => {
+    const jobs = await fetchJobs();
+    setAllJobs(jobs);
+  };
+
+  useEffect(() => {
+    fetchAllJobs();
+  }, []);
 
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       {/* EXAMPLE OF REUSABLE COMPONENTS AND DIFFERENT TYPOGRAPHIE CUSTOM CLASS */}
 
       <div className="padding-layout flex h-full flex-col gap-5 bg-white p-10 dark:bg-darkBG-1">
-        <InlineJobCard data={inlineJobCard} />
-        <JobCardLarge data={largeJobCardData} />
-        <JobCard data={smallJobCardData} />
+        {allJobs.map((jobListing) => (
+          <React.Fragment key={jobListing.job_id}>
+            <InlineJobCard
+              data={{
+                title: jobListing.job_title,
+                city: jobListing.job_city,
+                averagePay:
+                  (jobListing.job_min_salary + jobListing.job_max_salary) / 2,
+                company: jobListing.employer_name,
+                jobType: jobListing.job_employment_type,
+              }}
+            />
+            <JobCardLarge
+              data={{
+                title: jobListing.job_title,
+                description: jobListing.job_description,
+                isRemote: jobListing.job_is_remote,
+                postedDate: jobListing.job_posted_at_datetime_utc,
+                averagePay:
+                  (jobListing.job_min_salary + jobListing.job_max_salary) / 2,
+                technologies: jobListing.job_required_skills,
+                logo: jobListing.employer_logo,
+                company: jobListing.employer_name,
+                city: jobListing.job_city,
+              }}
+            />
+            <JobCard
+              data={{
+                title: jobListing.job_title,
+                description: jobListing.job_description,
+                isRemote: jobListing.job_is_remote,
+                postedDate: jobListing.job_posted_at_datetime_utc,
+                averagePay:
+                  (jobListing.job_min_salary + jobListing.job_max_salary) / 2,
+                technologies: jobListing.job_required_skills,
+                logo: jobListing.employer_logo,
+                link: jobListing.job_apply_link,
+                jobType: jobListing.job_employment_type,
+              }}
+            />
+          </React.Fragment>
+        ))}
 
         <div className="flex flex-row gap-5">
           <Button

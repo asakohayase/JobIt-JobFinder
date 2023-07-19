@@ -7,9 +7,9 @@ type Props = {
   data: {
     title: string;
     description: string;
-    peopleApplied: number;
+    isRemote: boolean;
     postedDate: string;
-    averagePay: string;
+    averagePay: number;
     technologies?: string[];
     logo: string;
     company: string;
@@ -21,7 +21,7 @@ const JobCard = ({ data }: Props) => {
   const {
     title,
     description,
-    peopleApplied,
+    isRemote,
     postedDate,
     averagePay,
     technologies,
@@ -96,10 +96,10 @@ const JobCard = ({ data }: Props) => {
             <span className="body-8 lg:body-3 text-natural-7">/month</span>
           </div>
           <div className="body-6 lg:body-2 text-black dark:text-white">
-            {peopleApplied}
+            {isRemote}
             <span className="body-8 lg:body-3 text-natural-7">
               {" "}
-              People Applied
+              Remote Work
             </span>
           </div>
         </div>

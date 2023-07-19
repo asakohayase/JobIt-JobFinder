@@ -7,9 +7,9 @@ type Props = {
   data: {
     title: string;
     description: string;
-    peopleApplied: number;
+    isRemote: boolean;
     postedDate: string;
-    averagePay: string;
+    averagePay: number;
     technologies?: string[];
     logo: string;
     link: string;
@@ -21,7 +21,7 @@ const JobCard = ({ data }: Props) => {
   const {
     title,
     description,
-    peopleApplied,
+    isRemote,
     postedDate,
     averagePay,
     technologies,
@@ -82,7 +82,7 @@ const JobCard = ({ data }: Props) => {
         />
         <Badge
           style={"btn-tag-icon"}
-          title={`${peopleApplied} Applied`}
+          title={`${isRemote} Applied`}
           icon={"/img/iconography/people.svg"}
         />
         <Badge
