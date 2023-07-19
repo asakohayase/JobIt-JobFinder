@@ -13,6 +13,8 @@ const Home = () => {
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       {/* EXAMPLE OF REUSABLE COMPONENTS AND DIFFERENT TYPOGRAPHIE CUSTOM CLASS */}
 
+      <main className="padding-layout h-full flex flex-col gap-5 bg-natural-3 p-10 dark:bg-black">
+
       <div className="padding-layout dark:bg-darkBG-1 flex h-full flex-col gap-5 bg-white p-10">
         <InlineJobCard data={inlineJobCard} />
         <JobCardLarge data={largeJobCardData} />
