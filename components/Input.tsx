@@ -9,7 +9,7 @@ const Input = ({ type, placeholder }: Props) => {
   return (
     <div>
       <input
-        className="body-14 w-full rounded-xl border-[1px] border-natural-5 bg-natural-2 text-natural-8 outline-none placeholder:text-natural-6 focus:border-primary dark:border-natural-8 dark:bg-darkBG-2 dark:text-natural-6 lg:px-5 lg:py-3"
+        className="body-14 border-natural-5 bg-natural-2 text-natural-8 placeholder:text-natural-6 focus:border-primary dark:border-natural-8 dark:bg-darkBG-2 dark:text-natural-6 w-full rounded-xl border-[1px] px-5 py-3 outline-none dark:focus:border-natural-6"
         type={type}
         placeholder={placeholder}
       />
