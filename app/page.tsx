@@ -7,13 +7,16 @@ import JobCard from "@components/JobCard";
 import JobCardLarge from "@components/JobCardLarge";
 import { smallJobCardData, largeJobCardData, inlineJobCard } from "@/data";
 import InlineJobCard from "@components/InlineJobCard";
+import JobDetails from "@components/JobDetails";
 
 const Home = () => {
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       {/* EXAMPLE OF REUSABLE COMPONENTS AND DIFFERENT TYPOGRAPHIE CUSTOM CLASS */}
 
-      <div className="padding-layout dark:bg-darkBG-1 flex h-full flex-col gap-5 bg-white p-10">
+      <main className="padding-layout flex min-h-screen flex-col gap-5 p-10 ">
+        <JobDetails />
+        {/* <JobDetails />
         <InlineJobCard data={inlineJobCard} />
         <JobCardLarge data={largeJobCardData} />
         <JobCard data={smallJobCardData} />
@@ -85,8 +88,8 @@ const Home = () => {
           <p className="body-18">This is the body-18 custom class</p>
           <p className="body-19">This is the body-19 custom class</p>
           <p className="body-20">This is the body-20 custom class</p>
-        </div>
-      </div>
+        </div> */}
+      </main>
     </ErrorBoundary>
   );
 };
