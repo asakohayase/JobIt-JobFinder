@@ -4,6 +4,7 @@ import Button from "./Button";
 import InlineJobCard from "./InlineJobCard";
 import JobCard from "./JobCard";
 import JobCardLarge from "./JobCardLarge";
+import TestValidation from "./TestValidation";
 
 const ExampleComponents = () => {
   return (
@@ -11,6 +12,8 @@ const ExampleComponents = () => {
       <InlineJobCard data={inlineJobCard} />
       <JobCardLarge data={largeJobCardData} />
       <JobCard data={smallJobCardData} />
+
+      <TestValidation />
 
       <div className="flex flex-row gap-5">
         <Button

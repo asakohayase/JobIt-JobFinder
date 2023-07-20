@@ -2,7 +2,6 @@ import React from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import ErrorFallback from "../components/ErrorFallback";
 import ExampleComponents from "@components/ExampleComponents";
-import TestValidation from "@components/TestValidation";
 
 const Home = () => {
   return (
@@ -11,7 +10,6 @@ const Home = () => {
 
       <main className="padding-layout flex flex-col gap-5 bg-white p-10 dark:bg-darkBG-1">
         <ExampleComponents />
-        <TestValidation />
       </main>
     </ErrorBoundary>
   );
