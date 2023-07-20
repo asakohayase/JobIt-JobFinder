@@ -12,7 +12,7 @@ const JobDetails = () => {
           className="rounded-t-3xl"
           alt="Placeholder Image"
         />
-        <div className="relative bottom-8 left-8 flex h-16 w-16 items-center justify-center rounded-lg bg-natural-3 dark:bg-natural-8">
+        <div className="relative bottom-8 left-8 flex w-16 items-center justify-center rounded-lg bg-natural-3 dark:bg-natural-8">
           <img
             src="https://firstteeaustin.org/wp-content/uploads/sites/64/2016/11/spurs-sports-and-entertainment-LOGO.jpg"
             alt=""

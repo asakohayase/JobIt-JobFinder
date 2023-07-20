@@ -33,7 +33,7 @@ const ToggleTheme = () => {
         onClick={toggleSwitch}
       >
         <motion.div
-          className="relative h-5 w-5 rounded-full bg-primary dark:left-5"
+          className="relative h-[20px] w-[20px] rounded-full bg-primary dark:left-5"
           layout
           transition={spring}
         />
