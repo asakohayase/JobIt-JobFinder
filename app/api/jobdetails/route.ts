@@ -1,5 +1,5 @@
-export async function GETJobDetails(jobId: string, ext: boolean) {
-  const url = `https://jsearch.p.rapidapi.com/job-details?${jobId}&extended_publisher_details=${ext}`;
+export async function GETJobDetails(jobId: string, ext = false) {
+  const url = `https://jsearch.p.rapidapi.com/job-details?job_id=${jobId}%3D%3D&extended_publisher_details=${ext}`;
   const options = {
     method: "GET",
     headers: {

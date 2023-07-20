@@ -22,7 +22,7 @@ const ToggleTheme = () => {
   return (
     <div className="flex gap-2">
       <Image
-        src="img/iconography/sun.svg"
+        src={process.cwd() + "img/iconography/sun.svg"}
         alt={"Moon Icon"}
         width={24}
         height={24}
@@ -39,7 +39,7 @@ const ToggleTheme = () => {
         />
       </button>
       <Image
-        src="img/iconography/moon.svg"
+        src={process.cwd() + "img/iconography/moon.svg"}
         alt={"Moon Icon"}
         width={24}
         height={24}
