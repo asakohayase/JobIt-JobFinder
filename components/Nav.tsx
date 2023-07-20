@@ -12,7 +12,7 @@ const Nav = () => {
         <li>
           <Link href="/">
             <Image
-              src={process.cwd() + "img/company-logo/jobit.svg"}
+              src="/img/company-logo/jobit.svg"
               alt={"Jobit Icon"}
               width={80}
               height={80}

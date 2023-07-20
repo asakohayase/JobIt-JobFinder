@@ -1,8 +1,14 @@
+// import { GETJobDetails } from "@app/api/jobdetails/route";
 import ErrorFallback from "@components/ErrorFallback";
 import React from "react";
 import { ErrorBoundary } from "react-error-boundary";
+import path from "path";
 
 const jobdetails = async ({ params }: { params: { id: string } }) => {
+  //   const jobDetails = await GETJobDetails(params.id);
+
+  console.log(process.cwd() + path.join("/img", "iconography", "moon.svg"));
+
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       <main className="padding-layout mt-8">
@@ -21,6 +27,7 @@ const jobdetails = async ({ params }: { params: { id: string } }) => {
           {/* Job Details & Inline Job Card */}
           <section className="flex justify-between">
             {/* Job Details */}
+            {/* <p>{jobDetails}</p> */}
             {/* Inline Job Cards */}
           </section>
         </div>
