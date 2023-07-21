@@ -8,7 +8,7 @@ const Home = () => {
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       {/* EXAMPLE OF REUSABLE COMPONENTS AND DIFFERENT TYPOGRAPHIE CUSTOM CLASS */}
 
-      <main className="padding-layout flex flex-col gap-5 bg-white p-10 dark:bg-darkBG-1">
+      <main className="padding-layout flex flex-col gap-5 py-10 dark:bg-darkBG-1">
         <ExampleComponents />
       </main>
     </ErrorBoundary>

@@ -27,9 +27,9 @@ module.exports = {
         "darkBG-3": "#21212B",
         black: "#171725",
       },
-    },
-    height: {
-      70: "70px",
+      height: {
+        70: "70px",
+      },
     },
   },
   plugins: [],
