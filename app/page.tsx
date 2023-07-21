@@ -1,49 +1,22 @@
-"use client";
-
-import React, { useEffect, useState } from "react";
-import { fetchJobs } from "@utils";
+import React from "react";
 import { ErrorBoundary } from "react-error-boundary";
-import ErrorFallback from "@/components/ErrorFallback";
+import ErrorFallback from "@components/ErrorFallback";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
-import JobCard from "@/components/JobCard";
-import JobCardLarge from "@/components/JobCardLarge";
-import InlineJobCard from "@/components/InlineJobCard";
+import JobCard from "@components/JobCard";
+import JobCardLarge from "@components/JobCardLarge";
+import InlineJobCard from "@components/InlineJobCard";
+import { Job } from "@types";
+import { getAllJobs } from "@utils/index";
 
-type Job = {
-  job_id: number;
-  job_title: string;
-  job_is_remote: boolean;
-  employer_name: string;
-  job_city: string;
-  job_employment_type: string;
-  job_description: string;
-  job_posted_at_datetime_utc: string;
-  job_min_salary: number;
-  job_max_salary: number;
-  job_required_skills: string[];
-  employer_logo: string;
-  job_apply_link: string;
-};
-
-const Home = () => {
-  const [allJobs, setAllJobs] = useState<Job[]>([]);
-
-  const fetchAllJobs = async () => {
-    const jobs = await fetchJobs();
-    setAllJobs(jobs);
-  };
-
-  useEffect(() => {
-    fetchAllJobs();
-  }, []);
-
+const Home = async () => {
+  const allJobs = await getAllJobs();
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       {/* EXAMPLE OF REUSABLE COMPONENTS AND DIFFERENT TYPOGRAPHIE CUSTOM CLASS */}
 
       <div className="padding-layout flex h-full flex-col gap-5 bg-white p-10 dark:bg-darkBG-1">
-        {allJobs.map((jobListing) => (
+        {allJobs.map((jobListing: Job) => (
           <React.Fragment key={jobListing.job_id}>
             <InlineJobCard
               data={{
