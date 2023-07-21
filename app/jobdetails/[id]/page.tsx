@@ -1,14 +1,27 @@
 // import { GETJobDetails } from "@app/api/jobdetails/route";
+// import { GET } from "@app/api/jobdetails/route";
 import ErrorFallback from "@components/ErrorFallback";
+import { JobDetailsResponse } from "@types";
 import React from "react";
 import { ErrorBoundary } from "react-error-boundary";
-import path from "path";
 
-const jobdetails = async ({ params }: { params: { id: string } }) => {
-  //   const jobDetails = await GETJobDetails(params.id);
+const fetchJob = async (id: String) => {
+  const url = `https://jsearch.p.rapidapi.com/job-details?job_id=${id}%3D%3D&extended_publisher_details=false`;
+  const options = {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": process.env.DB_KEY || "",
+      "X-RapidAPI-Host": "jsearch.p.rapidapi.com",
+    },
+  };
 
-  console.log(process.cwd() + path.join("/img", "iconography", "moon.svg"));
+  const response = await fetch(url, options);
+  const result: JobDetailsResponse = await response.json();
 
+  return result;
+};
+
+const jobdetails = async ({ params }: { params: { id: String } }) => {
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       <main className="padding-layout mt-8">
@@ -27,7 +40,7 @@ const jobdetails = async ({ params }: { params: { id: string } }) => {
           {/* Job Details & Inline Job Card */}
           <section className="flex justify-between">
             {/* Job Details */}
-            {/* <p>{jobDetails}</p> */}
+
             {/* Inline Job Cards */}
           </section>
         </div>
