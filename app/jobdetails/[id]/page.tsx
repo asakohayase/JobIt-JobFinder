@@ -2,7 +2,7 @@ import ErrorFallback from "@components/ErrorFallback";
 import React from "react";
 import { ErrorBoundary } from "react-error-boundary";
 
-const jobdetails = async ({ params }: { params: { id: String } }) => {
+const jobdetails = ({ params }: { params: { id: String } }) => {
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       <main className="padding-layout mt-8">

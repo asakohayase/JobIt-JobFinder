@@ -3,7 +3,7 @@ import { ErrorBoundary } from "react-error-boundary";
 import ErrorFallback from "../components/ErrorFallback";
 import ExampleComponents from "@components/ExampleComponents";
 
-const Home = async () => {
+const Home = () => {
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       {/* EXAMPLE OF REUSABLE COMPONENTS AND DIFFERENT TYPOGRAPHIE CUSTOM CLASS */}
