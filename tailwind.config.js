@@ -26,6 +26,8 @@ module.exports = {
         "darkBG-2": "#1C1C24",
         "darkBG-3": "#21212B",
         black: "#171725",
+        dot: "#d8d8d8",
+        logoDark: "#2C2C2C",
       },
       height: {
         70: "70px",

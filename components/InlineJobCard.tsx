@@ -27,7 +27,7 @@ const InlineJobCard = ({ data }: Props) => {
           </span>
           <div className="flex items-center space-x-[5px] text-natural-7">
             <span>{companyName}</span>
-            <span className="h-[3px] w-[3px] rounded-full dark:bg-natural-7 md:bg-[#d8d8d8]" />
+            <span className="h-[3px] w-[3px] rounded-full bg-dot dark:bg-natural-7" />
             <span>{city}</span>
           </div>
         </div>
