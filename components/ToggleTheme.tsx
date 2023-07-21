@@ -1,7 +1,7 @@
 "use client";
 import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
 const spring = {
@@ -12,8 +12,17 @@ const spring = {
 
 const ToggleTheme = () => {
   const { theme, setTheme } = useTheme();
-
+  const [mounted, setMounted] = useState(false);
   const [isOn, setIsOn] = useState(theme === "dark");
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
+
   const toggleSwitch = () => {
     setIsOn((prevIsOn) => !prevIsOn);
     setTheme(theme === "dark" ? "light" : "dark");
@@ -29,7 +38,7 @@ const ToggleTheme = () => {
       />
       <button
         className="flex w-11 rounded-xl bg-natural-2 p-[2px] transition duration-150 ease-in-out dark:bg-darkBG-3"
-        data-isOn={isOn}
+        data-ison={isOn}
         onClick={toggleSwitch}
       >
         <motion.div
