@@ -1,25 +1,6 @@
-// import { GETJobDetails } from "@app/api/jobdetails/route";
-// import { GET } from "@app/api/jobdetails/route";
 import ErrorFallback from "@components/ErrorFallback";
-import { JobDetailsResponse } from "@types";
 import React from "react";
 import { ErrorBoundary } from "react-error-boundary";
-
-const fetchJob = async (id: String) => {
-  const url = `https://jsearch.p.rapidapi.com/job-details?job_id=${id}%3D%3D&extended_publisher_details=false`;
-  const options = {
-    method: "GET",
-    headers: {
-      "X-RapidAPI-Key": process.env.DB_KEY || "",
-      "X-RapidAPI-Host": "jsearch.p.rapidapi.com",
-    },
-  };
-
-  const response = await fetch(url, options);
-  const result: JobDetailsResponse = await response.json();
-
-  return result;
-};
 
 const jobdetails = async ({ params }: { params: { id: String } }) => {
   return (
@@ -36,7 +17,6 @@ const jobdetails = async ({ params }: { params: { id: String } }) => {
               year: "numeric",
             })}
           </p>
-          {/* PlaceHolder Component (Replace with real) */}
           {/* Job Details & Inline Job Card */}
           <section className="flex justify-between">
             {/* Job Details */}
