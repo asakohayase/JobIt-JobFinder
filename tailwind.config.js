@@ -26,6 +26,17 @@ module.exports = {
         "darkBG-2": "#1C1C24",
         "darkBG-3": "#21212B",
         black: "#171725",
+        dot: "#d8d8d8",
+        logoDark: "#2C2C2C",
+      },
+      height: {
+        70: "70px",
+      },
+      boxShadow: {
+        1: "0px 6px 14px 0px rgba(23, 23, 37, 0.02)",
+      },
+      borderRadius: {
+        jobit: "10px",
       },
     },
   },

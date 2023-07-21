@@ -25,9 +25,10 @@ export const largeJobCardData = {
 };
 
 export const inlineJobCard = {
-  title: "Product Design",
+  logo: "/img/company-logo/google.svg",
+  jobTitle: "Product Design",
   city: "California, USA",
-  company: "Google",
+  companyName: "Google",
   jobType: "Full-Time",
-  averagePay: "70-80",
+  averagePayPerHour: "70-80",
 };

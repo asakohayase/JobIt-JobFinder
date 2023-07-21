@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  transition: ease 0.2s;
+}
+
 @layer components {
   /* General padding for all layout */
 
@@ -97,17 +101,17 @@
 
   /* button with primary color background */
   .btn-primary {
-    @apply rounded-[10px] bg-primary text-white text-[15px] leading-6 font-semibold hover:opacity-80;
+    @apply rounded-jobit bg-primary text-white text-[15px] leading-6 font-semibold hover:opacity-80;
   }
 
   /* button with natural color background */
   .btn-natural {
-    @apply rounded-[10px] bg-natural-4 text-natural-7 dark:bg-darkBG-3 text-[15px] leading-6 font-semibold hover:opacity-80;
+    @apply rounded-jobit bg-natural-4 text-natural-7 dark:bg-darkBG-3 text-[15px] leading-6 font-semibold hover:opacity-80;
   }
 
   /* button with border and no background color  */
   .btn-outline {
-    @apply rounded-[10px] outline-1 outline-offset-[-1px] outline outline-natural-5 text-natural-7 dark:text-natural-6 text-[15px] leading-6 font-semibold hover:opacity-80;
+    @apply rounded-jobit outline-1 outline-offset-[-1px] outline outline-natural-5 text-natural-7 dark:text-natural-6 text-[15px] leading-6 font-semibold hover:opacity-80;
   }
 
   /* Badge button without icon */
