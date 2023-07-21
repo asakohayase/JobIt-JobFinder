@@ -80,7 +80,7 @@ const JobCard = ({ data }: Props) => {
         />
         <Badge
           style={"btn-tag-icon"}
-          title={`${isRemote} Applied`}
+          title={`${isRemote ? "Remote Work" : "Office Work"} `}
           icon={"/img/iconography/people.svg"}
         />
         <Badge
