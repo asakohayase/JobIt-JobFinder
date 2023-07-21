@@ -39,7 +39,7 @@ const JobCard = ({ data }: Props) => {
   };
 
   return (
-    <div className="rounded-jobit shadow-1 flex w-full max-w-[400px] flex-col gap-y-[30px] bg-white p-5 dark:bg-darkBG-2">
+    <div className="flex w-full max-w-[400px] flex-col gap-y-[30px] rounded-jobit bg-white p-5 shadow-1 dark:bg-darkBG-2">
       <div className="flex items-center gap-5">
         <div className="flex h-[46px] w-[46px] items-center justify-center  rounded-lg border-[3px] border-natural-3 bg-natural-2 dark:border-[#2C2C2C] dark:bg-[#2C2C2C] lg:h-[64px] lg:w-[64px]">
           <div className="relative h-[34.5px] w-[34.5px] lg:h-12 lg:w-12">
