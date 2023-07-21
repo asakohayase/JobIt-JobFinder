@@ -5,14 +5,14 @@ type Props = {
   data: {
     title: string;
     city: string;
-    averagePay: number;
+    averagePayPerHour: number;
     company: string;
     jobType: string;
   };
 };
 
 const InlineJobCard = ({ data }: Props) => {
-  const { title, city, company, jobType, averagePay } = data;
+  const { title, city, company, jobType, averagePayPerHour } = data;
   return (
     <div className="lg:body-16 body-21 flex w-full items-center justify-between rounded-[10px] bg-natural-3 px-3 py-[14px] dark:bg-darkBG-3 dark:text-natural-6 md:max-w-[360px]">
       <div className="flex items-center gap-[9px]">
@@ -39,7 +39,7 @@ const InlineJobCard = ({ data }: Props) => {
 
       <div className="flex flex-col items-center justify-between gap-y-1">
         <span className="body-15 text-black dark:text-white">
-          ${averagePay}
+          ${averagePayPerHour}
           <span className="text-natural-7">/ Hr</span>
         </span>
         <span className="text-natural-7">{jobType}</span>

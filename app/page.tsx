@@ -22,8 +22,9 @@ const Home = async () => {
               data={{
                 title: jobListing.job_title,
                 city: jobListing.job_city,
-                averagePay:
-                  (jobListing.job_min_salary + jobListing.job_max_salary) / 2,
+                averagePayPerHour:
+                  (jobListing.job_min_salary + jobListing.job_max_salary) /
+                  1440,
                 company: jobListing.employer_name,
                 jobType: jobListing.job_employment_type,
               }}
