@@ -11,7 +11,6 @@ type Props = {
     postedDate: string;
     averagePay: number;
     technologies?: string[];
-    logo: string;
     link: string;
     jobType: string;
   };
@@ -25,7 +24,6 @@ const JobCard = ({ data }: Props) => {
     postedDate,
     averagePay,
     technologies,
-    logo,
     link,
     jobType,
   } = data;
@@ -44,7 +42,7 @@ const JobCard = ({ data }: Props) => {
         <div className="flex h-[46px] w-[46px] items-center justify-center  rounded-lg border-[3px] border-natural-3 bg-natural-2 dark:border-logoDark dark:bg-logoDark lg:h-[64px] lg:w-[64px]">
           <div className="relative h-[34.5px] w-[34.5px] lg:h-12 lg:w-12">
             <Image
-              src={logo}
+              src={"/img/company-logo/adobe-illustrator.svg"}
               alt="logo"
               fill
               priority

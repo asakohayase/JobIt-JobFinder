@@ -37,7 +37,6 @@ const Home = async () => {
                 averagePay:
                   (jobListing.job_min_salary + jobListing.job_max_salary) / 2,
                 technologies: jobListing.job_required_skills,
-                logo: jobListing.employer_logo,
                 company: jobListing.employer_name,
                 city: jobListing.job_city,
               }}
@@ -51,7 +50,6 @@ const Home = async () => {
                 averagePay:
                   (jobListing.job_min_salary + jobListing.job_max_salary) / 2,
                 technologies: jobListing.job_required_skills,
-                logo: jobListing.employer_logo,
                 link: jobListing.job_apply_link,
                 jobType: jobListing.job_employment_type,
               }}
