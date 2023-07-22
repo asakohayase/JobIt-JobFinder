@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import Link from "next/link";
 import ToggleTheme from "@components/Reusable/ToggleTheme";
