@@ -7,11 +7,10 @@ type Props = {
   data: {
     title: string;
     description: string;
-    peopleApplied: number;
+    isRemote: boolean;
     postedDate: string;
-    averagePay: string;
+    averagePay: number;
     technologies?: string[];
-    logo: string;
     company: string;
     city: string;
   };
@@ -21,11 +20,10 @@ const JobCard = ({ data }: Props) => {
   const {
     title,
     description,
-    peopleApplied,
+    isRemote,
     postedDate,
     averagePay,
     technologies,
-    logo,
     company,
     city,
   } = data;
@@ -44,7 +42,7 @@ const JobCard = ({ data }: Props) => {
         <div className="flex h-[46px] w-[46px] items-center justify-center  rounded-lg border-[3px] border-natural-3 bg-natural-2 dark:border-logoDark dark:bg-logoDark lg:h-[64px] lg:w-[64px]">
           <div className="relative h-[34.5px] w-[34.5px] lg:h-12 lg:w-12">
             <Image
-              src={logo}
+              src={"/img/company-logo/adobe-illustrator.svg"}
               alt="logo"
               fill
               priority
@@ -96,10 +94,9 @@ const JobCard = ({ data }: Props) => {
             <span className="body-8 lg:body-3 text-natural-7">/month</span>
           </div>
           <div className="body-6 lg:body-2 text-black dark:text-white">
-            {peopleApplied}
+            {isRemote}
             <span className="body-8 lg:body-3 text-natural-7">
-              {" "}
-              People Applied
+              {`${isRemote ? "Remote Work" : "Office Work"} `}
             </span>
           </div>
         </div>

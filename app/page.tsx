@@ -2,7 +2,7 @@ import React from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import ErrorFallback from "../components/ErrorFallback";
 import PageTitle from "@components/PageTitle";
-import { inlineJobCard, smallJobCardData } from "@data";
+import { inlineJobCardData, smallJobCardData } from "@data";
 import JobCard from "@components/JobCard";
 import InlineJobCard from "@components/InlineJobCard";
 import Featured from "@components/Featured";
@@ -53,11 +53,11 @@ const Home = () => {
               />
             </div>
             <div className="flex flex-col items-center gap-2 rounded-jobit bg-white p-4 dark:bg-darkBG-2">
-              <InlineJobCard data={inlineJobCard} />
-              <InlineJobCard data={inlineJobCard} />
-              <InlineJobCard data={inlineJobCard} />
-              <InlineJobCard data={inlineJobCard} />
-              <InlineJobCard data={inlineJobCard} />
+              <InlineJobCard data={inlineJobCardData} />
+              <InlineJobCard data={inlineJobCardData} />
+              <InlineJobCard data={inlineJobCardData} />
+              <InlineJobCard data={inlineJobCardData} />
+              <InlineJobCard data={inlineJobCardData} />
             </div>
           </section>
         </div>
