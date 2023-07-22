@@ -64,7 +64,7 @@ const JobCard = ({ data }: Props) => {
           </div>
           <div className="flex gap-[5px]">
             {technologies?.map((technology, i) => (
-              <Badge key={i} style={"btn-tag"} title={technology} />
+              <Badge key={technology} style={"btn-tag"} title={technology} />
             ))}
           </div>
         </div>

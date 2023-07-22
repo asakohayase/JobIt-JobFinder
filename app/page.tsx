@@ -1,13 +1,13 @@
 import React from "react";
 import { ErrorBoundary } from "react-error-boundary";
-import ErrorFallback from "@components/ErrorFallback";
+import ErrorFallback from "@/components/ErrorFallback";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
-import JobCard from "@components/JobCard";
-import JobCardLarge from "@components/JobCardLarge";
-import InlineJobCard from "@components/InlineJobCard";
-import { Job } from "@types";
-import { getAllJobs } from "@utils/index";
+import JobCard from "@/components/JobCard";
+import JobCardLarge from "@/components/JobCardLarge";
+import InlineJobCard from "@/components/InlineJobCard";
+import { Job } from "@/types";
+import { getAllJobs } from "@/utils/index";
 
 const Home = async () => {
   const allJobs = await getAllJobs();
