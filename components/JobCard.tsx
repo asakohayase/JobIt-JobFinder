@@ -99,7 +99,7 @@ const JobCard = ({ data }: Props) => {
         <Button
           href={link}
           style={"btn-primary lg:py-[14px] px-[14px] py-2 lg:px-3"}
-          title={"Visit Now"}
+          title={"Apply Now"}
         />
       </div>
     </div>
