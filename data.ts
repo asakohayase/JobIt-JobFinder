@@ -11,6 +11,15 @@ export const smallJobCardData = {
   link: "/",
 };
 
+export const inlineJobCardData = {
+  logo: "/img/company-logo/google.svg",
+  jobTitle: "Product Design",
+  city: "California, USA",
+  companyName: "Google",
+  jobType: "Full-Time",
+  averagePayPerHour: "70-80",
+};
+
 export const largeJobCardData = {
   title: "Passionate Programmer",
   description:
@@ -22,13 +31,4 @@ export const largeJobCardData = {
   averagePay: "15k-20k",
   technologies: ["PHP", "Laravel", "CSS", "React"],
   logo: "/img/company-logo/invision.svg",
-};
-
-export const inlineJobCard = {
-  logo: "/img/company-logo/google.svg",
-  jobTitle: "Product Design",
-  city: "California, USA",
-  companyName: "Google",
-  jobType: "Full-Time",
-  averagePayPerHour: "70-80",
 };

@@ -7,11 +7,10 @@ type Props = {
   data: {
     title: string;
     description: string;
-    peopleApplied: number;
+    isRemote: boolean;
     postedDate: string;
-    averagePay: string;
+    averagePay: number;
     technologies?: string[];
-    logo: string;
     link: string;
     jobType: string;
   };
@@ -21,11 +20,10 @@ const JobCard = ({ data }: Props) => {
   const {
     title,
     description,
-    peopleApplied,
+    isRemote,
     postedDate,
     averagePay,
     technologies,
-    logo,
     link,
     jobType,
   } = data;
@@ -44,7 +42,7 @@ const JobCard = ({ data }: Props) => {
         <div className="flex h-[46px] w-[46px] items-center justify-center  rounded-lg border-[3px] border-natural-3 bg-natural-2 dark:border-logoDark dark:bg-logoDark lg:h-[64px] lg:w-[64px]">
           <div className="relative h-[34.5px] w-[34.5px] lg:h-12 lg:w-12">
             <Image
-              src={logo}
+              src={"/img/company-logo/adobe-illustrator.svg"}
               alt="logo"
               fill
               priority
@@ -66,7 +64,7 @@ const JobCard = ({ data }: Props) => {
           </div>
           <div className="flex gap-[5px]">
             {technologies?.map((technology, i) => (
-              <Badge key={i} style={"btn-tag"} title={technology} />
+              <Badge key={technology} style={"btn-tag"} title={technology} />
             ))}
           </div>
         </div>
@@ -82,7 +80,7 @@ const JobCard = ({ data }: Props) => {
         />
         <Badge
           style={"btn-tag-icon"}
-          title={`${peopleApplied} Applied`}
+          title={`${isRemote ? "Remote Work" : "Office Work"} `}
           icon={"/img/iconography/people.svg"}
         />
         <Badge
