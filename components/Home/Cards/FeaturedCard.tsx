@@ -1,8 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import Button from "./Button";
+import Button from "../../Reusable/Button";
 
-const Featured = () => {
+const FeaturedCard = () => {
   return (
     <div className="flex w-full flex-col gap-4 rounded-jobit bg-white p-6 dark:bg-darkBG-2 md:w-64">
       {/* Company Logo & Name */}
@@ -49,4 +49,4 @@ const Featured = () => {
   );
 };
 
-export default Featured;
+export default FeaturedCard;

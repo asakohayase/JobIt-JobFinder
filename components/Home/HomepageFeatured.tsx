@@ -1,5 +1,5 @@
 import React from "react";
-import Featured from "./Featured";
+import FeaturedCard from "./Cards/FeaturedCard";
 
 const HomepageFeatured = () => {
   return (
@@ -7,10 +7,9 @@ const HomepageFeatured = () => {
       {/* Dummy components until Home Page Integration gets implemented */}
       <h5 className="headline-5">Featured Companies</h5>
       <div className="flex flex-wrap gap-6 md:gap-6">
-        <Featured />
-        <Featured />
-        <Featured />
-        <Featured />
+        <FeaturedCard />
+        <FeaturedCard />
+        <FeaturedCard />
       </div>
     </section>
   );

@@ -1,7 +1,7 @@
 import { inlineJobCardData } from "@data";
 import React from "react";
-import Button from "./Button";
-import InlineJobCard from "./InlineJobCard";
+import Button from "../Reusable/Button";
+import InlineJobCard from "./Cards/InlineJobCard";
 
 const HomepageRecommended = () => {
   return (

@@ -1,10 +1,10 @@
 import React from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import ErrorFallback from "../components/ErrorFallback";
-import PageTitle from "@components/PageTitle";
-import HomepageJobPosts from "@components/HomepageJobPosts";
-import HomepageFeatured from "@components/HomepageFeatured";
-import HomepageRecommended from "@components/HomepageRecommended";
+import PageTitle from "@components/Reusable/PageTitle";
+import HomepageJobPosts from "@components/Home/HomepageJobPosts";
+import HomepageFeatured from "@components/Home/HomepageFeatured";
+import HomepageRecommended from "@components/Home/HomepageRecommended";
 
 const Home = () => {
   return (

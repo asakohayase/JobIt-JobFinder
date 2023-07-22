@@ -1,7 +1,7 @@
 import { smallJobCardData } from "@data";
 import React from "react";
-import Button from "./Button";
-import JobCard from "./JobCard";
+import Button from "../Reusable/Button";
+import JobCard from "./Cards/JobCard";
 
 const HomepageJobPosts = () => {
   return (
