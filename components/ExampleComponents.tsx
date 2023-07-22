@@ -1,7 +1,16 @@
-import { inlineJobCard, largeJobCardData, smallJobCardData } from "@data";
+/* eslint-disable camelcase */
+import {
+  inlineJobCardData,
+  largeJobCardData,
+  smallJobCardData,
+  JD_inlineJobCardData,
+  JD_largeJobCardData,
+} from "@data";
 import React from "react";
 import Button from "./Button";
 import InlineJobCard from "./InlineJobCard";
+import JD_inlineJobCard from "./JD_inlineJobCard";
+import JD_JobCardLarge from "./JD_JobCardLarge";
 import JobCard from "./JobCard";
 import JobCardLarge from "./JobCardLarge";
 import TestValidation from "./TestValidation";
@@ -9,9 +18,11 @@ import TestValidation from "./TestValidation";
 const ExampleComponents = () => {
   return (
     <div className="flex flex-col gap-4">
-      <InlineJobCard data={inlineJobCard} />
+      <InlineJobCard data={inlineJobCardData} />
       <JobCardLarge data={largeJobCardData} />
       <JobCard data={smallJobCardData} />
+      <JD_inlineJobCard data={JD_inlineJobCardData} />
+      <JD_JobCardLarge data={JD_largeJobCardData} />
 
       <TestValidation />
 
