@@ -9,7 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 type Props = {
   href: string;
-  title: String;
+  title?: String;
   style: string;
   icon?: string;
 };

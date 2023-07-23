@@ -94,7 +94,6 @@ const JobCard = ({ data }: Props) => {
             <span className="body-8 lg:body-3 text-natural-7">/month</span>
           </div>
           <div className="body-6 lg:body-2 text-black dark:text-white">
-            {isRemote}
             <span className="body-8 lg:body-3 text-natural-7">
               {`${isRemote ? "Remote Work" : "Office Work"} `}
             </span>

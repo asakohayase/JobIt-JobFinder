@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 
 type Props = {
-  title: String;
+  title?: String;
   style: string;
   icon?: string;
 };

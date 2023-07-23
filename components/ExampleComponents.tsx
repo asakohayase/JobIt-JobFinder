@@ -1,17 +1,27 @@
-import { inlineJobCard, largeJobCardData, smallJobCardData } from "@data";
+/* eslint-disable camelcase */
+import {
+  inlineJobCardData,
+  largeJobCardData,
+  smallJobCardData,
+  JD_inlineJobCardData,
+  JD_largeJobCardData,
+} from "@data";
 import React from "react";
 import Button from "./Reusable/Button";
 import InlineJobCard from "./Home/Cards/InlineJobCard";
 import JobCard from "./Home/Cards/JobCard";
 import JobCardLarge from "./Home/Cards/JobCardLarge";
 import TestValidation from "./TestValidation";
+import JD_inlineJobCard from "./JD_inlineJobCard";
 
 const ExampleComponents = () => {
   return (
     <div className="flex flex-col gap-4">
-      <InlineJobCard data={inlineJobCard} />
+      <InlineJobCard data={inlineJobCardData} />
       <JobCardLarge data={largeJobCardData} />
       <JobCard data={smallJobCardData} />
+      <JD_inlineJobCard data={JD_inlineJobCardData} />
+      <JD_JobCardLarge data={JD_largeJobCardData} />
 
       <TestValidation />
 

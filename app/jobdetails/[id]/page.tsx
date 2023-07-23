@@ -1,4 +1,8 @@
+/* eslint-disable camelcase */
 import ErrorFallback from "@components/ErrorFallback";
+import JD_inlineJobCard from "@components/JD_inlineJobCard";
+import JD_jobCardLarge from "@components/JD_JobCardLarge";
+import { JD_inlineJobCardData, JD_jobCardLargeData } from "@data";
 import React from "react";
 import { ErrorBoundary } from "react-error-boundary";
 
@@ -17,7 +21,8 @@ const jobdetails = ({ params }: { params: { id: String } }) => {
               year: "numeric",
             })}
           </p>
-          {/* Job Details & Inline Job Card */}
+          <JD_inlineJobCard data={JD_inlineJobCardData} />
+          <JD_jobCardLarge data={JD_jobCardLargeData} />
           <section className="flex justify-between">
             {/* Job Details */}
 
