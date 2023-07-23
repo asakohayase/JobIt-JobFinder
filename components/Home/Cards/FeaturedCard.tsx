@@ -52,7 +52,7 @@ const displayStars = (numStars: number) => {
 
 const FeaturedCard = ({ title, location, logo, reviews }: Props) => {
   return (
-    <div className="flex w-full flex-col gap-2 rounded-jobit bg-white p-6 dark:bg-darkBG-2 md:w-64">
+    <div className="flex w-full flex-col gap-6 rounded-jobit bg-white p-6 dark:bg-darkBG-2 md:w-64">
       {/* Company Logo & Name */}
       <div className="flex items-center gap-4">
         <div className="relative h-12 w-12 ">
