@@ -2,6 +2,7 @@ import React from "react";
 import Button from "../Reusable/Button";
 import JobCard from "./Cards/JobCard";
 import { getAllJobs } from "@utils/getAllJobs";
+import { getLogo } from "@utils/getLogo";
 
 const HomepageJobPosts = async () => {
   const jobListings = await getAllJobs();
@@ -28,7 +29,7 @@ const HomepageJobPosts = async () => {
                 postedDate: jobListing.job_posted_at_datetime_utc,
                 averagePay:
                   (jobListing.job_min_salary + jobListing.job_max_salary) / 2,
-                logo: "/img/company-logo/adobeXD.svg",
+                logo: getLogo(jobListing.employer_name),
                 link: jobListing.job_apply_link,
                 jobType: jobListing.job_employment_type,
                 technologies: jobListing.job_required_skills,
