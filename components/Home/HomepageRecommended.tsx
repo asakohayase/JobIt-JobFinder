@@ -1,8 +1,8 @@
-import { inlineJobCardData } from "@data";
 import React from "react";
 import Button from "../Reusable/Button";
 import InlineJobCard from "./Cards/InlineJobCard";
 import { HomepageCardProps } from "@types";
+import { getLogo } from "@utils/getLogo";
 
 const HomepageRecommended = async ({ jobListings }: HomepageCardProps) => {
   // Need to create algo for recommended
@@ -18,11 +18,24 @@ const HomepageRecommended = async ({ jobListings }: HomepageCardProps) => {
           />
         </div>
         <div className="flex flex-col items-center gap-2 rounded-jobit bg-white p-4 dark:bg-darkBG-2">
-          <InlineJobCard data={inlineJobCardData} />
-          <InlineJobCard data={inlineJobCardData} />
-          <InlineJobCard data={inlineJobCardData} />
-          <InlineJobCard data={inlineJobCardData} />
-          <InlineJobCard data={inlineJobCardData} />
+          {jobListings.slice(0, 5).map((jobListing) => (
+            <React.Fragment key={jobListing.job_id}>
+              <InlineJobCard
+                data={{
+                  title: jobListing.job_title,
+                  city: jobListing.job_city,
+                  company: jobListing.employer_name,
+                  jobType: jobListing.job_employment_type,
+                  averagePayPerHour: (
+                    (jobListing.job_min_salary + jobListing.job_max_salary) /
+                    52 /
+                    40
+                  ).toString(),
+                  logo: getLogo(jobListing.employer_name),
+                }}
+              />
+            </React.Fragment>
+          ))}
         </div>
       </section>
     </div>

@@ -1,8 +1,7 @@
 import React from "react";
 import FeaturedCard from "./Cards/FeaturedCard";
-import { HomepageCardProps } from "@types";
 
-const HomepageFeatured = async ({ jobListings }: HomepageCardProps) => {
+const HomepageFeatured = () => {
   return (
     <section className="flex flex-col gap-4">
       {/* Dummy components */}

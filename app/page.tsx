@@ -19,7 +19,7 @@ const Home = async () => {
             {/* Latest Job Posts */}
             <HomepageJobPosts jobListings={jobListings} />
             {/* Featured Companies */}
-            <HomepageFeatured jobListings={jobListings} />
+            <HomepageFeatured />
           </div>
           {/* Recommended Job Posts */}
           <HomepageRecommended jobListings={jobListings} />
