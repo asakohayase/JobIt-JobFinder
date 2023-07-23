@@ -1,7 +1,7 @@
-/* eslint-disable camelcase */
+import { getSincePostedDate } from "@utils/getSincePostedDate";
 import Image from "next/image";
 import React from "react";
-import Button from "./Button";
+import Button from "@/components/Reusable/Button";
 
 type Props = {
   data: {
@@ -15,13 +15,6 @@ type Props = {
 
 const JD_inlineJobCard = ({ data }: Props) => {
   const { title, city, averagePayPerHour, postedDate, link } = data;
-  const getSincePostedDate = (date: string) => {
-    const postedDate = new Date(date);
-    const currentDate = new Date();
-    const timeDiff = currentDate.getTime() - postedDate.getTime();
-    const daysSincePosted = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-    return Number(daysSincePosted);
-  };
   return (
     <div className="inline-flex flex-col items-start justify-center gap-[20px] rounded-jobit bg-white p-5 shadow-1 dark:bg-darkBG-3 dark:text-natural-6">
       <div className="flex items-start gap-[30px]">

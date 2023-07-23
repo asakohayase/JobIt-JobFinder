@@ -1,7 +1,7 @@
-/* eslint-disable camelcase */
+import { getSincePostedDate } from "@/utils/getSincePostedDate";
 import Image from "next/image";
 import React from "react";
-import Button from "./Button";
+import Button from "@/components/Reusable/Button";
 
 type Props = {
   data: {
@@ -40,18 +40,10 @@ const JD_jobCardLarge = ({ data }: Props) => {
     link,
   } = data;
 
-  const getSincePostedDate = (date: string) => {
-    const postedDate = new Date(date);
-    const currentDate = new Date();
-    const timeDiff = currentDate.getTime() - postedDate.getTime();
-    const daysSincePosted = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-    return Number(daysSincePosted);
-  };
-
   return (
     <div className="flex h-[1549px] w-[860px] shrink-0 flex-col space-y-10">
       <div className="relative">
-        <div className="relative h-48 w-[820px] shrink-0 rounded-[20px]">
+        <div className="h-48 relative w-[820px] shrink-0 rounded-[20px]">
           <Image
             src={"/img/widgets/header.png"}
             alt="header"
@@ -61,8 +53,8 @@ const JD_jobCardLarge = ({ data }: Props) => {
           />
         </div>
 
-        <div className="-mt-12 ml-5 flex h-16 w-16 shrink-0 items-center justify-center gap-[10px] rounded-[10px] border-[3px] border-natural-3 bg-black bg-opacity-[0.06] p-2">
-          <div className="relative h-16 w-16 shrink-0">
+        <div className="h-16 -mt-12 ml-5 flex w-16 shrink-0 items-center justify-center gap-[10px] rounded-[10px] border-[3px] border-natural-3 bg-black bg-opacity-[0.06] p-2">
+          <div className="h-16 relative w-16 shrink-0">
             <Image
               src={"/img/company-logo/ui-hut.svg"}
               alt="logo"
@@ -208,7 +200,7 @@ const JD_jobCardLarge = ({ data }: Props) => {
 
       <div className="inline-flex items-center gap-[487px]">
         <div className="flex items-center gap-[20px]">
-          <div className="relative h-12 w-12 shrink-0">
+          <div className="h-12 relative w-12 shrink-0">
             <Image
               src={"/img/company-logo/ui-hut.svg"}
               alt="logo"
