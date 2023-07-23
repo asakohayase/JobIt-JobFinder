@@ -16,6 +16,7 @@ const displayStars = (starGrade: number) => {
   for (let i = 0; i < numberOfStars; i++) {
     stars.push(
       <Image
+        key={`star-${stars.length + 1}`}
         alt={"filled star"}
         width={24}
         height={24}
@@ -27,6 +28,7 @@ const displayStars = (starGrade: number) => {
   if (starGrade % numberOfStars === 0.5) {
     stars.push(
       <Image
+        key={`star-${stars.length + 1}`}
         alt={"half filled star"}
         width={24}
         height={24}
@@ -38,6 +40,7 @@ const displayStars = (starGrade: number) => {
   while (stars.length < 5) {
     stars.push(
       <Image
+        key={`star-${stars.length + 1}`}
         alt={"empty star"}
         width={24}
         height={24}
