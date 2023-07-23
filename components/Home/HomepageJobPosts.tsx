@@ -1,13 +1,10 @@
 import React from "react";
 import Button from "../Reusable/Button";
 import JobCard from "./Cards/JobCard";
-import { getAllJobs } from "@utils/getAllJobs";
 import { getLogo } from "@utils/getLogo";
+import { HomepageCardProps } from "@types";
 
-const HomepageJobPosts = async () => {
-  const jobListings = await getAllJobs();
-  if (!jobListings) return "placeholder, no jobs found"; // going to update to a component
-
+const HomepageJobPosts = async ({ jobListings }: HomepageCardProps) => {
   return (
     <section className="flex max-w-4xl flex-col gap-4">
       <div className="flex items-center justify-between md:pr-4">

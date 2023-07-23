@@ -5,8 +5,11 @@ import PageTitle from "@components/Reusable/PageTitle";
 import HomepageJobPosts from "@components/Home/HomepageJobPosts";
 import HomepageFeatured from "@components/Home/HomepageFeatured";
 import HomepageRecommended from "@components/Home/HomepageRecommended";
+import { getAllJobs } from "@utils/getAllJobs";
 
-const Home = () => {
+const Home = async () => {
+  const jobListings = await getAllJobs();
+  if (!jobListings) return "no jobs found";
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       <main className="padding-layout flex flex-col gap-8 py-6 dark:bg-darkBG-1 md:py-10">
@@ -14,12 +17,12 @@ const Home = () => {
         <div className="flex flex-col gap-8 md:flex-row md:justify-between md:gap-0">
           <div className="flex flex-col gap-8">
             {/* Latest Job Posts */}
-            <HomepageJobPosts />
+            <HomepageJobPosts jobListings={jobListings} />
             {/* Featured Companies */}
-            <HomepageFeatured />
+            <HomepageFeatured jobListings={jobListings} />
           </div>
           {/* Recommended Job Posts */}
-          <HomepageRecommended />
+          <HomepageRecommended jobListings={jobListings} />
         </div>
       </main>
     </ErrorBoundary>

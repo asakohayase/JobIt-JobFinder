@@ -142,3 +142,11 @@ export type JobDetailsResponse = {
   };
   data: JobDetails[];
 };
+
+/**
+ * Homepage Card Component Props
+ */
+
+export interface HomepageCardProps {
+  jobListings: Job[];
+}

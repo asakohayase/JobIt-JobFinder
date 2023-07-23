@@ -2,8 +2,10 @@ import { inlineJobCardData } from "@data";
 import React from "react";
 import Button from "../Reusable/Button";
 import InlineJobCard from "./Cards/InlineJobCard";
+import { HomepageCardProps } from "@types";
 
-const HomepageRecommended = () => {
+const HomepageRecommended = async ({ jobListings }: HomepageCardProps) => {
+  // Need to create algo for recommended
   return (
     <div>
       <section className="flex w-[23rem] shrink-0 flex-col gap-4">
