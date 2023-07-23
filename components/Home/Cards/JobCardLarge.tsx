@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
-import Badge from "./Badge";
-import Button from "./Button";
+import Badge from "../../Reusable/Badge";
+import Button from "../../Reusable/Button";
 
 type Props = {
   data: {

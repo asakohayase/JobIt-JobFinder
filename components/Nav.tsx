@@ -1,8 +1,6 @@
-"use client";
-
 import React from "react";
 import Link from "next/link";
-import ToggleTheme from "./ToggleTheme";
+import ToggleTheme from "@components/Reusable/ToggleTheme";
 import Image from "next/image";
 
 const Nav = () => {

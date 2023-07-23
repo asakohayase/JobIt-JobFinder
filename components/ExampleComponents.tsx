@@ -7,13 +7,12 @@ import {
   JD_largeJobCardData,
 } from "@data";
 import React from "react";
-import Button from "./Button";
-import InlineJobCard from "./InlineJobCard";
-import JD_inlineJobCard from "./JD_inlineJobCard";
-import JD_JobCardLarge from "./JD_JobCardLarge";
-import JobCard from "./JobCard";
-import JobCardLarge from "./JobCardLarge";
+import Button from "./Reusable/Button";
+import InlineJobCard from "./Home/Cards/InlineJobCard";
+import JobCard from "./Home/Cards/JobCard";
+import JobCardLarge from "./Home/Cards/JobCardLarge";
 import TestValidation from "./TestValidation";
+import JD_inlineJobCard from "./JD_inlineJobCard";
 
 const ExampleComponents = () => {
   return (

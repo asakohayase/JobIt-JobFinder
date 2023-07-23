@@ -1,16 +1,17 @@
 import Image from "next/image";
 import React from "react";
-import Badge from "./Badge";
-import Button from "./Button";
+import Badge from "../../Reusable/Badge";
+import Button from "../../Reusable/Button";
 
 type Props = {
   data: {
     title: string;
     description: string;
-    isRemote: boolean;
+    peopleApplied: number;
     postedDate: string;
     averagePay: number;
     technologies?: string[];
+    logo: string;
     link: string;
     jobType: string;
   };
@@ -20,10 +21,11 @@ const JobCard = ({ data }: Props) => {
   const {
     title,
     description,
-    isRemote,
+    peopleApplied,
     postedDate,
     averagePay,
     technologies,
+    logo,
     link,
     jobType,
   } = data;
@@ -42,7 +44,7 @@ const JobCard = ({ data }: Props) => {
         <div className="flex h-[46px] w-[46px] items-center justify-center  rounded-lg border-[3px] border-natural-3 bg-natural-2 dark:border-logoDark dark:bg-logoDark lg:h-[64px] lg:w-[64px]">
           <div className="relative h-[34.5px] w-[34.5px] lg:h-12 lg:w-12">
             <Image
-              src={"/img/company-logo/adobe-illustrator.svg"}
+              src={logo}
               alt="logo"
               fill
               priority
@@ -63,13 +65,15 @@ const JobCard = ({ data }: Props) => {
             />
           </div>
           <div className="flex gap-[5px]">
-            {technologies?.map((technology, i) => (
-              <Badge key={technology} style={"btn-tag"} title={technology} />
-            ))}
+            {technologies
+              ?.splice(0, 3)
+              .map((technology) => (
+                <Badge key={technology} style={"btn-tag"} title={technology} />
+              ))}
           </div>
         </div>
       </div>
-      <p className="lg:body-8 body-12 text-natural-7 dark:text-natural-6">
+      <p className="lg:body-8 body-12 line-clamp-6 text-natural-7 dark:text-natural-6">
         {description}
       </p>
       <div className="flex justify-between">
@@ -80,7 +84,7 @@ const JobCard = ({ data }: Props) => {
         />
         <Badge
           style={"btn-tag-icon"}
-          title={`${isRemote ? "Remote Work" : "Office Work"} `}
+          title={`${peopleApplied} Applied`}
           icon={"/img/iconography/people.svg"}
         />
         <Badge
@@ -97,7 +101,7 @@ const JobCard = ({ data }: Props) => {
         <Button
           href={link}
           style={"btn-primary lg:py-[14px] px-[14px] py-2 lg:px-3"}
-          title={"Visit Now"}
+          title={"Apply Now"}
         />
       </div>
     </div>
