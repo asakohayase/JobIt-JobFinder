@@ -12,6 +12,5 @@ const Nav = () => {
   } else {
     return <NavMobile />;
   }
-};
 
 export default Nav;

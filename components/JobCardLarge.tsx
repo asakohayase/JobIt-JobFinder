@@ -7,11 +7,10 @@ type Props = {
   data: {
     title: string;
     description: string;
-    peopleApplied: number;
+    isRemote: boolean;
     postedDate: string;
-    averagePay: string;
+    averagePay: number;
     technologies?: string[];
-    logo: string;
     company: string;
     city: string;
   };
@@ -21,11 +20,10 @@ const JobCard = ({ data }: Props) => {
   const {
     title,
     description,
-    peopleApplied,
+    isRemote,
     postedDate,
     averagePay,
     technologies,
-    logo,
     company,
     city,
   } = data;
@@ -39,12 +37,12 @@ const JobCard = ({ data }: Props) => {
   };
 
   return (
-    <div className="relative flex w-full max-w-[950px] flex-col gap-y-[30px] p-5 dark:bg-darkBG-2">
+    <div className="relative flex w-full max-w-[950px] flex-col gap-y-[30px] rounded-jobit bg-white p-5 dark:bg-darkBG-2">
       <div className="flex items-center gap-5">
-        <div className="flex h-[46px] w-[46px] items-center justify-center  rounded-lg border-[3px] border-natural-3 bg-natural-2 dark:border-[#2C2C2C] dark:bg-[#2C2C2C] lg:h-[64px] lg:w-[64px]">
-          <div className="lg:h-12 relative h-[34.5px] w-[34.5px] lg:w-12">
+        <div className="flex h-[46px] w-[46px] items-center justify-center  rounded-lg border-[3px] border-natural-3 bg-natural-2 dark:border-logoDark dark:bg-logoDark lg:h-[64px] lg:w-[64px]">
+          <div className="relative h-[34.5px] w-[34.5px] lg:h-12 lg:w-12">
             <Image
-              src={logo}
+              src={"/img/company-logo/adobe-illustrator.svg"}
               alt="logo"
               fill
               priority
@@ -52,7 +50,7 @@ const JobCard = ({ data }: Props) => {
             />
           </div>
         </div>
-        <div className="lg:h-16 flex h-[60px] flex-1 flex-col space-y-[6px]">
+        <div className="flex h-[60px] flex-1 flex-col space-y-[6px] lg:h-16">
           <div className="flex items-start justify-between">
             <h2 className="body-6 lg:body-2 text-black dark:text-white">
               {title}
@@ -96,10 +94,9 @@ const JobCard = ({ data }: Props) => {
             <span className="body-8 lg:body-3 text-natural-7">/month</span>
           </div>
           <div className="body-6 lg:body-2 text-black dark:text-white">
-            {peopleApplied}
+            {isRemote}
             <span className="body-8 lg:body-3 text-natural-7">
-              {" "}
-              People Applied
+              {`${isRemote ? "Remote Work" : "Office Work"} `}
             </span>
           </div>
         </div>

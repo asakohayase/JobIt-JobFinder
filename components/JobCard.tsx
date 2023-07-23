@@ -7,11 +7,10 @@ type Props = {
   data: {
     title: string;
     description: string;
-    peopleApplied: number;
+    isRemote: boolean;
     postedDate: string;
-    averagePay: string;
+    averagePay: number;
     technologies?: string[];
-    logo: string;
     link: string;
     jobType: string;
   };
@@ -21,11 +20,10 @@ const JobCard = ({ data }: Props) => {
   const {
     title,
     description,
-    peopleApplied,
+    isRemote,
     postedDate,
     averagePay,
     technologies,
-    logo,
     link,
     jobType,
   } = data;
@@ -39,12 +37,12 @@ const JobCard = ({ data }: Props) => {
   };
 
   return (
-    <div className="flex w-full max-w-[400px] flex-col gap-y-[30px] p-5 dark:bg-darkBG-2">
+    <div className="flex w-full max-w-[400px] flex-col gap-y-[30px] rounded-jobit bg-white p-5 shadow-1 dark:bg-darkBG-2">
       <div className="flex items-center gap-5">
-        <div className="flex h-[46px] w-[46px] items-center justify-center  rounded-lg border-[3px] border-natural-3 bg-natural-2 dark:border-[#2C2C2C] dark:bg-[#2C2C2C] lg:h-[64px] lg:w-[64px]">
-          <div className="lg:h-12 relative h-[34.5px] w-[34.5px] lg:w-12">
+        <div className="flex h-[46px] w-[46px] items-center justify-center  rounded-lg border-[3px] border-natural-3 bg-natural-2 dark:border-logoDark dark:bg-logoDark lg:h-[64px] lg:w-[64px]">
+          <div className="relative h-[34.5px] w-[34.5px] lg:h-12 lg:w-12">
             <Image
-              src={logo}
+              src={"/img/company-logo/adobe-illustrator.svg"}
               alt="logo"
               fill
               priority
@@ -52,7 +50,7 @@ const JobCard = ({ data }: Props) => {
             />
           </div>
         </div>
-        <div className="lg:h-16 flex h-[60px] flex-1 flex-col justify-between">
+        <div className="flex h-[60px] flex-1 flex-col justify-between lg:h-16">
           <div className="flex items-start justify-between">
             <h2 className="body-6 lg:body-2 text-black dark:text-white">
               {title}
@@ -66,7 +64,7 @@ const JobCard = ({ data }: Props) => {
           </div>
           <div className="flex gap-[5px]">
             {technologies?.map((technology, i) => (
-              <Badge key={i} style={"btn-tag"} title={technology} />
+              <Badge key={technology} style={"btn-tag"} title={technology} />
             ))}
           </div>
         </div>
@@ -82,7 +80,7 @@ const JobCard = ({ data }: Props) => {
         />
         <Badge
           style={"btn-tag-icon"}
-          title={`${peopleApplied} Applied`}
+          title={`${isRemote ? "Remote Work" : "Office Work"} `}
           icon={"/img/iconography/people.svg"}
         />
         <Badge
@@ -94,7 +92,7 @@ const JobCard = ({ data }: Props) => {
       <div className="flex items-center justify-between">
         <span className="body-6 lg:body-2 text-black dark:text-white">
           ${averagePay}
-          <span className="body-8 lg:body-3 text-natural-7">/month</span>
+          <span className="body-8 lg:body-3 text-natural-7"> /month</span>
         </span>
         <Button
           href={link}
