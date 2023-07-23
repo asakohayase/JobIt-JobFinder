@@ -8,8 +8,7 @@ import Link from "next/link";
 
 const NavMobile = () => {
   const [open, setOpen] = useState(false);
-  const toggleOpen = () => setOpen((o) => !o);
-  const toggleClose = () => setOpen(false);
+  const toggle = () => setOpen((isOpen) => !isOpen);
 
   return (
     <motion.div>
@@ -27,7 +26,7 @@ const NavMobile = () => {
             width={30}
             height={30}
             alt={"hamburger logo"}
-            onClick={toggleOpen}
+            onClick={toggle}
           />
         )}
 
@@ -37,7 +36,7 @@ const NavMobile = () => {
             width={20}
             height={20}
             alt={"close icon"}
-            onClick={toggleClose}
+            onClick={toggle}
           />
         ) : (
           <ToggleTheme />
