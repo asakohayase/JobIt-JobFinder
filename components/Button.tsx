@@ -24,7 +24,7 @@ const Button = ({ title, style, href, icon }: Props) => {
         {icon && (
           <Image src={icon} alt="icon" width={18} height={18} priority />
         )}
-        <span>{title}</span>s
+        <span>{title}</span>
       </Link>
     </>
   );

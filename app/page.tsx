@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import ErrorFallback from "@/components/ErrorFallback";
@@ -8,6 +9,9 @@ import JobCardLarge from "@/components/JobCardLarge";
 import InlineJobCard from "@/components/InlineJobCard";
 import { Job } from "@/types";
 import { getAllJobs } from "@/utils/index";
+import JD_inlineJobCard from "@components/JD_inlineJobCard";
+import JD_jobCardLarge from "@components/JD_JobCardLarge";
+import { JD_inlineJobCardData, JD_jobCardLargeData } from "@data";
 
 const Home = async () => {
   const allJobs = await getAllJobs();
@@ -126,6 +130,8 @@ const Home = async () => {
           <p className="body-19">This is the body-19 custom class</p>
           <p className="body-20">This is the body-20 custom class</p>
         </div>
+        <JD_inlineJobCard data={JD_inlineJobCardData} />
+        <JD_jobCardLarge data={JD_jobCardLargeData} />
       </div>
     </ErrorBoundary>
   );
