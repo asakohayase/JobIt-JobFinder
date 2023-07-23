@@ -1,9 +1,9 @@
 import { inlineJobCard, largeJobCardData, smallJobCardData } from "@data";
 import React from "react";
-import Button from "./Button";
-import InlineJobCard from "./InlineJobCard";
-import JobCard from "./JobCard";
-import JobCardLarge from "./JobCardLarge";
+import Button from "./Reusable/Button";
+import InlineJobCard from "./Home/Cards/InlineJobCard";
+import JobCard from "./Home/Cards/JobCard";
+import JobCardLarge from "./Home/Cards/JobCardLarge";
 import TestValidation from "./TestValidation";
 
 const ExampleComponents = () => {
