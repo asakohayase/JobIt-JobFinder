@@ -10,7 +10,7 @@
   /* General padding for all layout */
 
   .padding-layout {
-    @apply max-w-[81rem] mx-auto px-6 lg:px-10;
+    @apply max-w-7xl mx-auto px-6 lg:px-10;
   }
 
   /* CUSTOMS STYLE FOR HEADLINE. Refer to figma > Style Guide to understand */

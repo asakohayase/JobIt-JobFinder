@@ -9,7 +9,7 @@ type Props = {
     description: string;
     peopleApplied: number;
     postedDate: string;
-    averagePay: string;
+    averagePay: number;
     technologies?: string[];
     logo: string;
     link: string;
@@ -65,13 +65,15 @@ const JobCard = ({ data }: Props) => {
             />
           </div>
           <div className="flex gap-[5px]">
-            {technologies?.map((technology, i) => (
-              <Badge key={i} style={"btn-tag"} title={technology} />
-            ))}
+            {technologies
+              ?.splice(0, 3)
+              .map((technology, i) => (
+                <Badge key={i} style={"btn-tag"} title={technology} />
+              ))}
           </div>
         </div>
       </div>
-      <p className="lg:body-8 body-12 text-natural-7 dark:text-natural-6">
+      <p className="lg:body-8 body-12 line-clamp-6 text-natural-7 dark:text-natural-6">
         {description}
       </p>
       <div className="flex justify-between">
