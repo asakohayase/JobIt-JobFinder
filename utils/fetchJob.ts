@@ -5,7 +5,7 @@ export const fetchJob = async (id: String) => {
   const options = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": process.env.DB_KEY || "",
+      "X-RapidAPI-Key": process.env.API_KEY || "",
       "X-RapidAPI-Host": "jsearch.p.rapidapi.com",
     },
   };

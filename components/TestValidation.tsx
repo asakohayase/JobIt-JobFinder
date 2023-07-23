@@ -1,7 +1,7 @@
 "use client";
 
 import { useForm, SubmitHandler } from "react-hook-form";
-import Button from "./Button";
+import Button from "./Reusable/Button";
 
 type Inputs = {
   example: string;
