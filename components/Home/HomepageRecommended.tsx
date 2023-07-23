@@ -3,6 +3,7 @@ import Button from "../Reusable/Button";
 import InlineJobCard from "./Cards/InlineJobCard";
 import { HomepageCardProps } from "@types";
 import { getLogo } from "@utils/getLogo";
+import { averagePayPerHour } from "@utils";
 
 const HomepageRecommended = async ({ jobListings }: HomepageCardProps) => {
   // Need to create algo for recommended
@@ -26,11 +27,10 @@ const HomepageRecommended = async ({ jobListings }: HomepageCardProps) => {
                   city: jobListing.job_city,
                   company: jobListing.employer_name,
                   jobType: jobListing.job_employment_type,
-                  averagePayPerHour: (
-                    (jobListing.job_min_salary + jobListing.job_max_salary) /
-                    52 /
-                    40
-                  ).toString(),
+                  averagePayPerHour: averagePayPerHour(
+                    jobListing.job_min_salary,
+                    jobListing.job_max_salary
+                  ),
                   logo: getLogo(jobListing.employer_name),
                 }}
               />

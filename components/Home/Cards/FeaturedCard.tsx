@@ -10,10 +10,10 @@ interface Props {
   reviews: EmployerReviews;
 }
 
-const displayStars = (numStars: number) => {
+const displayStars = (starGrade: number) => {
   const stars = [];
-
-  for (let i = 1; i <= Math.floor(numStars); i++) {
+  const numberOfStars = Math.floor(starGrade);
+  for (let i = 0; i < numberOfStars; i++) {
     stars.push(
       <Image
         alt={"filled star"}
@@ -24,10 +24,10 @@ const displayStars = (numStars: number) => {
     );
   }
 
-  if (stars.length % 1 < 0.5 && stars.length < 5 && stars.length !== 0) {
+  if (starGrade % numberOfStars === 0.5) {
     stars.push(
       <Image
-        alt={"filled star"}
+        alt={"half filled star"}
         width={24}
         height={24}
         src={"/img/iconography/star-half.svg"}
@@ -35,22 +35,23 @@ const displayStars = (numStars: number) => {
     );
   }
 
-  if (stars.length < 5)
-    for (let i = stars.length; i < 5; i++) {
-      stars.push(
-        <Image
-          alt={"empty star"}
-          width={24}
-          height={24}
-          src={"/img/iconography/star-empty.svg"}
-        />
-      );
-    }
+  while (stars.length < 5) {
+    stars.push(
+      <Image
+        alt={"empty star"}
+        width={24}
+        height={24}
+        src={"/img/iconography/star-empty.svg"}
+      />
+    );
+  }
 
   return stars;
 };
 
 const FeaturedCard = ({ title, location, logo, reviews }: Props) => {
+  const stars = displayStars(reviews.num_stars);
+
   return (
     <div className="flex w-full flex-col gap-6 rounded-jobit bg-white p-6 dark:bg-darkBG-2 md:w-64">
       {/* Company Logo & Name */}
@@ -70,7 +71,7 @@ const FeaturedCard = ({ title, location, logo, reviews }: Props) => {
       <div className="body-15 flex gap-4 text-natural-6 md:flex-col md:gap-2">
         <div className="flex gap-2">
           {/* Review */}
-          <div className="flex">{displayStars(reviews.num_stars)}</div>
+          <div className="flex">{stars}</div>
         </div>
         {/* Location */}
         <div className="flex gap-2">

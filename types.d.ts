@@ -48,7 +48,7 @@ export interface EmployerReviews {
 }
 
 type JobRequiredExperience = {
-  no_experienc_required: boolean;
+  no_experience_required: boolean;
   required_experience_in_months: number;
   experience_mentioned: boolean;
   experience_preferred: boolean;
