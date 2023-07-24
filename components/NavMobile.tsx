@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import ToggleTheme from "./ToggleTheme";
+import ToggleTheme from "@/components/Reusable/ToggleTheme";
 import Link from "next/link";
 
 const NavMobile = () => {

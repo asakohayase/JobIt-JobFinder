@@ -31,6 +31,7 @@ module.exports = {
       },
       height: {
         70: "70px",
+        100: "100%",
       },
       boxShadow: {
         1: "0px 6px 14px 0px rgba(23, 23, 37, 0.02)",
@@ -38,10 +39,6 @@ module.exports = {
       borderRadius: {
         jobit: "10px",
       },
-    },
-    height: {
-      70: "70px",
-      100: "100%",
     },
   },
   plugins: [],
