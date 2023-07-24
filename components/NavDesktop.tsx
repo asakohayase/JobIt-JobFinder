@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import ToggleTheme from "./ToggleTheme";
+import ToggleTheme from "./Reusable/ToggleTheme";
 import Image from "next/image";
 
 const Nav = () => {
@@ -10,7 +10,7 @@ const Nav = () => {
 
   return (
     <nav className="flex h-70 items-center border border-slate-50 border-b-natural-5 dark:border-darkBG-3">
-      <ul className="flex w-full flex-row items-center justify-around">
+      <ul className="sticky top-0 flex w-full flex-row items-center justify-around">
         <li>
           <Link href="/">
             <Image

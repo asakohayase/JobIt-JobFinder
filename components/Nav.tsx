@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useMediaQuery } from "@hooks/useMediaQuery";
@@ -13,5 +12,6 @@ const Nav = () => {
   } else {
     return <NavMobile />;
   }
+};
 
 export default Nav;

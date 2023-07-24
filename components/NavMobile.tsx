@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import ToggleTheme from "./ToggleTheme";
+import ToggleTheme from "./Reusable/ToggleTheme";
 import Link from "next/link";
 
 const NavMobile = () => {
@@ -11,8 +11,8 @@ const NavMobile = () => {
   const toggle = () => setOpen((isOpen) => !isOpen);
 
   return (
-    <motion.div>
-      <div className="flex h-70 items-center justify-between border border-transparent border-b-natural-5 px-10 dark:border-darkBG-3 dark:bg-darkBG-1">
+    <motion.div className="">
+      <div className="sticky top-0 flex h-70 items-center justify-between border border-transparent border-b-natural-5 px-10 dark:border-darkBG-3 dark:bg-darkBG-1">
         {open ? (
           <Image
             src={"/img/company-logo/jobit.svg"}
@@ -29,6 +29,13 @@ const NavMobile = () => {
             onClick={toggle}
           />
         )}
+
+        <Image
+          src={"/img/company-logo/jobit.svg"}
+          width={80}
+          height={80}
+          alt={"jobit icon"}
+        />
 
         {open ? (
           <Image
