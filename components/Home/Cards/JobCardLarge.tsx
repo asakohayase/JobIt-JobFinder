@@ -1,7 +1,8 @@
 import Image from "next/image";
 import React from "react";
-import Badge from "../../Reusable/Badge";
-import Button from "../../Reusable/Button";
+import Badge from "@/components/Reusable/Badge";
+import Button from "@/components/Reusable/Button";
+import { getSincePostedDate } from "@/utils/index";
 
 type Props = {
   data: {
@@ -16,8 +17,8 @@ type Props = {
   };
 };
 
-const JobCard = ({ data }: Props) => {
-  const {
+const JobCard = ({
+  data: {
     title,
     description,
     isRemote,
@@ -26,16 +27,8 @@ const JobCard = ({ data }: Props) => {
     technologies,
     company,
     city,
-  } = data;
-
-  const getSincePostedDate = (date: string) => {
-    const postedDate = new Date(date);
-    const currentDate = new Date();
-    const timeDiff = currentDate.getTime() - postedDate.getTime();
-    const daysSincePosted = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-    return Number(daysSincePosted);
-  };
-
+  },
+}: Props) => {
   return (
     <div className="relative flex w-full max-w-[950px] flex-col gap-y-[30px] rounded-jobit bg-white p-5 dark:bg-darkBG-2">
       <div className="flex items-center gap-5">
@@ -74,7 +67,7 @@ const JobCard = ({ data }: Props) => {
               <span className="hidden h-[3px] w-[3px] rounded-full bg-natural-7 md:flex" />
               <span>{city}</span>
               <span className="h-[3px] w-[3px] rounded-full bg-natural-7" />
-              <span>{`${getSincePostedDate(postedDate)} days left`}</span>
+              <span>{getSincePostedDate(postedDate)}</span>
             </div>
           </div>
         </div>
@@ -82,20 +75,31 @@ const JobCard = ({ data }: Props) => {
       <p className="lg:body-16 body-20 text-natural-7 dark:text-natural-6">
         {description}
       </p>
-      <div className="flex gap-[5px]">
+      <div className="flex flex-wrap gap-[5px] space-y-3">
         {technologies?.map((technology, i) => (
           <Badge key={i} style={"btn-tag"} title={technology} />
         ))}
       </div>
       <div className="flex flex-col items-center justify-between space-y-[30px] md:flex-row md:space-y-0">
         <div className="flex w-full justify-between md:w-1/2 md:max-w-[342px]">
+          {averagePay === 0 ? (
+            <div className="body-6 lg:body-2 text-black dark:text-white">
+              ${averagePay}
+              <span className="body-8 lg:body-3 text-natural-7">/month</span>
+            </div>
+          ) : (
+            <div className="body-6 lg:body-2 text-black dark:text-white">
+              $
+              <span className="body-8 lg:body-3 text-natural-7">
+                Not specified
+              </span>
+            </div>
+          )}
+
           <div className="body-6 lg:body-2 text-black dark:text-white">
-            ${averagePay}
-            <span className="body-8 lg:body-3 text-natural-7">/month</span>
-          </div>
-          <div className="body-6 lg:body-2 text-black dark:text-white">
+            {isRemote}
             <span className="body-8 lg:body-3 text-natural-7">
-              {`${isRemote ? "Remote Work" : "Office Work"} `}
+              {`${isRemote ? "Remote" : "In-Office"} `}
             </span>
           </div>
         </div>
@@ -103,12 +107,12 @@ const JobCard = ({ data }: Props) => {
           <Button
             href={"/"}
             style={"btn-natural lg:py-[12px] px-[38px] py-[9px] lg:px-[30px]"}
-            title={"Message"}
+            title={"View Details"}
           />
           <Button
             href={"/"}
             style={"btn-primary lg:py-[12px] px-[38px] py-[9px] lg:px-[52.5px]"}
-            title={"Visit Now"}
+            title={"Apply Now"}
           />
         </div>
       </div>
