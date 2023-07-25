@@ -30,7 +30,7 @@ const JDInlineJobCard = ({ data }: Props) => {
             />
           </div>
           <div className="flex w-48 flex-col items-start gap-[6px] pr-0">
-            <span className="text-lg font-bold not-italic leading-6 text-black">
+            <span className="text-lg font-bold not-italic leading-6 text-black dark:text-white">
               {title}
             </span>
             <span className="text-sm font-medium not-italic leading-5 text-natural-6">
@@ -39,9 +39,9 @@ const JDInlineJobCard = ({ data }: Props) => {
           </div>
         </div>
 
-        <span className="text-right text-sm font-semibold not-italic leading-6 text-gray-900">
+        <span className="text-right text-sm font-semibold not-italic leading-6 text-gray-900 dark:text-white">
           ${averagePayPerHour}
-          <span className="text-natural-6">/ Hr</span>
+          <span className="dark: text-natural-6">/ Hr</span>
         </span>
       </div>
 
@@ -51,7 +51,7 @@ const JDInlineJobCard = ({ data }: Props) => {
         </div>
 
         <div className="flex items-center gap-[11px]">
-          <div className="flex items-center justify-center gap-[7px] rounded-md border border-natural-5 p-2">
+          <div className="flex items-center justify-center gap-[7px] rounded-md border border-natural-5 p-2 dark:border-darkBG-3">
             <Button
               href={link}
               style={"w-4 h-4"}

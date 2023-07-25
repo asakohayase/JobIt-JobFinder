@@ -113,12 +113,12 @@ const JDJobCardLarge = ({ data }: Props) => {
         </div>
       </div>
 
-      <div className="ml-10 mt-8 inline-flex items-center justify-center gap-[40px] rounded-[20px] bg-natural-3">
+      <div className="ml-10 mt-8 inline-flex items-center justify-center gap-[40px] rounded-[20px] bg-natural-3 dark:bg-darkBG-3">
         <div className="flex flex-col items-start justify-center gap-[10px] px-[24px] py-[16px]">
           <span className="text-sm font-semibold not-italic leading-6 text-natural-6">
             Experience
           </span>
-          <span className="text-base font-semibold not-italic leading-6 text-natural-8">
+          <span className="text-base font-semibold not-italic leading-6 text-natural-8 dark:text-white">
             {experience}
           </span>
         </div>
@@ -127,7 +127,7 @@ const JDJobCardLarge = ({ data }: Props) => {
           <span className="text-sm font-semibold not-italic leading-6 text-natural-6">
             Work Level
           </span>
-          <span className="text-base font-semibold not-italic leading-6 text-natural-8">
+          <span className="text-base font-semibold not-italic leading-6 text-natural-8 dark:text-white">
             {workLevel}
           </span>
         </div>
@@ -136,7 +136,7 @@ const JDJobCardLarge = ({ data }: Props) => {
           <span className="text-sm font-semibold not-italic leading-6 text-natural-6">
             Employee Type
           </span>
-          <span className="text-base font-semibold not-italic leading-6 text-natural-8">
+          <span className="text-base font-semibold not-italic leading-6 text-natural-8 dark:text-white">
             {jobType}
           </span>
         </div>
@@ -145,7 +145,7 @@ const JDJobCardLarge = ({ data }: Props) => {
           <span className="text-sm font-semibold not-italic leading-6 text-natural-6">
             Offer Salary
           </span>
-          <span className="text-base font-semibold not-italic leading-6 text-natural-8">
+          <span className="text-base font-semibold not-italic leading-6 text-natural-8 dark:text-white">
             {averagePay}
           </span>
         </div>
@@ -213,7 +213,7 @@ const JDJobCardLarge = ({ data }: Props) => {
           </div>
 
           <div className="flex flex-col items-start gap-[2px]">
-            <span className="text-lg font-bold not-italic leading-6 text-black">
+            <span className="text-lg font-bold not-italic leading-6 text-black dark:text-natural-2">
               {company}
             </span>
             <span className="text-base font-medium not-italic leading-6 text-natural-7">
@@ -231,7 +231,7 @@ const JDJobCardLarge = ({ data }: Props) => {
           icon={"/img/iconography/plus.svg"}
         />
       </div>
-      <span className="ml-10 mt-8 w-[753px] text-base font-normal not-italic leading-6 text-natural-7">
+      <span className="ml-10 mt-8 w-[753px] text-base font-normal not-italic leading-6 text-natural-7 dark:text-natural-5">
         {companyDescription}
       </span>
     </div>
