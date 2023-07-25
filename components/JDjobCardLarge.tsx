@@ -22,7 +22,7 @@ type Props = {
   };
 };
 
-const JD_jobCardLarge = ({ data }: Props) => {
+const JDjobCardLarge = ({ data }: Props) => {
   const {
     title,
     city,
@@ -238,4 +238,4 @@ const JD_jobCardLarge = ({ data }: Props) => {
   );
 };
 
-export default JD_jobCardLarge;
+export default JDjobCardLarge;

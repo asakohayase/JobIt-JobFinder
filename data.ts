@@ -34,7 +34,7 @@ export const largeJobCardData = {
   logo: "/img/company-logo/ui-hut.svg",
 };
 
-export const JD_inlineJobCardData = {
+export const JDinlineJobCardData = {
   title: "Product Design",
   city: "California, USA",
   companyName: "Google",
@@ -44,7 +44,7 @@ export const JD_inlineJobCardData = {
   link: "/",
 };
 
-export const JD_jobCardLargeData = {
+export const JDjobCardLargeData = {
   title: "Passionate Programmer",
   city: "Sylhet, BD",
   postedDate: "07/13/23",

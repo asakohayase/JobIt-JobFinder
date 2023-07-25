@@ -13,7 +13,7 @@ type Props = {
   };
 };
 
-const JD_inlineJobCard = ({ data }: Props) => {
+const JDinlineJobCard = ({ data }: Props) => {
   const { title, city, averagePayPerHour, postedDate, link } = data;
   return (
     <div className="inline-flex flex-col items-start justify-center gap-[20px] rounded-jobit bg-white p-5 shadow-1 dark:bg-darkBG-3 dark:text-natural-6">
@@ -73,4 +73,4 @@ const JD_inlineJobCard = ({ data }: Props) => {
   );
 };
 
-export default JD_inlineJobCard;
+export default JDinlineJobCard;
