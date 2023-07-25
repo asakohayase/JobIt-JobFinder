@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import ErrorFallback from "@components/ErrorFallback";
 import JD_inlineJobCard from "@components/JD_inlineJobCard";
-import JD_jobCardLarge from "@components/JD_JobCardLarge";
+import JD_jobCardLarge from "@components/JD_jobCardLarge";
 import { JD_inlineJobCardData, JD_jobCardLargeData } from "@data";
 import React from "react";
 import { ErrorBoundary } from "react-error-boundary";
