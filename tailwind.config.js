@@ -39,10 +39,6 @@ module.exports = {
         jobit: "10px",
       },
     },
-    height: {
-      70: "70px",
-      100: "100%",
-    },
   },
   plugins: [],
 };

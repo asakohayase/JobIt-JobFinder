@@ -13,6 +13,7 @@ import JobCard from "./Home/Cards/JobCard";
 import JobCardLarge from "./Home/Cards/JobCardLarge";
 import TestValidation from "./TestValidation";
 import JD_inlineJobCard from "./JD_inlineJobCard";
+import JD_JobCardLarge from "./JD_JobCardLarge";
 
 const ExampleComponents = () => {
   return (
