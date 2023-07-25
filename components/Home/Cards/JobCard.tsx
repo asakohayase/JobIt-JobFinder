@@ -82,7 +82,7 @@ const JobCard = ({ data }: Props) => {
         />
         <Badge
           style={"btn-tag-icon"}
-          title={`10 Applied`} // Needs to be replaced with what we discussed
+          title="10 Applied" // Needs to be replaced with what we discussed
           icon={"/img/iconography/people.svg"}
         />
         <Badge
