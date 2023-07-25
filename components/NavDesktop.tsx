@@ -6,8 +6,8 @@ import Image from "next/image";
 
 const Nav = () => {
   return (
-    <nav className="padding-layout sticky top-0 z-50 flex h-70 items-center border border-transparent border-b-natural-5 dark:border-b-darkBG-3">
-      <ul className="flex w-full flex-row items-center justify-around">
+    <nav className="sticky top-0 z-50 flex h-70 w-full items-center border border-transparent border-b-natural-5 bg-white  dark:border-b-darkBG-3 dark:bg-darkBG-1">
+      <ul className="padding-layout flex w-full flex-row items-center justify-around">
         <li>
           <Link href="/">
             <Image

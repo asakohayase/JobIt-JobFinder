@@ -11,8 +11,8 @@ const NavMobile = () => {
   const toggle = () => setOpen((isOpen) => !isOpen);
 
   return (
-    <motion.div className="sticky top-0">
-      <nav className="z-50 flex h-70 items-center justify-between border border-transparent border-b-natural-5 bg-white px-10 dark:border-darkBG-3 dark:bg-darkBG-1">
+    <motion.div className="sticky top-0 z-50">
+      <nav className="flex h-70 items-center justify-between border border-transparent border-b-natural-5 bg-white  px-10 dark:border-b-darkBG-3 dark:bg-darkBG-1">
         {open ? (
           <Image
             src={"/img/company-logo/jobit.svg"}
@@ -27,15 +27,6 @@ const NavMobile = () => {
             height={30}
             alt={"hamburger logo"}
             onClick={toggle}
-          />
-        )}
-
-        {!open && (
-          <Image
-            src={"/img/company-logo/jobit.svg"}
-            width={80}
-            height={80}
-            alt={"jobit logo"}
           />
         )}
 
