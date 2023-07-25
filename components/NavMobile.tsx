@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import ToggleTheme from "@/components/Reusable/ToggleTheme";
+import ToggleTheme from "./Reusable/ToggleTheme";
 import Link from "next/link";
 
 const NavMobile = () => {
@@ -11,8 +11,8 @@ const NavMobile = () => {
   const toggle = () => setOpen((isOpen) => !isOpen);
 
   return (
-    <motion.div>
-      <div className="flex h-70 items-center justify-between border border-transparent border-b-natural-5 px-10 dark:border-darkBG-3 dark:bg-darkBG-1">
+    <motion.div className="sticky top-0 z-50">
+      <nav className="flex h-70 items-center justify-between border border-transparent border-b-natural-5 bg-white  px-10 dark:border-b-darkBG-3 dark:bg-darkBG-1">
         {open ? (
           <Image
             src={"/img/company-logo/jobit.svg"}
@@ -41,16 +41,16 @@ const NavMobile = () => {
         ) : (
           <ToggleTheme />
         )}
-      </div>
+      </nav>
       <AnimatePresence mode="sync">
         {open && (
           <motion.div
-            className="top-18 absolute right-0 z-50 flex h-100 w-80 items-center bg-white dark:bg-darkBG-1"
+            className="absolute right-0 flex h-screen w-80 items-center bg-white dark:bg-darkBG-1"
             initial="hide"
             animate="show"
             exit="hide"
           >
-            <div className="flex h-100 w-full flex-col items-start  justify-center bg-white dark:bg-darkBG-1">
+            <div className="flex w-full flex-col items-start justify-center bg-white dark:bg-darkBG-1">
               <div className="mb-6 pl-5">
                 <ul>
                   <li className=" py-3 pl-4 pr-32 font-bold text-natural-7 hover:rounded-md hover:border-primary hover:bg-natural-1 hover:text-primary active:border-b-primary dark:hover:bg-darkBG-3">
@@ -63,7 +63,6 @@ const NavMobile = () => {
                     <Link href="/">Estimated Salaries</Link>
                   </li>
                 </ul>
-                {/* <ToggleTheme /> */}
               </div>
               <div className="pl-8">
                 <ToggleTheme />

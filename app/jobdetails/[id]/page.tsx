@@ -1,5 +1,8 @@
+
+/* eslint-disable camelcase */
 import { Metadata } from "next";
 import Image from "next/image";
+
 import React from "react";
 
 import PageTitle from "@components/Reusable/PageTitle";
