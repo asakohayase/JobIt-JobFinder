@@ -3,8 +3,8 @@ import {
   inlineJobCardData,
   largeJobCardData,
   smallJobCardData,
-  JDinlineJobCardData,
-  JDlargeJobCardData,
+  JDJobCardLargeData,
+  JDInlineJobCardData,
 } from "@data";
 import React from "react";
 import Button from "./Reusable/Button";
@@ -12,7 +12,8 @@ import InlineJobCard from "./Home/Cards/InlineJobCard";
 import JobCard from "./Home/Cards/JobCard";
 import JobCardLarge from "./Home/Cards/JobCardLarge";
 import TestValidation from "./TestValidation";
-import JDinlineJobCard from "./JDinlineJobCard";
+import JDInlineJobCard from "./JDInlineJobCard";
+import JDJobCardLarge from "./JDJobCardLarge";
 
 const ExampleComponents = () => {
   return (
@@ -20,8 +21,8 @@ const ExampleComponents = () => {
       <InlineJobCard data={inlineJobCardData} />
       <JobCardLarge data={largeJobCardData} />
       <JobCard data={smallJobCardData} />
-      <JDinlineJobCard data={JDinlineJobCardData} />
-      <JDJobCardLarge data={JDlargeJobCardData} />
+      <JDInlineJobCard data={JDInlineJobCardData} />
+      <JDJobCardLarge data={JDJobCardLargeData} />
 
       <TestValidation />
 

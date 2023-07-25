@@ -1,10 +1,10 @@
 /* eslint-disable camelcase */
 import ErrorFallback from "@/components/ErrorFallback";
-import { JDinlineJobCardData, JDjobCardLargeData } from "@data";
+import { JDInlineJobCardData, JDJobCardLargeData } from "@data";
 import React from "react";
 import { ErrorBoundary } from "react-error-boundary";
-import JDinlineJobCard from "@/components/JDInlineJobCard";
-import JDjobCardLarge from "@/components/JDjobCardLarge";
+import JDInlineJobCard from "@components/JDInlineJobCard";
+import JDJobCardLarge from "@components/JDJobCardLarge";
 
 const jobdetails = ({ params }: { params: { id: String } }) => {
   return (
@@ -21,8 +21,8 @@ const jobdetails = ({ params }: { params: { id: String } }) => {
               year: "numeric",
             })}
           </p>
-          <JDinlineJobCard data={JDinlineJobCardData} />
-          <JDjobCardLarge data={JDjobCardLargeData} />
+          <JDInlineJobCard data={JDInlineJobCardData} />
+          <JDJobCardLarge data={JDJobCardLargeData} />
           <section className="flex justify-between">
             {/* Job Details */}
 
