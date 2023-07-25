@@ -1,8 +1,8 @@
-/* eslint-disable tailwindcss/no-custom-classname */
-import PageTitle from "@components/Reusable/PageTitle";
 import { Metadata } from "next";
 import Image from "next/image";
 import React from "react";
+
+import PageTitle from "@components/Reusable/PageTitle";
 
 export const metadata: Metadata = {
   title: "Jobit - Job Details",
