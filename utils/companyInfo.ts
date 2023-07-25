@@ -3,6 +3,10 @@ export const companyInfo = {
     id: "L20vMHZsZjpBZG9iZQ==",
     logo: "/img/company-logo/adobe-illustrator.svg",
   },
+  "Adobe, Inc.": {
+    id: "L20vMHZsZjpBZG9iZQ==",
+    logo: "/img/company-logo/adobe-illustrator.svg",
+  },
   airbnb: {
     id: "L20vMDEwcW1zenA6QWlyYm5i",
     logo: "/img/company-logo/airbnb.svg",
