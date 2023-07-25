@@ -14,7 +14,7 @@ const page = ({ params }: { params: { id: String } }) => {
     <section className="padding-layout flex flex-col gap-y-9  pb-[90px] pt-[46px]">
       <PageTitle />
       <section>
-        <button className="flex items-center justify-around gap-2 rounded-jobit p-2 dark:bg-darkBG-3">
+        <button className="flex items-center justify-around gap-2 rounded-jobit px-[10px] py-[7px] dark:bg-darkBG-3">
           <Image
             src={"/img/icons/cheveron.svg"}
             priority
@@ -24,7 +24,18 @@ const page = ({ params }: { params: { id: String } }) => {
           />
           <a className="pr-1">Back</a>
         </button>
-        <article className="flex w-2/3 dark:bg-darkBG-3"></article>
+        <article className="flex w-2/3 items-center justify-center dark:bg-darkBG-3">
+          <div>
+            <p>Large Job Details Component</p>
+          </div>
+        </article>
+        <article className="flex flex-col">
+          {[...Array(9)].map((i) => (
+            <article key={i}>
+              <h1>Inline Similar jobs Component</h1>
+            </article>
+          ))}
+        </article>
       </section>
     </section>
   );
