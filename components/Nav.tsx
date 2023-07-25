@@ -2,8 +2,8 @@
 
 import { useMediaQuery } from "@hooks/useMediaQuery";
 import React from "react";
-import NavDesktop from "./NavDesktop";
-import NavMobile from "./NavMobile";
+import NavDesktop from "@/components/NavDesktop";
+import NavMobile from "@/components//NavMobile";
 
 const Nav = () => {
   const md = useMediaQuery("md");
