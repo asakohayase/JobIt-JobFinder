@@ -14,7 +14,7 @@ const page = ({ params }: { params: { id: String } }) => {
     <section className="padding-layout flex flex-col gap-y-9  pb-[90px] pt-[46px]">
       <PageTitle />
       <section>
-        <div className="hidden pb-6 ">
+        <div className="hidden pb-6 md:flex">
           <button className="flex items-center justify-around gap-2 rounded-jobit px-[10px] py-[7px] dark:bg-darkBG-3">
             <Image
               src={"/img/icons/cheveron.svg"}
