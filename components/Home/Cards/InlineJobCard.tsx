@@ -4,7 +4,6 @@ import React from "react";
 
 import { averagePayPerHour, getEmployementType } from "@/utils/index";
 import { Job } from "@types";
-import { title } from "process";
 import { getLogo } from "@utils/getLogo";
 
 type Props = {

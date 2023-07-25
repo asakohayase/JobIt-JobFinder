@@ -4,7 +4,11 @@ import React from "react";
 
 import Badge from "@/components/Reusable/Badge";
 import Button from "@/components/Reusable/Button";
-import { getSincePostedDate, getEmployementType } from "@/utils/index";
+import {
+  getSincePostedDate,
+  getEmployementType,
+  averagePayPerHour,
+} from "@/utils/index";
 import { Job } from "@types";
 import { getLogo } from "@utils/getLogo";
 
@@ -27,7 +31,7 @@ const JobCard = ({ data }: Props) => {
   } = data;
 
   const logo = getLogo(employer_name);
-  const averagePay = (job_min_salary + job_max_salary) / 2;
+  const averagePay = averagePayPerHour(job_min_salary, job_max_salary);
   return (
     <div className="flex w-full flex-col gap-y-[30px] rounded-jobit bg-white p-5 shadow-1 dark:bg-darkBG-2 lg:max-w-[400px]">
       <div className="flex items-center gap-5">
@@ -88,7 +92,7 @@ const JobCard = ({ data }: Props) => {
         />
       </div>
       <div className="flex items-center justify-between">
-        {averagePay !== 0 ? (
+        {averagePay !== "0" ? (
           <span className="body-6 lg:body-2 text-black dark:text-white">
             ${averagePay}
             <span className="body-8 lg:body-3 text-natural-7"> /month</span>
