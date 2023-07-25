@@ -1,6 +1,6 @@
 import React from "react";
 
-const PageTitle = ({ title = "" }) => {
+const PageTitle = ({ title = "Let's find your dream job" }) => {
   return (
     <div className="flex flex-col gap-2 md:gap-4">
       <h1 className="headline-2 tracking-wide">{title}</h1>
