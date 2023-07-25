@@ -1,38 +1,35 @@
+/* eslint-disable camelcase */
 import Image from "next/image";
 import React from "react";
+
 import Badge from "@/components/Reusable/Badge";
 import Button from "@/components/Reusable/Button";
 import { getSincePostedDate, getEmployementType } from "@/utils/index";
+import { Job } from "@types";
+import { getLogo } from "@utils/getLogo";
 
 type Props = {
-  data: {
-    title: string;
-    description: string;
-    peopleApplied: number;
-    postedDate: string;
-    averagePay: number;
-    technologies?: string[];
-    logo: string;
-    link: string;
-    jobType: string;
-  };
+  data: Job;
 };
 
-const JobCard = ({
-  data: {
-    title,
-    description,
-    peopleApplied,
-    postedDate,
-    averagePay,
-    technologies,
-    logo,
-    link,
-    jobType,
-  },
-}: Props) => {
+const JobCard = ({ data }: Props) => {
+  const {
+    job_description,
+    job_title,
+    job_employment_type,
+    job_apply_link,
+    job_min_salary,
+    job_max_salary,
+    job_is_remote,
+    job_required_skills,
+    job_posted_at_datetime_utc,
+    employer_name,
+  } = data;
+
+  const logo = getLogo(employer_name);
+  const averagePay = (job_min_salary + job_max_salary) / 2;
   return (
-    <div className="flex w-full lg:max-w-[400px] flex-col gap-y-[30px] rounded-jobit bg-white p-5 shadow-1 dark:bg-darkBG-2">
+    <div className="flex w-full flex-col gap-y-[30px] rounded-jobit bg-white p-5 shadow-1 dark:bg-darkBG-2 lg:max-w-[400px]">
       <div className="flex items-center gap-5">
         <div className="flex h-[46px] w-[46px] items-center justify-center  rounded-lg border-[3px] border-natural-3 bg-natural-2 dark:border-logoDark dark:bg-logoDark lg:h-[64px] lg:w-[64px]">
           <div className="relative h-[34.5px] w-[34.5px] lg:h-12 lg:w-12">
@@ -47,8 +44,8 @@ const JobCard = ({
         </div>
         <div className="flex h-[60px] flex-1 flex-col justify-between lg:h-16">
           <div className="flex items-start justify-between">
-            <h2 className="body-6 lg:body-2 text-black dark:text-white line-clamp-1 lg:max-w-[250px]">
-              {title}
+            <h2 className="body-6 lg:body-2 line-clamp-1 text-black dark:text-white lg:max-w-[250px]">
+              {job_title}
             </h2>
             <div className="shrink-0">
               <Image
@@ -60,7 +57,7 @@ const JobCard = ({
             </div>
           </div>
           <div className="flex gap-[5px]">
-            {technologies
+            {job_required_skills
               ?.splice(0, 3)
               .map((technology) => (
                 <Badge key={technology} style={"btn-tag"} title={technology} />
@@ -69,22 +66,24 @@ const JobCard = ({
         </div>
       </div>
       <p className="lg:body-8 body-12 line-clamp-6 text-natural-7 dark:text-natural-6">
-        {description}
+        {job_description}
       </p>
       <div className="flex justify-between">
         <Badge
           style={"btn-tag-icon"}
-          title={`${getEmployementType(jobType.toLocaleLowerCase())}`}
+          title={`${getEmployementType(
+            job_employment_type.toLocaleLowerCase()
+          )}`}
           icon={"/img/iconography/briefcase.svg"}
         />
         <Badge
           style={"btn-tag-icon"}
-          title={`${peopleApplied} Applied`}
+          title={`10 Applied`} // Needs to be replaced with what we discussed
           icon={"/img/iconography/people.svg"}
         />
         <Badge
           style={"btn-tag-icon"}
-          title={`${getSincePostedDate(postedDate)}`}
+          title={`${getSincePostedDate(job_posted_at_datetime_utc)}`}
           icon={"/img/iconography/clock.svg"}
         />
       </div>
@@ -105,7 +104,7 @@ const JobCard = ({
         )}
 
         <Button
-          href={link}
+          href={job_apply_link}
           style={"btn-primary lg:py-[14px] px-[14px] py-2 lg:px-3"}
           title={"Apply Now"}
         />
