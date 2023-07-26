@@ -94,9 +94,7 @@ const JDJobCardLarge = ({ data }: Props) => {
         <div className="flex items-start justify-end gap-[15px]">
           <Button
             href={link}
-            style={
-              "btn-primary w-32 px-3.5 py-2.5 justify-center items-center gap-[10px]"
-            }
+            style={"btn-primary px-[22px] py-[10px]"}
             title={"Apply Now"}
           />
           <Button
