@@ -41,7 +41,7 @@ const JDJobCardLarge = ({ data }: Props) => {
   } = data;
 
   return (
-    <div className="flex h-[1549px] w-[860px] shrink-0 flex-col">
+    <section className="flex h-[1549px] w-[860px] shrink-0 flex-col">
       <div className="relative">
         <div className="h-48 w-[820px] shrink-0">
           <Image
@@ -150,19 +150,19 @@ const JDJobCardLarge = ({ data }: Props) => {
       </div>
 
       <div className="ml-10 mt-8 flex w-[778px] flex-col items-start gap-[12px]">
-        <span className="text-lg font-bold not-italic leading-6 text-black dark:text-white">
+        <h2 className="text-lg font-bold not-italic leading-6 text-black dark:text-white">
           About The Job
-        </span>
+        </h2>
 
-        <span className="text-base font-normal not-italic leading-6 text-natural-7">
+        <p className="text-base font-normal not-italic leading-6 text-natural-7">
           {description}
-        </span>
+        </p>
       </div>
 
       <div className="ml-10 mt-8 flex w-[778px] flex-col items-start gap-[12px]">
-        <span className="text-lg font-bold not-italic leading-6 text-black dark:text-white">
+        <h2 className="text-lg font-bold not-italic leading-6 text-black dark:text-white">
           Responsibilities
-        </span>
+        </h2>
 
         <div className="text-base font-normal not-italic leading-6 text-natural-7">
           <ul className="list-none">
@@ -177,9 +177,9 @@ const JDJobCardLarge = ({ data }: Props) => {
       </div>
 
       <div className="ml-10 mt-8 flex w-[778px] flex-col items-start gap-[12px]">
-        <span className="text-lg font-bold not-italic leading-6 text-black dark:text-white">
+        <h2 className="text-lg font-bold not-italic leading-6 text-black dark:text-white">
           Qualifications and Skill Sets
-        </span>
+        </h2>
 
         <span className="text-base font-normal not-italic leading-6 text-natural-7">
           <ul className="list-none">
@@ -194,9 +194,9 @@ const JDJobCardLarge = ({ data }: Props) => {
       </div>
 
       <span className="ml-10 mt-8 h-px w-[780px] bg-natural-2" />
-      <span className="ml-10 mt-8 text-lg font-bold not-italic">
+      <h2 className="ml-10 mt-8 text-lg font-bold not-italic">
         About The Company
-      </span>
+      </h2>
 
       <div className="ml-10 mt-5 inline-flex items-center gap-[487px]">
         <div className="flex items-center gap-[20px]">
@@ -229,10 +229,10 @@ const JDJobCardLarge = ({ data }: Props) => {
           icon={"/img/iconography/plus.svg"}
         />
       </div>
-      <span className="ml-10 mt-8 w-[753px] text-base font-normal not-italic leading-6 text-natural-7 dark:text-natural-5">
+      <p className="ml-10 mt-8 w-[753px] text-base font-normal not-italic leading-6 text-natural-7 dark:text-natural-5">
         {companyDescription}
-      </span>
-    </div>
+      </p>
+    </section>
   );
 };
 

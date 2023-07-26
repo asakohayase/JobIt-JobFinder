@@ -16,7 +16,7 @@ type Props = {
 const JDInlineJobCard = ({ data }: Props) => {
   const { title, city, averagePayPerHour, postedDate, link } = data;
   return (
-    <div className="inline-flex flex-col items-start justify-center gap-[20px] rounded-jobit bg-white p-5 shadow-1 dark:bg-darkBG-3 dark:text-natural-6">
+    <aside className="inline-flex flex-col items-start justify-center gap-[20px] rounded-jobit bg-white p-5 shadow-1 dark:bg-darkBG-3 dark:text-natural-6">
       <div className="flex items-start gap-[30px]">
         <div className="flex items-center gap-[15px]">
           <div className="relative">
@@ -30,9 +30,9 @@ const JDInlineJobCard = ({ data }: Props) => {
             />
           </div>
           <div className="flex w-48 flex-col items-start gap-[6px] pr-0">
-            <span className="text-lg font-bold not-italic leading-6 text-black dark:text-white">
+            <h1 className="text-lg font-bold not-italic leading-6 text-black dark:text-white">
               {title}
-            </span>
+            </h1>
             <span className="text-sm font-medium not-italic leading-5 text-natural-6">
               {city}
             </span>
@@ -69,7 +69,7 @@ const JDInlineJobCard = ({ data }: Props) => {
           </div>
         </div>
       </div>
-    </div>
+    </aside>
   );
 };
 
