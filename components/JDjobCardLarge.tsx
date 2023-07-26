@@ -23,7 +23,6 @@ type Props = {
 };
 
 const JDJobCardLarge = ({ data }: Props) => {
-  console.log(data);
   const {
     title,
     city,
