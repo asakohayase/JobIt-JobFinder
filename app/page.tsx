@@ -7,7 +7,6 @@ import HomepageJobPosts from "@components/Home/HomepageJobPosts";
 import HomepageFeatured from "@components/Home/HomepageFeatured";
 import HomepageRecommended from "@components/Home/HomepageRecommended";
 import { getAllJobs } from "@utils/getAllJobs";
-import InlineJobCard from "@components/Home/Cards/InlineJobCard";
 
 const Home = async () => {
   const jobListings = await getAllJobs();
