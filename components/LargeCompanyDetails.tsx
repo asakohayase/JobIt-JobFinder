@@ -127,7 +127,7 @@ const LargeCompanyDetails = ({ job, jobListings }: Props) => {
                 {[...Array(4)].map((element, index) => (
                   <div
                     key={index}
-                    className="flex h-56 w-[360px] grow items-center justify-center rounded-lg shadow-1 dark:bg-darkBG-3 dark:shadow-none md:shadow-lg"
+                    className="flex h-56 w-[360px] grow items-center justify-center rounded-lg shadow-lg dark:bg-darkBG-3 dark:shadow-none md:shadow-lg"
                   >
                     Job Card
                   </div>
