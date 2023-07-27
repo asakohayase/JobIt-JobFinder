@@ -9,11 +9,10 @@ import { getLogo } from "@utils/getLogo";
 /**
  * Example Use
  *
- * * * * * * * * * * * * * * * * *
- * 								 *
- * 			Manual Use			 *
- * 								 *
- * * * * * * * * * * * * * * * * *
+ *
+ * MANUAL USE
+ *
+ *
  *
  * <LargeCompanyDetails
  *           job={{
@@ -33,11 +32,11 @@ import { getLogo } from "@utils/getLogo";
  *          }
  *         />
  *
- * * * * * * * * * * * * * * * * *
- * 								 *
- * 			Dynamic Use			 *
- * 								 *
- * * * * * * * * * * * * * * * * *
+ *
+ *
+ * DYNAMIC USE
+ *
+ *
  *  <LargeCompanyDetails
  *		job={data}
  *      jobListings={jobListings}
