@@ -150,3 +150,7 @@ export type JobDetailsResponse = {
 export interface HomepageCardProps {
   jobListings: Job[];
 }
+
+export interface CompanyPageProps {
+  jobDetails: Job[];
+}
