@@ -28,7 +28,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "components/JD_JobCardLarge.tsx"
+    "components/JDJobCardLarge.tsx"
   ],
   "exclude": ["node_modules"]
 }
