@@ -6,8 +6,8 @@ import { HomepageCardProps } from "@types";
 const HomepageRecommended = async ({ jobListings }: HomepageCardProps) => {
   // Need to create algo for recommended
   return (
-    <div>
-      <section className="flex w-[23rem] shrink-0 flex-col gap-4">
+    <div className="flex">
+      <section className="flex w-[23rem] flex-col gap-4">
         <div className="flex items-center justify-between">
           <h5 className="headline-5">Recommended For You</h5>
           <Button

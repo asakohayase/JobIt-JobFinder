@@ -15,16 +15,16 @@ const Home = async () => {
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       <main className="padding-layout flex flex-col gap-8 py-6 dark:bg-darkBG-1 md:py-10">
         <PageTitle title="Welcome to the Job Search Platform for Developers" />
-        <div className="flex flex-col gap-8 md:flex-row md:justify-between md:gap-0">
-          <div className="flex flex-col gap-8">
+        <section className="flex flex-col gap-8 md:gap-0">
+          <section className="flex flex-col gap-8 md:flex-row">
             {/* Latest Job Posts */}
             <HomepageJobPosts jobListings={jobListings} />
-            {/* Featured Companies */}
-            <HomepageFeatured />
-          </div>
-          {/* Recommended Job Posts */}
-          <HomepageRecommended jobListings={jobListings} />
-        </div>
+            {/* Recommended Job Posts */}
+            <HomepageRecommended jobListings={jobListings} />
+          </section>
+          {/* Featured Companies */}
+          <HomepageFeatured />
+        </section>
       </main>
     </ErrorBoundary>
   );
