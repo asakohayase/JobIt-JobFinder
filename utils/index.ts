@@ -24,7 +24,6 @@ export const getEmployementType = (type: string) => {
 
   if (type === "parttime") {
     return "Part Time";
-  } else {
-    return type;
   }
+  return type;
 };
