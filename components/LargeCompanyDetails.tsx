@@ -6,48 +6,59 @@ import Button from "./Reusable/Button";
 import { Job } from "@types";
 import { getLogo } from "@utils/getLogo";
 
-/**
- * Example Use
- *
- *
- * MANUAL USE
- *
- *
- *
- * <LargeCompanyDetails
- *           job={{
- *             job_title: "Software Dev",
- *             job_description: "Test Desc.",
- *             job_apply_link: "",
- *             job_city: "Los Angeles",
- *             job_employment_type: "FULLTIME",
- *             job_id: 1,
- *             job_is_remote: true,
- *             job_max_salary: 120000,
- *             job_min_salary: 100000,
- *             job_posted_at_datetime_utc: Date.now().toLocaleString(),
- *             job_required_skills: [],
- *             employer_logo: "",
- *             employer_name: "Google",
- *          }
- *         />
- *
- *
- *
- * DYNAMIC USE
- *
- *
- *  <LargeCompanyDetails
- *		job={data}
- *      jobListings={jobListings}
- *  />
- */
-
 type Props = {
   job: Job;
   jobListings?: Job[];
 };
-
+/**
+ * LargeCompanyDetails component displays detailed information about a company and its job listings.
+ * @param {Props} props - The props object containing job and jobListings data.
+ * @returns {JSX.Element} A JSX element representing the LargeCompanyDetails component.
+ *
+ * @example
+ * <LargeCompanyDetails
+ *   job={{
+ *     job_title: "Software Dev",
+ *     job_description: "Test Desc.",
+ *     job_apply_link: "",
+ *     job_city: "Los Angeles",
+ *     job_employment_type: "FULLTIME",
+ *     job_id: 1,
+ *     job_is_remote: true,
+ *     job_max_salary: 120000,
+ *     job_min_salary: 100000,
+ *     job_posted_at_datetime_utc: Date.now().toLocaleString(),
+ *     job_required_skills: [],
+ *     employer_logo: "",
+ *     employer_name: "Google",
+ *   }}
+ * />
+ *
+ *
+ * @example
+ * const data = {
+ *   job_title: "Software Engineer",
+ *   job_description: "Join our software engineering team!",
+ *   job_apply_link: "https://example.com/apply",
+ *   job_city: "San Francisco",
+ *   job_employment_type: "FULLTIME",
+ *   job_id: 2,
+ *   job_is_remote: false,
+ *   job_max_salary: 150000,
+ *   job_min_salary: 120000,
+ *   job_posted_at_datetime_utc: "2023-07-27T12:00:00Z",
+ *   job_required_skills: ["JavaScript", "React", "Node.js"],
+ *   employer_logo: "https://example.com/logo.png",
+ *   employer_name: "Facebook",
+ * };
+ *
+ * const jobListings = [...]; // An array of additional job listings
+ *
+ * <LargeCompanyDetails
+ *   job={data}
+ *   jobListings={jobListings}
+ * />
+ */
 const LargeCompanyDetails = ({ job, jobListings }: Props) => {
   const {
     job_description,
