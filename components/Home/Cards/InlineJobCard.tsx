@@ -5,26 +5,31 @@ import React from "react";
 import { averagePayPerHour, getEmployementType } from "@/utils/index";
 import { Job } from "@types";
 import { getLogo } from "@utils/getLogo";
+import Link from "next/link";
 
 type Props = {
   data: Job;
 };
 
-const InlineJobCard = ({ data }: Props) => {
-  const {
+const InlineJobCard = ({
+  data: {
     job_title,
     job_min_salary,
     job_max_salary,
     employer_name,
     job_city,
     job_employment_type,
-  } = data;
-
+    job_id,
+  },
+}: Props) => {
   const logo = getLogo(employer_name);
   const averagePay = averagePayPerHour(job_min_salary, job_max_salary);
 
   return (
-    <div className="lg:body-16 body-21 flex w-full items-center justify-between rounded-[10px] bg-natural-3 px-3 py-[14px] dark:bg-darkBG-3 dark:text-natural-6 lg:max-w-[360px]">
+    <Link
+      href={`/jobdetails/${job_id}`}
+      className="lg:body-16 body-21 flex w-full items-center justify-between rounded-[10px] bg-natural-3 px-3 py-[14px] hover:bg-natural-5 dark:bg-darkBG-3 dark:text-natural-6 hover:dark:bg-darkBG-1 lg:max-w-[360px]"
+    >
       <div className="flex items-center gap-[9px]">
         <div className="relative flex h-9 w-9 shrink-0 items-center justify-center">
           <Image src={logo} fill priority alt="Logo" className="object-cover" />
@@ -35,29 +40,29 @@ const InlineJobCard = ({ data }: Props) => {
           </span>
           <div className="flex items-center space-x-[5px] text-natural-7">
             <span>{employer_name}</span>
-            <span className="h-[3px] w-[3px] rounded-full bg-dot dark:bg-natural-7" />
+            {job_city && (
+              <span className="h-[3px] w-[3px] rounded-full bg-dot dark:bg-natural-7" />
+            )}
             <span>{job_city}</span>
           </div>
         </div>
       </div>
 
-      <div className="flex shrink-0 flex-col items-end justify-between gap-y-1">
-        {averagePay !== "0" ? (
+      <div className="ml-1 flex shrink-0 flex-col items-end justify-between gap-y-1 place-self-start">
+        {averagePay !== "0" && (
           <span className="body-15 text-black dark:text-white">
             $ {averagePay}
             <span className="text-natural-7">/ Hr</span>
           </span>
-        ) : (
-          <span className="body-15 text-black dark:text-white">
-            $ <span className="text-natural-7">N/A</span>
-          </span>
         )}
 
         <span className="capitalize text-natural-7">
-          {getEmployementType(job_employment_type)?.toLocaleLowerCase()}
+          {getEmployementType(
+            job_employment_type.toLocaleLowerCase()
+          )?.toLocaleLowerCase()}
         </span>
       </div>
-    </div>
+    </Link>
   );
 };
 
