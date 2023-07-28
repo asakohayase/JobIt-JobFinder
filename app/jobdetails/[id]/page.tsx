@@ -1,4 +1,3 @@
-
 /* eslint-disable camelcase */
 import { Metadata } from "next";
 import Image from "next/image";
@@ -6,6 +5,8 @@ import Image from "next/image";
 import React from "react";
 
 import PageTitle from "@components/Reusable/PageTitle";
+import JDJobCardLarge from "@components/JDJobCardLarge";
+import InlineJobCard from "@components/Home/Cards/InlineJobCard";
 
 export const metadata: Metadata = {
   title: "Jobit - Job Details",
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 
 const page = ({ params }: { params: { id: String } }) => {
   return (
-    <section className="padding-layout flex flex-col gap-y-9  pb-[90px] pt-[46px]">
+    <main className="padding-layout flex flex-col gap-y-9 pb-[90px] pt-[46px]">
       <PageTitle />
       <section>
         <div className="hidden pb-6 md:flex">
@@ -47,7 +48,7 @@ const page = ({ params }: { params: { id: String } }) => {
           </article>
         </section>
       </section>
-    </section>
+    </main>
   );
 };
 

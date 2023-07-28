@@ -1,4 +1,4 @@
-export const companyInfo = {
+export const companyInfo: { [key: string]: { id: string; logo: string } } = {
   Adobe: {
     id: "L20vMHZsZjpBZG9iZQ==",
     logo: "/img/company-logo/adobe-illustrator.svg",

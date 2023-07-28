@@ -112,12 +112,12 @@
 
   /* Badge button without icon */
   .btn-tag {
-    @apply rounded-[5px] bg-natural-3 dark:bg-darkBG-3 cursor-pointer text-natural-6 text-sm leading-[22px] hover:opacity-80 py-[3px] px-[6px] lg:py-[5px] lg:px-[10px];
+    @apply rounded-[5px] bg-natural-3 dark:bg-darkBG-3 text-natural-6 text-sm leading-[22px] py-[3px] px-[6px] lg:py-[5px] lg:px-[10px];
   }
 
   /* Badge button with icon */
   .btn-tag-icon {
-    @apply flex gap-2 items-center rounded-[5px] cursor-pointer bg-natural-3 dark:bg-darkBG-3 text-natural-6 text-sm leading-[22px] hover:opacity-80 py-[3px] px-[6px] lg:py-[5px] lg:px-[10px];
+    @apply flex gap-2 items-center rounded-[5px] bg-natural-3 dark:bg-darkBG-3 text-natural-6 text-sm leading-[22px] py-[3px] px-[6px] lg:py-[5px] lg:px-[10px];
   }
 
   .btn-outline-green {

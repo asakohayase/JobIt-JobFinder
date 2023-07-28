@@ -22,7 +22,7 @@ type Props = {
   };
 };
 
-const JD_jobCardLarge = ({ data }: Props) => {
+const JDJobCardLarge = ({ data }: Props) => {
   const {
     title,
     city,
@@ -41,20 +41,19 @@ const JD_jobCardLarge = ({ data }: Props) => {
   } = data;
 
   return (
-    <div className="flex h-[1549px] w-[860px] shrink-0 flex-col space-y-10">
+    <section className="flex h-[1549px] w-[860px] shrink-0 flex-col">
       <div className="relative">
-        <div className="h-48 relative w-[820px] shrink-0 rounded-[20px]">
+        <div className="h-48 w-[820px] shrink-0">
           <Image
             src={"/img/widgets/header.png"}
             alt="header"
             fill
             priority
-            className="object-contain"
+            className="rounded-t-[20px]"
           />
         </div>
-
-        <div className="h-16 -mt-12 ml-5 flex w-16 shrink-0 items-center justify-center gap-[10px] rounded-[10px] border-[3px] border-natural-3 bg-black bg-opacity-[0.06] p-2">
-          <div className="h-16 relative w-16 shrink-0">
+        <div className="item-center absolute -bottom-10 left-[40px] flex justify-center rounded-[10px] bg-natural-3">
+          <div className="relative m-[3px] h-16 w-16 shrink-0 ">
             <Image
               src={"/img/company-logo/ui-hut.svg"}
               alt="logo"
@@ -65,8 +64,7 @@ const JD_jobCardLarge = ({ data }: Props) => {
           </div>
         </div>
       </div>
-
-      <div className="flex items-center gap-[150px]">
+      <div className="ml-[37.5px] mt-[72px] flex items-center gap-[150px]">
         <div className="inline-flex flex-col items-start gap-[6px]">
           <div className="flex items-center gap-[20px]">
             <span className="text-2xl font-bold not-italic leading-8 dark:text-white">
@@ -93,10 +91,10 @@ const JD_jobCardLarge = ({ data }: Props) => {
           </div>
         </div>
 
-        <div className="flex items-center justify-between gap-[15px]">
+        <div className="flex items-start justify-end gap-[15px]">
           <Button
             href={link}
-            style={"btn-primary lg:py-[12px] px-[38px] py-[9px] lg:px-[52.5px]"}
+            style={"btn-primary px-[22px] py-[10px]"}
             title={"Apply Now"}
           />
           <Button
@@ -113,58 +111,58 @@ const JD_jobCardLarge = ({ data }: Props) => {
         </div>
       </div>
 
-      <div className="inline-flex items-center justify-center gap-[40px] rounded-[20px] bg-natural-3">
-        <div className="flex flex-col items-start justify-center gap-[10px] px-[16px] py-[24px]">
+      <div className="ml-10 mt-8 inline-flex items-center justify-center gap-[40px] rounded-[20px] bg-natural-3 dark:bg-darkBG-3">
+        <div className="flex flex-col items-start justify-center gap-[10px] px-[24px] py-[16px]">
           <span className="text-sm font-semibold not-italic leading-6 text-natural-6">
             Experience
           </span>
-          <span className="text-base font-semibold not-italic leading-6 text-natural-8">
+          <span className="text-base font-semibold not-italic leading-6 text-natural-8 dark:text-white">
             {experience}
           </span>
         </div>
 
-        <div className="flex flex-col items-start gap-[10px] px-[16px] py-[24px]">
+        <div className="flex flex-col items-start gap-[10px] px-[24px] py-[16px]">
           <span className="text-sm font-semibold not-italic leading-6 text-natural-6">
             Work Level
           </span>
-          <span className="text-base font-semibold not-italic leading-6 text-natural-8">
+          <span className="text-base font-semibold not-italic leading-6 text-natural-8 dark:text-white">
             {workLevel}
           </span>
         </div>
 
-        <div className="flex flex-col items-start gap-[10px] px-[16px] py-[24px]">
+        <div className="flex flex-col items-start gap-[10px] px-[24px] py-[16px]">
           <span className="text-sm font-semibold not-italic leading-6 text-natural-6">
             Employee Type
           </span>
-          <span className="text-base font-semibold not-italic leading-6 text-natural-8">
+          <span className="text-base font-semibold not-italic leading-6 text-natural-8 dark:text-white">
             {jobType}
           </span>
         </div>
 
-        <div className="flex flex-col items-start justify-center gap-[10px] px-[16px] py-[24px]">
+        <div className="flex flex-col items-start justify-center gap-[10px] px-[24px] py-[16px]">
           <span className="text-sm font-semibold not-italic leading-6 text-natural-6">
             Offer Salary
           </span>
-          <span className="text-base font-semibold not-italic leading-6 text-natural-8">
+          <span className="text-base font-semibold not-italic leading-6 text-natural-8 dark:text-white">
             {averagePay}
           </span>
         </div>
       </div>
 
-      <div className="flex w-[778px] flex-col items-start gap-[12px]">
-        <span className="text-lg font-bold not-italic leading-6 text-black dark:text-white">
+      <div className="ml-10 mt-8 flex w-[778px] flex-col items-start gap-[12px]">
+        <h2 className="text-lg font-bold not-italic leading-6 text-black dark:text-white">
           About The Job
-        </span>
+        </h2>
 
-        <span className="text-base font-normal not-italic leading-6 text-natural-7">
+        <p className="text-base font-normal not-italic leading-6 text-natural-7">
           {description}
-        </span>
+        </p>
       </div>
 
-      <div className="flex w-[778px] flex-col items-start gap-[12px]">
-        <span className="text-lg font-bold not-italic leading-6 text-black dark:text-white">
+      <div className="ml-10 mt-8 flex w-[778px] flex-col items-start gap-[12px]">
+        <h2 className="text-lg font-bold not-italic leading-6 text-black dark:text-white">
           Responsibilities
-        </span>
+        </h2>
 
         <div className="text-base font-normal not-italic leading-6 text-natural-7">
           <ul className="list-none">
@@ -178,10 +176,10 @@ const JD_jobCardLarge = ({ data }: Props) => {
         </div>
       </div>
 
-      <div className="flex w-[778px] flex-col items-start gap-[12px]">
-        <span className="text-lg font-bold not-italic leading-6 text-black dark:text-white">
+      <div className="ml-10 mt-8 flex w-[778px] flex-col items-start gap-[12px]">
+        <h2 className="text-lg font-bold not-italic leading-6 text-black dark:text-white">
           Qualifications and Skill Sets
-        </span>
+        </h2>
 
         <span className="text-base font-normal not-italic leading-6 text-natural-7">
           <ul className="list-none">
@@ -195,12 +193,14 @@ const JD_jobCardLarge = ({ data }: Props) => {
         </span>
       </div>
 
-      <span className="h-px w-[780px] bg-natural-2" />
-      <span className="text-lg font-bold not-italic">About The Company</span>
+      <span className="ml-10 mt-8 h-px w-[780px] bg-natural-2" />
+      <h2 className="ml-10 mt-8 text-lg font-bold not-italic">
+        About The Company
+      </h2>
 
-      <div className="inline-flex items-center gap-[487px]">
+      <div className="ml-10 mt-5 inline-flex items-center gap-[487px]">
         <div className="flex items-center gap-[20px]">
-          <div className="h-12 relative w-12 shrink-0">
+          <div className="relative h-12 w-12 shrink-0">
             <Image
               src={"/img/company-logo/ui-hut.svg"}
               alt="logo"
@@ -211,7 +211,7 @@ const JD_jobCardLarge = ({ data }: Props) => {
           </div>
 
           <div className="flex flex-col items-start gap-[2px]">
-            <span className="text-lg font-bold not-italic leading-6 text-black">
+            <span className="text-lg font-bold not-italic leading-6 text-black dark:text-natural-2">
               {company}
             </span>
             <span className="text-base font-medium not-italic leading-6 text-natural-7">
@@ -223,17 +223,17 @@ const JD_jobCardLarge = ({ data }: Props) => {
         <Button
           href={link}
           style={
-            "flex justify-center items-center gap-[6px] px-[7px] px-[10px] round-[10px] border border-primary text-primary rounded-[10px]"
+            "flex justify-center items-center gap-[6px] px-2.5 py-[7px] round-[10px] border border-primary text-primary rounded-[10px]"
           }
           title={"Follow"}
-          icon={"img/iconography/plus.svg"}
+          icon={"/img/iconography/plus.svg"}
         />
       </div>
-      <span className="w-[753px] text-base font-normal not-italic leading-6 text-natural-7">
+      <p className="ml-10 mt-8 w-[753px] text-base font-normal not-italic leading-6 text-natural-7 dark:text-natural-5">
         {companyDescription}
-      </span>
-    </div>
+      </p>
+    </section>
   );
 };
 
-export default JD_jobCardLarge;
+export default JDJobCardLarge;

@@ -6,8 +6,8 @@ export const getLogo = (name: string) => {
   );
 
   const logo =
-    companyInfo[<keyof typeof companyInfo>company[0]]?.logo ||
-    "Some default value";
+    companyInfo[<keyof typeof companyInfo>company[0]]?.logo ??
+    "/img/company-logo/adobeXD.svg";
 
   return logo;
 };
