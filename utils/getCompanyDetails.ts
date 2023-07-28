@@ -9,7 +9,7 @@ export async function getCompanyDetails(company: string, query: string) {
     id = companyData.id;
 
     const url =
-      "https://jsearch.p.rapidapi.com/search?aaaaa" +
+      "https://jsearch.p.rapidapi.com/search?query=" +
       query +
       "&employers=" +
       id;
