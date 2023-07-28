@@ -34,11 +34,12 @@ const Search = () => {
           height={28}
         />
         <select
+          defaultValue={""}
           aria-labelledby="location"
           id="searchLocation"
           className="body-6 md:body-14 mr-6 h-full w-full rounded-r-xl bg-white text-natural-6 focus:outline-none  dark:bg-darkBG-2"
         >
-          <option value="" hidden disabled selected>
+          <option value="" hidden disabled>
             Location
           </option>
           <option value="REMOTE">Remote</option>
@@ -47,8 +48,6 @@ const Search = () => {
               {state.name}
             </option>
           ))}
-          {/* <option value="FULLTIME">California</option>
-          <option value="REMOTE">Maryland</option> */}
         </select>
       </div>
       <div className="mx-4 flex h-16 items-center justify-around gap-4 border-b pl-6 dark:border-b-2 dark:border-[#44444F] md:mx-0 md:w-1/3 md:border-b-0 md:pr-6 dark:md:border-b-0">
@@ -59,11 +58,12 @@ const Search = () => {
           height={28}
         />
         <select
+          defaultValue={""}
           aria-labelledby="jobType"
           id="jobType"
           className="body-6 md:body-14 mr-6 h-full w-full rounded-r-xl bg-white text-natural-6 focus:outline-none dark:bg-darkBG-2"
         >
-          <option value="" hidden disabled selected>
+          <option value="" hidden disabled>
             Job Type
           </option>
           <option value="INTERN">Intern</option>
