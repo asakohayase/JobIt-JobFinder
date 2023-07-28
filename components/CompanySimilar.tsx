@@ -12,9 +12,7 @@ const CompanypageRecommended = async ({ jobDetails }: CompanyPageProps) => {
         </div>
         <section className="flex w-full flex-col items-start gap-5 rounded-jobit">
           {jobDetails.slice(0, 8).map((jobDetails) => (
-            <React.Fragment key={jobDetails.job_id}>
-              <SimilarCompanies data={jobDetails} />
-            </React.Fragment>
+            <SimilarCompanies key={jobDetails.job_id} data={jobDetails} />
           ))}
         </section>
       </section>
