@@ -5,15 +5,11 @@ export async function getCompanyDetails(company: string, query: string) {
   let id: string | null = null;
   try {
     const companyData = companyInfo[company];
-    if (companyData) {
-      id = companyData.id;
-    } else {
-      console.log("Company not found.");
-      return null;
-    }
+    if (!companyData) return null;
+    id = companyData.id;
 
     const url =
-      "https://jsearch.p.rapidapi.com/search?query=" +
+      "https://jsearch.p.rapidapi.com/search?aaaaa" +
       query +
       "&employers=" +
       id;
@@ -33,8 +29,10 @@ export async function getCompanyDetails(company: string, query: string) {
     const jobs = result.data;
 
     return jobs as Job[];
-  } catch (error: any) {
-    console.error(`An error occurred: ${error.message}`);
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(`An error occurred: ${error.message}`);
+    }
     return null;
   }
 }

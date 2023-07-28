@@ -19,8 +19,10 @@ export async function getFirstCompany(company: string) {
     const firstCompany = companies[0];
 
     return firstCompany as JobDetails;
-  } catch (error: any) {
-    console.error(`An error occurred: ${error.message}`);
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(`An error occurred: ${error.message}`);
+    }
     return null;
   }
 }
