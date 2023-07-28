@@ -11,13 +11,14 @@ import {
 } from "@/utils/index";
 import { Job } from "@types";
 import { getLogo } from "@utils/getLogo";
+import Link from "next/link";
 
 type Props = {
   data: Job;
 };
 
-const JobCard = ({ data }: Props) => {
-  const {
+const JobCard = ({
+  data: {
     job_description,
     job_title,
     job_employment_type,
@@ -28,8 +29,9 @@ const JobCard = ({ data }: Props) => {
     job_required_skills,
     job_posted_at_datetime_utc,
     employer_name,
-  } = data;
-
+    job_id,
+  },
+}: Props) => {
   const logo = getLogo(employer_name);
   const averagePay = averagePayPerHour(job_min_salary, job_max_salary);
   return (
@@ -51,18 +53,18 @@ const JobCard = ({ data }: Props) => {
             <h2 className="body-6 lg:body-2 line-clamp-1 text-black dark:text-white lg:max-w-[250px]">
               {job_title}
             </h2>
-            <div className="shrink-0">
+            <Link href={"/#"} scroll={false} className="shrink-0">
               <Image
                 src={"/img/icons/more.svg"}
                 width={19}
                 height={19}
                 alt="icon"
               />
-            </div>
+            </Link>
           </div>
-          <div className="flex gap-[5px]">
+          <div className="flex flex-wrap gap-[5px]">
             {job_required_skills
-              ?.splice(0, 3)
+              ?.splice(0, 2)
               .map((technology) => (
                 <Badge key={technology} style={"btn-tag"} title={technology} />
               ))}
@@ -72,7 +74,7 @@ const JobCard = ({ data }: Props) => {
       <summary className="lg:body-8 body-12 line-clamp-6 text-natural-7 dark:text-natural-6">
         {job_description}
       </summary>
-      <section className="flex justify-between">
+      <section className="flex space-x-3">
         <Badge
           style={"btn-tag-icon"}
           title={`${getEmployementType(
@@ -82,7 +84,7 @@ const JobCard = ({ data }: Props) => {
         />
         <Badge
           style={"btn-tag-icon"}
-          title="10 Applied" // Needs to be replaced with what we discussed
+          title={job_is_remote ? "Remote" : "In-Office"}
           icon={"/img/iconography/people.svg"}
         />
         <Badge
@@ -108,7 +110,7 @@ const JobCard = ({ data }: Props) => {
         )}
 
         <Button
-          href={job_apply_link}
+          href={`/jobdetails/${job_id}`}
           style={"btn-primary lg:py-[14px] px-[14px] py-2 lg:px-3"}
           title={"Apply Now"}
         />
