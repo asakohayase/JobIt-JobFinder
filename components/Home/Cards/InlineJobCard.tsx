@@ -57,9 +57,7 @@ const InlineJobCard = ({
         )}
 
         <span className="capitalize text-natural-7">
-          {getEmployementType(
-            job_employment_type.toLocaleLowerCase()
-          )?.toLocaleLowerCase()}
+          {getEmployementType(job_employment_type.toLocaleLowerCase())}
         </span>
       </div>
     </Link>

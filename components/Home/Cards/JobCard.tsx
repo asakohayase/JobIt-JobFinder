@@ -84,7 +84,7 @@ const JobCard = ({
         />
         <Badge
           style={"btn-tag-icon"}
-          title={job_is_remote ? "Remote" : "In-Office"} // Needs to be replaced with what we discussed
+          title={job_is_remote ? "Remote" : "In-Office"}
           icon={"/img/iconography/people.svg"}
         />
         <Badge
