@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 const page = ({ params }: { params: { id: String } }) => {
   return (
-    <section className="padding-layout flex flex-col gap-y-9  pb-[90px] pt-[46px]">
+    <main className="padding-layout flex flex-col gap-y-9 pb-[90px] pt-[46px]">
       <PageTitle />
       <section>
         <div className="hidden pb-6 md:flex">
@@ -48,7 +48,7 @@ const page = ({ params }: { params: { id: String } }) => {
           </article>
         </section>
       </section>
-    </section>
+    </main>
   );
 };
 

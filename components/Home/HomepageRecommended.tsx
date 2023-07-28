@@ -6,8 +6,8 @@ import { HomepageCardProps } from "@types";
 const HomepageRecommended = async ({ jobListings }: HomepageCardProps) => {
   // Need to create algo for recommended
   return (
-    <div>
-      <section className="flex w-[23rem] shrink-0 flex-col gap-4">
+    <div className="flex">
+      <section className="flex w-[23rem] flex-col gap-4">
         <div className="flex items-center justify-between">
           <h5 className="headline-5">Recommended For You</h5>
           <Button
@@ -17,7 +17,7 @@ const HomepageRecommended = async ({ jobListings }: HomepageCardProps) => {
           />
         </div>
         <div className="flex flex-col items-center gap-2 rounded-jobit bg-white p-4 dark:bg-darkBG-2">
-          {jobListings.slice(0, 5).map((jobListing) => (
+          {jobListings.slice(5, 10).map((jobListing) => (
             <React.Fragment key={jobListing.job_id}>
               <InlineJobCard data={jobListing} />
             </React.Fragment>

@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  transition: ease 0.2s;
-}
-
 @layer components {
   /* General padding for all layout */
 
