@@ -28,6 +28,7 @@ module.exports = {
         black: "#171725",
         dot: "#d8d8d8",
         logoDark: "#2C2C2C",
+        input: "#e2e2ea",
       },
       height: {
         70: "70px",

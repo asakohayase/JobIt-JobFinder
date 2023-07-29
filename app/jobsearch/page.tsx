@@ -3,7 +3,6 @@ import { Metadata } from "next";
 import Image from "next/image";
 
 import PageTitle from "@components/Reusable/PageTitle";
-import Button from "@components/Reusable/Button";
 
 export const metadata: Metadata = {
   title: "Jobit - Job Description",
