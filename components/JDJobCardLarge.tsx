@@ -16,9 +16,8 @@ type Props = {
     responsibilities: string[];
     qualifications: string[];
     company: string;
-    companyDescription: string;
-    followers: string;
     link: string;
+    employer_company_type: string;
   };
 };
 
@@ -35,9 +34,8 @@ const JDJobCardLarge = ({ data }: Props) => {
     responsibilities,
     qualifications,
     company,
-    companyDescription,
-    followers,
     link,
+    employer_company_type,
   } = data;
 
   return (
@@ -215,7 +213,7 @@ const JDJobCardLarge = ({ data }: Props) => {
               {company}
             </span>
             <span className="text-base font-medium not-italic leading-6 text-natural-7">
-              {followers} Followers
+              {employer_company_type}
             </span>
           </div>
         </div>
@@ -229,9 +227,6 @@ const JDJobCardLarge = ({ data }: Props) => {
           icon={"/img/iconography/plus.svg"}
         />
       </div>
-      <p className="ml-10 mt-8 w-[753px] text-base font-normal not-italic leading-6 text-natural-7 dark:text-natural-5">
-        {companyDescription}
-      </p>
     </section>
   );
 };
