@@ -38,6 +38,7 @@ module.exports = {
       },
       borderRadius: {
         jobit: "10px",
+        input: "20px",
       },
     },
   },
