@@ -1,10 +1,10 @@
 import { JobDetails, JobDetailsResponse } from "@types";
 import { companyInfo } from "./companyInfo";
 
-export async function getFirstCompany(job_id: string) {
+export async function getFirstCompany(company_id: string) {
   try {
     const company = Object.keys(companyInfo).find(
-      (key) => companyInfo[key].id === job_id
+      (key) => companyInfo[key].id === company_id
     );
     if (!company) {
       throw new Error("Company with the specified job_id not found.");
