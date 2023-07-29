@@ -112,7 +112,7 @@ const JobCard = ({
         <Button
           href={`/jobdetails/${job_id}`}
           style={"btn-primary lg:py-[14px] px-[14px] py-2 lg:px-3"}
-          title={"Apply Now"}
+          title={"View Details"}
         />
       </section>
     </article>
