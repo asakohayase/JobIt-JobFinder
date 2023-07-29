@@ -7,6 +7,8 @@ import React from "react";
 import PageTitle from "@components/Reusable/PageTitle";
 import JDJobCardLarge from "@components/JDJobCardLarge";
 import InlineJobCard from "@components/Home/Cards/InlineJobCard";
+import { JDInlineJobCardData, JDJobCardLargeData } from "@data";
+import JDInlineJobCard from "@components/JDInlineJobCard";
 
 export const metadata: Metadata = {
   title: "Jobit - Job Details",
@@ -48,6 +50,9 @@ const page = ({ params }: { params: { id: String } }) => {
           </article>
         </section>
       </section>
+
+      <JDInlineJobCard data={JDInlineJobCardData} />
+      <JDJobCardLarge data={JDJobCardLargeData} />
     </main>
   );
 };
