@@ -7,7 +7,7 @@ const HomepageRecommended = async ({ jobListings }: HomepageCardProps) => {
   // Need to create algo for recommended
   return (
     <div className="flex">
-      <section className="flex w-[23rem] flex-col gap-4">
+      <section className="flex w-full flex-col gap-4 md:w-[23rem]">
         <div className="flex items-center justify-between">
           <h5 className="headline-5">Recommended For You</h5>
           <Button
