@@ -16,7 +16,7 @@ const Home = async () => {
       <main className="padding-layout flex flex-col gap-8 py-6 dark:bg-darkBG-1 md:py-10">
         <PageTitle title="Welcome to the Job Search Platform for Developers" />
         <section className="flex flex-col gap-8 md:gap-12">
-          <section className="flex flex-col gap-8 md:flex-row">
+          <section className="flex flex-col gap-8 flex-grow xl:flex-row">
             {/* Latest Job Posts */}
             <HomepageJobPosts jobListings={jobListings} />
             {/* Recommended Job Posts */}
