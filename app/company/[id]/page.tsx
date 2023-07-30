@@ -35,7 +35,10 @@ const Page = async ({ params }: { params: { id: String } }) => {
       <div className="flex flex-col gap-[14px] lg:flex-row lg:gap-x-10">
         <div className="flex w-full max-w-[816px] flex-col gap-y-5">
           <div className="flex h-full items-center justify-center rounded-xl bg-white dark:bg-darkBG-2">
-            <LargeCompanyDetails firstCompany={firstCompany} />
+            <LargeCompanyDetails
+              firstCompany={firstCompany}
+              companyId={companyId}
+            />
           </div>
         </div>
         <div className="md:max-w-[400px]">

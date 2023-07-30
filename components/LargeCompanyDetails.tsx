@@ -1,64 +1,45 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
 import Button from "./Reusable/Button";
 import { Job } from "@types";
 import { getLogo } from "@utils/getLogo";
+import { getCompanyDetails } from "@utils/getCompanyDetails";
+import JobCard from "./Home/Cards/JobCard";
 
 type Props = {
   firstCompany: Job;
+  jobDetails: Job;
+  companyId: string;
 };
-/**
- * LargeCompanyDetails component displays detailed information about a company and its job listings.
- * @param {Props} props - The props object containing job and jobListings data.
- * @returns {JSX.Element} A JSX element representing the LargeCompanyDetails component.
- *
- * @example
- * <LargeCompanyDetails
- *   job={{
- *     job_title: "Software Dev",
- *     job_description: "Test Desc.",
- *     job_apply_link: "",
- *     job_city: "Los Angeles",
- *     job_employment_type: "FULLTIME",
- *     job_id: 1,
- *     job_is_remote: true,
- *     job_max_salary: 120000,
- *     job_min_salary: 100000,
- *     job_posted_at_datetime_utc: Date.now().toLocaleString(),
- *     job_required_skills: [],
- *     employer_logo: "",
- *     employer_name: "Google",
- *   }}
- * />
- *
- *
- * @example
- * const data = {
- *   job_title: "Software Engineer",
- *   job_description: "Join our software engineering team!",
- *   job_apply_link: "https://example.com/apply",
- *   job_city: "San Francisco",
- *   job_employment_type: "FULLTIME",
- *   job_id: 2,
- *   job_is_remote: false,
- *   job_max_salary: 150000,
- *   job_min_salary: 120000,
- *   job_posted_at_datetime_utc: "2023-07-27T12:00:00Z",
- *   job_required_skills: ["JavaScript", "React", "Node.js"],
- *   employer_logo: "https://example.com/logo.png",
- *   employer_name: "Facebook",
- * };
- *
- * const jobListings = [...]; // An array of additional job listings
- *
- * <LargeCompanyDetails
- *   job={data}
- *   jobListings={jobListings}
- * />
- */
-const LargeCompanyDetails = ({ firstCompany }: Props) => {
+
+const LargeCompanyDetails = ({ firstCompany, companyId }: Props) => {
   const logo = getLogo(firstCompany.employer_name);
+  const defaultJobDetails = getCompanyDetails(companyId, "developer");
+  const [query, setQuery] = useState("developer");
+  const [jobDetails, setJobDetails] = useState(defaultJobDetails);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setQuery(e.target.value);
+  };
+
+  useEffect(() => {
+    const handleSearch = async () => {
+      try {
+        const fetchedJobDetails = await getCompanyDetails(companyId, query);
+        setJobDetails(fetchedJobDetails);
+      } catch (error) {
+        if (error instanceof Error) {
+          console.error("Error fetching job listings:", error.message);
+        }
+        return null;
+      }
+    };
+
+    handleSearch();
+  }, [query, companyId]);
 
   return (
     <article className="flex flex-col md:gap-14">
@@ -110,6 +91,7 @@ const LargeCompanyDetails = ({ firstCompany }: Props) => {
                   className="body-7 h-full w-2/3 bg-natural-3 p-3 focus:outline-none dark:bg-darkBG-3"
                   placeholder={"Search Job Title or Keyword"}
                   type="text"
+                  onChange={handleInputChange}
                 />
                 <Button
                   title={"Search"}
@@ -121,12 +103,12 @@ const LargeCompanyDetails = ({ firstCompany }: Props) => {
             <article className="flex flex-col gap-6">
               <h4 className="body-1">Recently Posted Jobs</h4>
               <article className="flex flex-wrap gap-6">
-                {[...Array(4)].map((element, index) => (
+                {jobDetails.slice(0, 4).map((jobDetail: Job) => (
                   <div
-                    key={index}
+                    key={jobDetail.job_id}
                     className="flex h-56 w-[360px] grow items-center justify-center rounded-lg shadow-lg dark:bg-darkBG-3 dark:shadow-none md:shadow-lg"
                   >
-                    Job Card
+                    <JobCard data={jobDetail} />
                   </div>
                 ))}
               </article>
