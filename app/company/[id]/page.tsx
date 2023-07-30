@@ -3,6 +3,8 @@ import { Metadata } from "next";
 import Image from "next/image";
 import React from "react";
 import CompanySimilar from "@components/CompanySimilar";
+import LargeCompanyDetails from "@components/LargeCompanyDetails";
+import { getFirstCompany } from "@/utils/getFirstCompany";
 import { getAllJobs } from "@utils/getAllJobs";
 
 export const metadata: Metadata = {
@@ -10,9 +12,13 @@ export const metadata: Metadata = {
   description: "Job Finder Web Application",
 };
 
-const page = async () => {
+const Page = async ({ params }: { params: { id: String } }) => {
+  const { id } = params;
+  const companyId = id.toString();
   const jobDetails = await getAllJobs();
   if (!jobDetails) return "no companies found";
+  const firstCompany = await getFirstCompany(companyId);
+  if (!firstCompany) return "no companies found";
 
   return (
     <div className="padding-layout flex flex-col gap-y-9  pb-[90px] pt-[46px]">
@@ -29,7 +35,7 @@ const page = async () => {
       <div className="flex flex-col gap-[14px] lg:flex-row lg:gap-x-10">
         <div className="flex w-full max-w-[816px] flex-col gap-y-5">
           <div className="flex h-full items-center justify-center rounded-xl bg-white dark:bg-darkBG-2">
-            Large Company Details Component
+            <LargeCompanyDetails firstCompany={firstCompany} />
           </div>
         </div>
         <div className="md:max-w-[400px]">
@@ -40,4 +46,4 @@ const page = async () => {
   );
 };
 
-export default page;
+export default Page;

@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import React from "react";
 import Image from "next/image";
 
@@ -7,8 +6,7 @@ import { Job } from "@types";
 import { getLogo } from "@utils/getLogo";
 
 type Props = {
-  job: Job;
-  jobListings?: Job[];
+  firstCompany: Job;
 };
 /**
  * LargeCompanyDetails component displays detailed information about a company and its job listings.
@@ -59,22 +57,8 @@ type Props = {
  *   jobListings={jobListings}
  * />
  */
-const LargeCompanyDetails = ({ job, jobListings }: Props) => {
-  const {
-    job_description,
-    job_title,
-    job_employment_type,
-    job_apply_link,
-    job_min_salary,
-    job_max_salary,
-    job_is_remote,
-    job_required_skills,
-    job_posted_at_datetime_utc,
-    job_city,
-    employer_name,
-  } = job;
-
-  const logo = getLogo(employer_name);
+const LargeCompanyDetails = ({ firstCompany }: Props) => {
+  const logo = getLogo(firstCompany.employer_name);
 
   return (
     <article className="flex flex-col md:gap-14">
@@ -91,7 +75,7 @@ const LargeCompanyDetails = ({ job, jobListings }: Props) => {
         <div className="relative bottom-8 left-2 flex w-16 items-center justify-center rounded-jobit bg-natural-3 p-1 dark:bg-natural-8 md:left-6">
           <Image
             src={logo}
-            alt={`${employer_name} logo`}
+            alt={`${firstCompany.employer_name} logo`}
             width={64}
             height={64}
           />
@@ -100,11 +84,13 @@ const LargeCompanyDetails = ({ job, jobListings }: Props) => {
       <section className="flex flex-col md:gap-8">
         <section>
           <hgroup className="ml-2 flex flex-col gap-2 md:ml-6">
-            <h2 className="headline-2">{employer_name}</h2>
+            <h2 className="headline-2">{firstCompany.employer_name}</h2>
             <div className="flex items-center gap-2">
-              <h3 className="body-6 text-natural-7">{employer_name}</h3>
+              <h3 className="body-6 text-natural-7">
+                {firstCompany.employer_name}
+              </h3>
               <span className="h-[3px] w-[3px] rounded-full bg-black dark:bg-natural-7" />
-              <h3 className="body-6 text-natural-7">{job_city}</h3>
+              <h3 className="body-6 text-natural-7">{firstCompany.job_city}</h3>
             </div>
           </hgroup>
         </section>
