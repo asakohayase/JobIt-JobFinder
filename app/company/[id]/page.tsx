@@ -6,6 +6,7 @@ import CompanySimilar from "@components/CompanySimilar";
 import LargeCompanyDetails from "@components/LargeCompanyDetails";
 import { getFirstCompany } from "@/utils/getFirstCompany";
 import { getAllJobs } from "@utils/getAllJobs";
+import { getCompanyDetails } from "@utils/getCompanyDetails";
 
 export const metadata: Metadata = {
   title: "Jobit - Company Details",
@@ -19,6 +20,8 @@ const Page = async ({ params }: { params: { id: String } }) => {
   if (!jobDetails) return "no companies found";
   const firstCompany = await getFirstCompany(companyId);
   if (!firstCompany) return "no companies found";
+  const initialJobDetails = await getCompanyDetails(companyId, "developer");
+  if (!initialJobDetails) return "no jobs found";
 
   return (
     <div className="padding-layout flex flex-col gap-y-9  pb-[90px] pt-[46px]">
@@ -38,6 +41,7 @@ const Page = async ({ params }: { params: { id: String } }) => {
             <LargeCompanyDetails
               firstCompany={firstCompany}
               companyId={companyId}
+              initialJobDetails={initialJobDetails}
             />
           </div>
         </div>

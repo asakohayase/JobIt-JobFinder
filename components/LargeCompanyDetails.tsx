@@ -4,22 +4,25 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
 import Button from "./Reusable/Button";
-import { Job } from "@types";
+import { Job } from "@/types";
 import { getLogo } from "@utils/getLogo";
-import { getCompanyDetails } from "@utils/getCompanyDetails";
+import { getCompanyDetails } from "@/utils/getCompanyDetails";
 import JobCard from "./Home/Cards/JobCard";
 
 type Props = {
   firstCompany: Job;
-  jobDetails: Job;
   companyId: string;
+  initialJobDetails: Job[];
 };
 
-const LargeCompanyDetails = ({ firstCompany, companyId }: Props) => {
+const LargeCompanyDetails = ({
+  firstCompany,
+  companyId,
+  initialJobDetails,
+}: Props) => {
   const logo = getLogo(firstCompany.employer_name);
-  const defaultJobDetails = getCompanyDetails(companyId, "developer");
   const [query, setQuery] = useState("developer");
-  const [jobDetails, setJobDetails] = useState(defaultJobDetails);
+  const [jobDetails, setJobDetails] = useState<Job[]>(initialJobDetails);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
@@ -29,7 +32,7 @@ const LargeCompanyDetails = ({ firstCompany, companyId }: Props) => {
     const handleSearch = async () => {
       try {
         const fetchedJobDetails = await getCompanyDetails(companyId, query);
-        setJobDetails(fetchedJobDetails);
+        if (fetchedJobDetails) setJobDetails(fetchedJobDetails);
       } catch (error) {
         if (error instanceof Error) {
           console.error("Error fetching job listings:", error.message);
