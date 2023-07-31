@@ -1,6 +1,7 @@
 import React from "react";
-import { CompanyPageProps } from "@types";
-import SimilarCompanies from "@components/InlineCompanies";
+
+import { CompanyPageProps } from "@/types";
+import SimilarCompanies from "@/components/InlineCompanies";
 
 const CompanypageRecommended = async ({ jobDetails }: CompanyPageProps) => {
   // Need to create algo for recommended

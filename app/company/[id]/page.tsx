@@ -2,8 +2,9 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import React from "react";
-import CompanySimilar from "@components/CompanySimilar";
-import { getAllJobs } from "@utils/getAllJobs";
+
+import CompanySimilar from "@/components/CompanySimilar";
+import { getAllJobs } from "@/utils/getAllJobs";
 
 export const metadata: Metadata = {
   title: "Jobit - Company Details",

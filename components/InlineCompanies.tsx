@@ -1,8 +1,8 @@
 import React from "react";
 import Image from "next/image";
 
-import { getLogo } from "@utils/getLogo";
-import { Job } from "@types";
+import { getLogo } from "@/utils/getLogo";
+import { Job } from "@/types";
 import Button from "./Reusable/Button";
 
 type Props = {

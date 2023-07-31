@@ -1,12 +1,12 @@
 import React from "react";
 import Button from "../Reusable/Button";
 import InlineJobCard from "./Cards/InlineJobCard";
-import { HomepageCardProps } from "@types";
+import { HomepageCardProps } from "@/types";
 
 const HomepageRecommended = async ({ jobListings }: HomepageCardProps) => {
   // Need to create algo for recommended
   return (
-    <section className="flex w-full max-w-full xl:max-w-[23rem] flex-col gap-4 shrink-0">
+    <section className="flex w-full max-w-full shrink-0 flex-col gap-4 xl:max-w-[23rem]">
       <div className="flex items-center justify-between">
         <h5 className="headline-5">Recommended For You</h5>
         <Button

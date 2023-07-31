@@ -3,8 +3,8 @@ import React from "react";
 import Image from "next/image";
 
 import Button from "./Reusable/Button";
-import { Job } from "@types";
-import { getLogo } from "@utils/getLogo";
+import { Job } from "@/types";
+import { getLogo } from "@/utils/getLogo";
 
 type Props = {
   job: Job;

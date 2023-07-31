@@ -3,8 +3,8 @@ import Image from "next/image";
 import React from "react";
 
 import { averagePayPerHour, getEmployementType } from "@/utils/index";
-import { Job } from "@types";
-import { getLogo } from "@utils/getLogo";
+import { Job } from "@/types";
+import { getLogo } from "@/utils/getLogo";
 import Link from "next/link";
 
 type Props = {
@@ -34,7 +34,7 @@ const InlineJobCard = ({
         <div className="relative flex h-9 w-9 shrink-0 items-center justify-center">
           <Image src={logo} fill priority alt="Logo" className="object-cover" />
         </div>
-        <div className="flex flex-col gap-y-1 max-w-[200px] lg:max-w-full">
+        <div className="flex max-w-[200px] flex-col gap-y-1 lg:max-w-full">
           <span className="lg:body-6 body-10 lg:body-15 line-clamp-1 text-black dark:text-white">
             {job_title}
           </span>
