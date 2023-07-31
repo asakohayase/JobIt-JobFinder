@@ -35,7 +35,7 @@ const JobCard = ({
   const logo = getLogo(employer_name);
   const averagePay = averagePayPerHour(job_min_salary, job_max_salary);
   return (
-    <article className="flex w-full flex-col gap-y-[30px] rounded-jobit bg-white p-5 shadow-1 dark:bg-darkBG-2 lg:max-w-[400px]">
+    <article className="flex w-full flex-col gap-y-[30px] rounded-jobit bg-white p-5 shadow-1 dark:bg-darkBG-2">
       <header className="flex items-center gap-5">
         <div className="flex h-[46px] w-[46px] items-center justify-center  rounded-lg border-[3px] border-natural-3 bg-natural-2 dark:border-logoDark dark:bg-logoDark lg:h-[64px] lg:w-[64px]">
           <div className="relative h-[34.5px] w-[34.5px] lg:h-12 lg:w-12">
