@@ -27,8 +27,6 @@ export async function getFirstCompany(companyId: string) {
     const companies = result.data;
     const firstCompany = companies[0];
 
-    console.log(firstCompany);
-
     return firstCompany as JobDetails;
   } catch (error) {
     if (error instanceof Error) {
