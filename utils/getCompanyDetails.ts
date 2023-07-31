@@ -5,7 +5,7 @@ export async function getCompanyDetails(companyId: string, query: string) {
     const url =
       "https://jsearch.p.rapidapi.com/search?query=" +
       query +
-      "&employers=" +
+      "&employer=" +
       companyId;
 
     const res = await fetch(url, {

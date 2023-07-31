@@ -5,7 +5,8 @@ export async function getFirstCompany(companyId: string) {
   try {
     const company = Object.keys(companyInfo).find(
       (key) =>
-        companyInfo[key].id.toLocaleLowerCase === companyId.toLocaleLowerCase
+        companyInfo[key].id.toLocaleLowerCase() ===
+        companyId.toLocaleLowerCase()
     );
     if (!company) {
       throw new Error("Company with the specified job_id not found.");
@@ -25,6 +26,8 @@ export async function getFirstCompany(companyId: string) {
     const result: JobDetailsResponse = await res.json();
     const companies = result.data;
     const firstCompany = companies[0];
+
+    console.log(firstCompany);
 
     return firstCompany as JobDetails;
   } catch (error) {
