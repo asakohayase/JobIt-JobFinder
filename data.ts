@@ -75,4 +75,5 @@ export const JDJobCardLargeData = {
   followers: "203,765",
   link: "/",
   experience: "Minimum 1 year",
+  employer_company_type: "IT",
 };

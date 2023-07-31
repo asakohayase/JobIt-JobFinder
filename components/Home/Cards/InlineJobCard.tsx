@@ -28,27 +28,27 @@ const InlineJobCard = ({
   return (
     <Link
       href={`/jobdetails/${job_id}`}
-      className="lg:body-16 body-21 flex w-full items-center justify-between rounded-[10px] bg-natural-3 px-3 py-[14px] hover:bg-natural-5 dark:bg-darkBG-3 dark:text-natural-6 hover:dark:bg-darkBG-1 lg:max-w-[360px]"
+      className="lg:body-16 body-21 flex w-full items-center justify-between rounded-[10px] bg-natural-3 px-3 py-[14px] hover:bg-natural-5 dark:bg-darkBG-3 dark:text-natural-6 hover:dark:bg-darkBG-1"
     >
       <div className="flex items-center gap-[9px]">
         <div className="relative flex h-9 w-9 shrink-0 items-center justify-center">
           <Image src={logo} fill priority alt="Logo" className="object-cover" />
         </div>
-        <div className="flex flex-col gap-y-1">
+        <div className="flex flex-col gap-y-1 max-w-[200px] lg:max-w-full">
           <span className="lg:body-6 body-10 lg:body-15 line-clamp-1 text-black dark:text-white">
             {job_title}
           </span>
           <div className="flex items-center space-x-[5px] text-natural-7">
-            <span>{employer_name}</span>
+            <span className="truncate">{employer_name}</span>
             {job_city && (
               <span className="h-[3px] w-[3px] rounded-full bg-dot dark:bg-natural-7" />
             )}
-            <span>{job_city}</span>
+            <span className="truncate">{job_city}</span>
           </div>
         </div>
       </div>
 
-      <div className="ml-1 flex shrink-0 flex-col items-end justify-between gap-y-1 place-self-start">
+      <div className="flex shrink-0 flex-col items-end justify-between gap-y-1 place-self-start">
         {averagePay !== "0" && (
           <span className="body-15 text-black dark:text-white">
             $ {averagePay}

@@ -19,7 +19,7 @@ const HomepageJobPosts = async ({ jobListings }: HomepageCardProps) => {
             </div>
           </div>
         </section>
-        <article className="flex flex-wrap gap-8">
+        <article className="grid grid-cols-1 gap-10 lg:grid-cols-2">
           {jobListings.slice(0, 4).map((jobListing) => (
             <React.Fragment key={jobListing.job_id}>
               <JobCard data={jobListing} />

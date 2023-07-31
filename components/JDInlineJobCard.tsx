@@ -1,4 +1,4 @@
-import { getSincePostedDate } from "@/utils/getSincePostedDate";
+import { getSincePostedDate } from "@/utils";
 import Image from "next/image";
 import React from "react";
 import Button from "@/components/Reusable/Button";
