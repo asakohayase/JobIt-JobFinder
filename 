@@ -1,0 +1,13 @@
+  component/job_card/changes[m
+  component/large_company_details[m
+  component/recommended/fix_responsiveness[m
+  component/search[m
+  feature/functional_graph[m
+  feature/job_card_props[m
+* [32mgeneral/import_fixes[m
+  integration/job_details[m
+  layout/homepage_change_to_grid[m
+  layout/homepage_fixes[m
+  layout/job_details[m
+  main[m
+  setting/tsconfig_import_pathing[m
