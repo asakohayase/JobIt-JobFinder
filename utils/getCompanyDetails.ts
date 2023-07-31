@@ -2,11 +2,9 @@ import { Job, jobResponse } from "@types";
 
 export async function getCompanyDetails(companyId: string, query: string) {
   try {
-    const url =
-      "https://jsearch.p.rapidapi.com/search?query=" +
-      query +
-      "&employer=" +
-      companyId;
+    let url = "https://jsearch.p.rapidapi.com/search?";
+    url += query ? `query=${query}` : "query=job";
+    url += `&employer=${companyId}`;
 
     const res = await fetch(url, {
       headers: {
