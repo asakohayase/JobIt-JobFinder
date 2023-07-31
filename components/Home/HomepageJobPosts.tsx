@@ -1,7 +1,8 @@
 import React from "react";
+
 import Button from "../Reusable/Button";
 import JobCard from "./Cards/JobCard";
-import { HomepageCardProps } from "@types";
+import { HomepageCardProps } from "@/types";
 
 const HomepageJobPosts = async ({ jobListings }: HomepageCardProps) => {
   return (

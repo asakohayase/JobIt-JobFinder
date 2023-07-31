@@ -5,7 +5,7 @@ import {
   smallJobCardData,
   JDJobCardLargeData,
   JDInlineJobCardData,
-} from "@data";
+} from "@/data";
 import React from "react";
 import Button from "./Reusable/Button";
 import InlineJobCard from "./Home/Cards/InlineJobCard";

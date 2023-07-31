@@ -1,6 +1,6 @@
 "use client";
 
-import { useMediaQuery } from "@hooks/useMediaQuery";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 import React from "react";
 import NavDesktop from "@/components/NavDesktop";
 import NavMobile from "@/components//NavMobile";
