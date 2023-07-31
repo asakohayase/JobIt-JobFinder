@@ -5,22 +5,29 @@ import React from "react";
 import CompanySimilar from "@components/CompanySimilar";
 import LargeCompanyDetails from "@components/LargeCompanyDetails";
 import { getFirstCompany } from "@/utils/getFirstCompany";
-import { getAllJobs } from "@utils/getAllJobs";
-import { getCompanyDetails } from "@utils/getCompanyDetails";
+import { getAllJobs } from "@/utils/getAllJobs";
+import { getCompanyDetails } from "@/utils/getCompanyDetails";
 
 export const metadata: Metadata = {
   title: "Jobit - Company Details",
   description: "Job Finder Web Application",
 };
 
-const Page = async ({ params }: { params: { id: String } }) => {
+const Page = async ({
+  params,
+  searchParams,
+}: {
+  params: { id: String };
+  searchParams: { query: string };
+}) => {
   const { id } = params;
+  const { query } = searchParams;
   const companyId = id.toString();
   const jobDetails = await getAllJobs();
   if (!jobDetails) return "no companies found";
   const firstCompany = await getFirstCompany(companyId);
   if (!firstCompany) return "no companies found";
-  const initialJobDetails = await getCompanyDetails(companyId, "developer");
+  const initialJobDetails = getCompanyDetails(companyId, query);
   if (!initialJobDetails) return "no jobs found";
 
   return (
@@ -41,7 +48,7 @@ const Page = async ({ params }: { params: { id: String } }) => {
             <LargeCompanyDetails
               firstCompany={firstCompany}
               companyId={companyId}
-              initialJobDetails={initialJobDetails}
+              jobDetails={initialJobDetails}
             />
           </div>
         </div>

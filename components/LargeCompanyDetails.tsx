@@ -6,43 +6,43 @@ import Image from "next/image";
 import Button from "./Reusable/Button";
 import { Job } from "@/types";
 import { getLogo } from "@utils/getLogo";
-import { getCompanyDetails } from "@/utils/getCompanyDetails";
 import JobCard from "./Home/Cards/JobCard";
+import Loader from "./Loader";
 
 type Props = {
   firstCompany: Job;
   companyId: string;
-  initialJobDetails: Job[];
+  jobDetails: Promise<Job[] | null>;
 };
 
 const LargeCompanyDetails = ({
   firstCompany,
   companyId,
-  initialJobDetails,
+  jobDetails,
 }: Props) => {
   const logo = getLogo(firstCompany.employer_name);
-  const [query, setQuery] = useState("developer");
-  const [jobDetails, setJobDetails] = useState<Job[]>(initialJobDetails);
+  const [query, setQuery] = useState("");
+  const [jobResults, setJobResults] = useState<Job[]>([]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
   };
 
-  useEffect(() => {
-    const handleSearch = async () => {
-      try {
-        const fetchedJobDetails = await getCompanyDetails(companyId, query);
-        if (fetchedJobDetails) setJobDetails(fetchedJobDetails);
-      } catch (error) {
-        if (error instanceof Error) {
-          console.error("Error fetching job listings:", error.message);
-        }
-        return null;
-      }
+  const handleSearch = () => {
+    return {
+      pathname: `/company/${companyId}`,
+      query: { query },
     };
+  };
 
-    handleSearch();
-  }, [query, companyId]);
+  useEffect(() => {
+    async function getJobs() {
+      const jobDetail = await jobDetails;
+      if (!jobDetail) return;
+      setJobResults(jobDetail);
+    }
+    getJobs();
+  }, [jobDetails]);
 
   return (
     <article className="flex flex-col md:gap-14">
@@ -99,21 +99,25 @@ const LargeCompanyDetails = ({
                 <Button
                   title={"Search"}
                   style="bg-primary rounded-jobit h-8 w-20 md:h-10 md:w-[4.5rem] text-white flex items-center justify-center mr-3"
-                  href=""
+                  href={handleSearch()}
                 />
               </div>
             </section>
             <article className="flex flex-col gap-6">
               <h4 className="body-1">Recently Posted Jobs</h4>
               <article className="flex flex-wrap gap-6">
-                {jobDetails.slice(0, 4).map((jobDetail: Job) => (
-                  <div
-                    key={jobDetail.job_id}
-                    className="flex h-56 w-[360px] grow items-center justify-center rounded-lg shadow-lg dark:bg-darkBG-3 dark:shadow-none md:shadow-lg"
-                  >
-                    <JobCard data={jobDetail} />
-                  </div>
-                ))}
+                {jobResults.length ? (
+                  jobResults.slice(0, 4).map((jobDetail: Job) => (
+                    <div
+                      key={jobDetail.job_id}
+                      className="flex h-56 w-[360px] grow items-center justify-center rounded-lg shadow-lg dark:bg-darkBG-3 dark:shadow-none md:shadow-lg"
+                    >
+                      <JobCard data={jobDetail} />
+                    </div>
+                  ))
+                ) : (
+                  <Loader />
+                )}
               </article>
             </article>
             <div className="flex items-center justify-center">
