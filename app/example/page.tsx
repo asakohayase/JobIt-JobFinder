@@ -1,102 +1,158 @@
 "use client";
 
 import React from "react";
-import dynamic from "next/dynamic";
-import {
-  BarElement,
-  CategoryScale,
-  Chart as ChartJS,
-  Legend,
-  LinearScale,
-  Title,
-  Tooltip,
-} from "chart.js";
+import "chart.js/auto";
 import { Bar } from "react-chartjs-2";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
+import { getAllJobs } from "@/utils/getAllJobs";
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
-);
+const page = async () => {
+  const labels = ["Salary.com", "ZipRecruiter", "Talent.com"];
 
-export const options1 = {
-  responsive: true,
-  plugins: {
-    legend: {
-      display: false,
-      position: "top" as const,
-    },
-    title: {
-      display: false,
-      text: "Estimated Salary for NodeJS Developer in New York",
-    },
-  },
-};
+  const jobs = await getAllJobs();
 
-const labels = ["Salary.com", "ZipRecruiter", "Talent.com"];
+  const employers = jobs?.map((job) => job.employer_name);
+  const minSalaries = jobs?.map((job) => job.job_min_salary);
+  const maxSalaries = jobs?.map((job) => job.job_max_salary);
 
-export const data = {
-  labels,
-  datasets: [
-    {
-      label: "Minimum salary",
-      borderRadius: 30,
-      data: [72000, 84000, 77500],
-      backgroundColor: "rgba(253,221,140, 1)",
-      barThickness: 10,
-    },
-    {
-      label: "Maximum salary",
-      borderRadius: 30,
-      data: [224000, 250000, 200000],
-      backgroundColor: "rgba(11,171,124, 0.7)",
-      barThickness: 10,
-    },
-    {
-      label: "median salary",
-      borderRadius: 30,
-      data: [142000, 172000, 150000],
-      backgroundColor: "rgb(255,187,215)",
-      barThickness: 10,
-    },
-  ],
-};
+  console.log(employers, minSalaries, maxSalaries);
 
-const page = () => {
-  const data1 = {
-    options: {
-      chart: {
-        id: "basic-bar",
-      },
-      xaxis: {
-        categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999],
-      },
-    },
-    series: [
+  const getMaxValue = () => {
+    const test1 = data.datasets.map((dataset) => dataset.data);
+    const testArr: number[] = [];
+    test1.forEach((item) => {
+      item.forEach((value) => testArr.push(value));
+    });
+    return Math.max(...testArr);
+  };
+
+  const getMinValue = () => {
+    const test1 = data.datasets.map((dataset) => dataset.data);
+    const testArr: number[] = [];
+    test1.forEach((item) => {
+      item.forEach((value) => testArr.push(value));
+    });
+    return Math.min(...testArr);
+  };
+
+  const data = {
+    labels,
+    datasets: [
       {
-        name: "series-1",
-        data: [30, 40, 45, 50, 49, 60, 70, 91],
+        label: "Minimum salary",
+        borderRadius: 30,
+        data: [72000, 84000, 77500],
+        backgroundColor: "rgba(253,221,140, 1)",
+        barThickness: 20,
+      },
+      {
+        label: "Maximum salary",
+        borderRadius: 30,
+        data: [224000, 250000, 200000],
+        backgroundColor: "rgba(11,171,124, 0.7)",
+        barThickness: 20,
+      },
+      {
+        label: "median salary",
+        borderRadius: 30,
+        data: [142000, 172000, 150000],
+        backgroundColor: "rgb(255,187,215)",
+        barThickness: 20,
       },
     ],
+  };
+
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        display: false,
+        position: "top" as const,
+      },
+      title: {
+        display: false,
+        text: "Estimated Salary for NodeJS Developer in New York",
+      },
+    },
+    scales: {
+      x: {
+        grid: {
+          display: false,
+        },
+      },
+    },
+    y: {
+      max: getMaxValue() + 30000,
+      min: getMinValue() - 30000,
+      ticks: {
+        maxTicksLimit: 3,
+        stepSize: 150000,
+        font: {
+          size: 14,
+        },
+      },
+    },
+    elements: {
+      bar: {
+        borderColor: "rgba(0, 0, 0, 0)",
+        borderWidth: 4,
+      },
+    },
   };
   return (
     <main className="padding-layout">
       <section className="flex items-center justify-center">
-        <figure className="flex w-full flex-col gap-10 rounded-2xl bg-white px-7 py-6 dark:bg-darkBG-2">
-          <h1 className="headline-1">
+        <figure className="flex w-full flex-col gap-3 rounded-2xl bg-white px-7 py-6 dark:bg-darkBG-2">
+          <h1 className="headline-5 md:headline-1">
             Estimated Salary for NodeJS Developer in New York
           </h1>
-          <Bar options={options1} data={data} className="" />
-          <Chart
-            options={data1.options}
-            series={data1.series}
-            type="bar"
-            width="500"
-          />
+          <div className="body-20 flex justify-around md:justify-start md:gap-4">
+            <div className="md:body-6 flex items-center gap-2">
+              <svg
+                width="8"
+                height="8"
+                viewBox="0 0 8 8"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="8" height="8" rx="4" fill="#FDDD8C" />
+              </svg>
+              Minimum
+              <span className="hidden md:relative md:right-1 md:block">
+                Salary
+              </span>
+            </div>
+            <div className="md:body-6 flex items-center gap-2">
+              <svg
+                width="8"
+                height="8"
+                viewBox="0 0 8 8"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="8" height="8" rx="4" fill="#0BAB7C" />
+              </svg>
+              Maximum
+              <span className="hidden md:relative md:right-1 md:block">
+                Salary
+              </span>
+            </div>
+            <div className="md:body-6 flex items-center gap-2">
+              <svg
+                width="8"
+                height="8"
+                viewBox="0 0 8 8"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="8" height="8" rx="4" fill="#FFBBD7" />
+              </svg>
+              Median
+              <span className="hidden md:relative md:right-1 md:block">
+                Salary
+              </span>
+            </div>
+          </div>
+          <Bar options={options} data={data} className="mt-4" />
         </figure>
       </section>
     </main>
