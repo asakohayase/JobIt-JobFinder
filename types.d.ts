@@ -4,7 +4,7 @@
  */
 
 export type Job = {
-  job_id: number;
+  job_id: string;
   job_title: string;
   job_is_remote: boolean;
   employer_name: string;
