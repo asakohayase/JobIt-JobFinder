@@ -5,7 +5,7 @@ import Image from "next/image";
 
 import Button from "./Reusable/Button";
 import { Job } from "@/types";
-import { getLogo } from "@utils/getLogo";
+import { getLogo } from "@/utils/getLogo";
 import JobCard from "./Home/Cards/JobCard";
 import Loader from "./Loader";
 

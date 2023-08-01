@@ -1,4 +1,4 @@
-import { JobDetails, JobDetailsResponse } from "@types";
+import { JobDetails, JobDetailsResponse } from "@/types";
 import { companyInfo } from "./companyInfo";
 
 export async function getFirstCompany(companyId: string) {

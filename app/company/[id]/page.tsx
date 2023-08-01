@@ -1,9 +1,8 @@
-/* eslint-disable tailwindcss/no-custom-classname */
 import { Metadata } from "next";
 import Image from "next/image";
 import React from "react";
-import CompanySimilar from "@components/CompanySimilar";
-import LargeCompanyDetails from "@components/LargeCompanyDetails";
+import CompanySimilar from "@/components/CompanySimilar";
+import LargeCompanyDetails from "@/components/LargeCompanyDetails";
 import { getFirstCompany } from "@/utils/getFirstCompany";
 import { getAllJobs } from "@/utils/getAllJobs";
 import { getCompanyDetails } from "@/utils/getCompanyDetails";

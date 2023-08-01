@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 import Image from "next/image";
 import React from "react";
+import Link from "next/link";
 
 import Badge from "@/components/Reusable/Badge";
 import Button from "@/components/Reusable/Button";
@@ -9,9 +10,8 @@ import {
   getEmployementType,
   averagePayPerHour,
 } from "@/utils/index";
-import { Job } from "@types";
-import { getLogo } from "@utils/getLogo";
-import Link from "next/link";
+import { Job } from "@/types";
+import { getLogo } from "@/utils/getLogo";
 
 type Props = {
   data: Job;

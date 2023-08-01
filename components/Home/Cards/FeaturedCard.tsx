@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Button from "../../Reusable/Button";
-import { EmployerReviews } from "@types";
+import { EmployerReviews } from "@/types";
 
 interface Props {
   title: string;

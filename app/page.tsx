@@ -2,11 +2,11 @@
 import React from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import ErrorFallback from "../components/ErrorFallback";
-import PageTitle from "@components/Reusable/PageTitle";
-import HomepageJobPosts from "@components/Home/HomepageJobPosts";
-import HomepageFeatured from "@components/Home/HomepageFeatured";
-import HomepageRecommended from "@components/Home/HomepageRecommended";
-import { getAllJobs } from "@utils/getAllJobs";
+import PageTitle from "@/components/Reusable/PageTitle";
+import HomepageJobPosts from "@/components/Home/HomepageJobPosts";
+import HomepageFeatured from "@/components/Home/HomepageFeatured";
+import HomepageRecommended from "@/components/Home/HomepageRecommended";
+import { getAllJobs } from "@/utils/getAllJobs";
 
 const Home = async () => {
   const jobListings = await getAllJobs();
@@ -16,7 +16,7 @@ const Home = async () => {
       <main className="padding-layout flex flex-col gap-8 py-6 dark:bg-darkBG-1 md:py-10">
         <PageTitle title="Welcome to the Job Search Platform for Developers" />
         <section className="flex flex-col gap-8 md:gap-12">
-          <section className="flex flex-col gap-8 flex-grow xl:flex-row">
+          <section className="flex grow flex-col gap-8 xl:flex-row">
             {/* Latest Job Posts */}
             <HomepageJobPosts jobListings={jobListings} />
             {/* Recommended Job Posts */}

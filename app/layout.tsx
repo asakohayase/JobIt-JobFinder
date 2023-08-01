@@ -1,9 +1,10 @@
-import "./globals.css";
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import React from "react";
 import { Providers } from "./providers";
-import Nav from "@components/Nav";
+
+import Nav from "@/components/Nav";
+import "./globals.css";
 
 const manrope = Manrope({ subsets: ["latin"] });
 

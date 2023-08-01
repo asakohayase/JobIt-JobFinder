@@ -4,9 +4,9 @@ import Image from "next/image";
 
 import React from "react";
 
-import PageTitle from "@components/Reusable/PageTitle";
-import JDJobCardLarge from "@components/JDJobCardLarge";
-import InlineJobCard from "@components/Home/Cards/InlineJobCard";
+import PageTitle from "@/components/Reusable/PageTitle";
+import JDJobCardLarge from "@/components/JDJobCardLarge";
+import InlineJobCard from "@/components/Home/Cards/InlineJobCard";
 
 export const metadata: Metadata = {
   title: "Jobit - Job Details",
