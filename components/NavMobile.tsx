@@ -57,10 +57,10 @@ const NavMobile = () => {
                     <Link href="/">Overview</Link>
                   </li>
                   <li className=" py-3 pl-4 pr-32 font-bold text-natural-7 hover:rounded-md hover:border-primary hover:bg-natural-1 hover:text-primary active:border-b-primary dark:hover:bg-darkBG-3">
-                    <Link href="/">Job Search</Link>
+                    <Link href="/jobsearch">Job Search</Link>
                   </li>
                   <li className=" py-3 pl-4 pr-32 font-bold text-natural-7 hover:rounded-md hover:border-primary hover:bg-natural-1 hover:text-primary active:border-b-primary dark:hover:bg-darkBG-3">
-                    <Link href="/">Estimated Salaries</Link>
+                    <Link href="/estimatedsalaries">Estimated Salaries</Link>
                   </li>
                 </ul>
               </div>
