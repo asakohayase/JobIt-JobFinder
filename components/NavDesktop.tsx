@@ -24,7 +24,7 @@ const Nav = () => {
             <Link href="/jobsearch">Job Search</Link>
           </li>
           <li className="border-b-2 border-transparent px-4 py-6 text-natural-6 hover:border-primary hover:text-primary active:border-b-primary">
-            <Link href="/">Estimated Salaries</Link>
+            <Link href="/estimatedsalaries">Estimated Salaries</Link>
           </li>
         </div>
         <div className="flex items-center">
