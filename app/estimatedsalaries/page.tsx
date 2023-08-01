@@ -1,7 +1,7 @@
 import React from "react";
 import { Metadata } from "next";
-import PageTitle from "@components/Reusable/PageTitle";
-import Input from "@components/Input";
+import PageTitle from "@/components/Reusable/PageTitle";
+import Input from "@/components/Input";
 
 export const metadata: Metadata = {
   title: "Jobit - Estimated Salaries",
