@@ -2,7 +2,7 @@ import React from "react";
 
 const Input = () => {
   return (
-    <form className="flex h-full flex-col justify-center ">
+    <form className="flex h-full flex-col justify-center">
       <label htmlFor="first" className="body-10 mb-3 text-natural-6">
         Job Title
       </label>
@@ -11,10 +11,10 @@ const Input = () => {
         id="first"
         name="Job"
         placeholder="Senior User Experience Designer"
-        className="w-[577px] rounded-xl border border-input bg-natural-2 py-3 pl-5 placeholder:text-natural-8"
+        className="rounded-xl border border-input bg-natural-2 py-3 pl-5 placeholder:text-natural-8 dark:border-natural-8 dark:bg-darkBG-2 dark:placeholder:text-natural-6 md:w-[577px]"
       />
 
-      <div className="flex flex-row justify-between">
+      <div className="flex flex-col justify-between md:flex-row">
         <div className="mt-6 flex flex-col">
           <label htmlFor="first" className="body-10 mb-3 text-natural-6">
             Location
@@ -24,7 +24,7 @@ const Input = () => {
             id="first"
             name="Job"
             placeholder="New-York, NY, USA"
-            className="w-[258px] rounded-xl border border-input bg-natural-2 px-5 py-3 placeholder:text-natural-8"
+            className="rounded-xl border border-input bg-natural-2 px-5 py-3 placeholder:text-natural-8 dark:border-natural-8 dark:bg-darkBG-2 dark:placeholder:text-natural-6 md:w-[258px]"
           />
         </div>
         <div className="mt-6 flex flex-col">
@@ -36,7 +36,7 @@ const Input = () => {
             id="first"
             name="Job"
             placeholder="100"
-            className="w-[258px] rounded-xl border border-input bg-natural-2 px-5 py-3 placeholder:text-natural-8"
+            className="rounded-xl border border-input bg-natural-2 px-5 py-3 placeholder:text-natural-8 dark:border-natural-8 dark:bg-darkBG-2 dark:placeholder:text-natural-6 md:w-[258px]"
           />
         </div>
       </div>

@@ -10,13 +10,13 @@ export const metadata: Metadata = {
 
 const estimatedSalaries = () => {
   return (
-    <section className="padding-layout flex flex-col gap-y-9  pb-[90px] pt-[46px]">
+    <section className="padding-layout flex flex-col gap-y-12  pb-[90px] pt-[46px]">
       <PageTitle />
-      <section className="flex flex-row justify-between">
+      <section className="flex flex-col justify-between md:flex-row">
         <section>
           <Input />
         </section>
-        <section className="flex h-[332px] w-[616px] items-center justify-center rounded-jobit bg-white shadow-1">
+        <section className="mt-10 flex h-[332px] items-center justify-center rounded-jobit bg-white shadow-1 dark:bg-darkBG-2 md:w-[616px]">
           <h1>Estimated Salaries Graph</h1>
         </section>
       </section>
