@@ -7,6 +7,8 @@ import React from "react";
 import PageTitle from "@/components/Reusable/PageTitle";
 import JDJobCardLarge from "@/components/JDJobCardLarge";
 import InlineJobCard from "@/components/Home/Cards/InlineJobCard";
+import JDInlineJobCard from "@/components/JDInlineJobCard";
+import { JDInlineJobCardData, JDJobCardLargeData } from "@/data";
 
 export const metadata: Metadata = {
   title: "Jobit - Job Details",
@@ -31,9 +33,11 @@ const page = ({ params }: { params: { id: String } }) => {
           </button>
         </div>
         <section className="flex flex-col gap-6 md:flex-row">
-          <article className="flex h-[1549px] items-center justify-center rounded-jobit bg-white dark:bg-darkBG-3 md:w-2/3">
+          <article className="relative flex h-[2000px] items-center justify-center rounded-jobit bg-white dark:bg-darkBG-3 md:w-2/3">
             <div>
-              <p>Large Job Details Component</p>
+              <p>
+                <JDJobCardLarge data={JDJobCardLargeData} />
+              </p>
             </div>
           </article>
           <article className="flex flex-col gap-4 md:w-1/3">
@@ -42,7 +46,9 @@ const page = ({ params }: { params: { id: String } }) => {
                 key={i}
                 className="flex h-36 items-center justify-center rounded-jobit bg-white dark:bg-darkBG-3"
               >
-                <h1>Inline Similar jobs Component</h1>
+                <h1>
+                  <JDInlineJobCard data={JDInlineJobCardData} />
+                </h1>
               </article>
             ))}
           </article>

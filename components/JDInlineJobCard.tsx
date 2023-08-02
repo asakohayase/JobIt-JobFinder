@@ -30,24 +30,24 @@ const JDInlineJobCard = ({ data }: Props) => {
             />
           </div>
           <div className="flex w-48 flex-col items-start gap-[6px] pr-0">
-            <h1 className="text-lg font-bold not-italic leading-6 text-black dark:text-white">
+            <h1 className="text-base font-bold not-italic leading-6 text-black dark:text-white lg:text-lg">
               {title}
             </h1>
-            <span className="text-sm font-medium not-italic leading-5 text-natural-6">
+            <span className="text-sm font-normal not-italic leading-5 text-natural-6 lg:font-medium">
               {city}
             </span>
           </div>
         </div>
 
-        <span className="text-right text-sm font-semibold not-italic leading-6 text-gray-900 dark:text-white">
+        <span className="text-right text-xs font-semibold not-italic leading-6 text-gray-900 dark:text-white lg:text-sm">
           ${averagePayPerHour}
-          <span className="dark: text-natural-6">/ Hr</span>
+          <span className="leading-5 text-natural-6">/ Hr</span>
         </span>
       </div>
 
       <div className="flex items-center gap-[150px]">
-        <div className="text-sm font-medium not-italic leading-5 text-natural-6">
-          {`${getSincePostedDate(postedDate)} days left`}
+        <div className="text-xs font-medium not-italic leading-5 text-natural-6 lg:text-sm">
+          {`${getSincePostedDate(postedDate)}`}
         </div>
 
         <div className="flex items-center gap-[11px]">
