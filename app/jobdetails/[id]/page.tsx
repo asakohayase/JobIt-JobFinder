@@ -7,13 +7,17 @@ import React from "react";
 import PageTitle from "@/components/Reusable/PageTitle";
 import JDJobCardLarge from "@/components/JDJobCardLarge";
 import InlineJobCard from "@/components/Home/Cards/InlineJobCard";
+import { fetchJob } from "@/utils/fetchJob";
 
 export const metadata: Metadata = {
   title: "Jobit - Job Details",
   description: "Job Finder Web Application",
 };
 
-const page = ({ params }: { params: { id: String } }) => {
+const page = async ({ params }: { params: { id: String } }) => {
+  const jobDetails = await fetchJob(params.id);
+  const [data] = jobDetails.data;
+
   return (
     <main className="padding-layout flex flex-col gap-y-9 pb-[90px] pt-[46px]">
       <PageTitle />
@@ -33,7 +37,7 @@ const page = ({ params }: { params: { id: String } }) => {
         <section className="flex flex-col gap-6 md:flex-row">
           <article className="flex h-[1549px] items-center justify-center rounded-jobit bg-white dark:bg-darkBG-3 md:w-2/3">
             <div>
-              <p>Large Job Details Component</p>
+              <JDJobCardLarge data={data} />
             </div>
           </article>
           <article className="flex flex-col gap-4 md:w-1/3">
