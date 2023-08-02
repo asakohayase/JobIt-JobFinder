@@ -72,23 +72,23 @@ const SalaryChart = ({ allJobs }: Props) => {
     ],
   };
 
-  const getMaxValue = () => {
+  function getMaxValue() {
     const test1 = data.datasets.map((dataset) => dataset.data);
     const testArr: number[] = [];
     test1.forEach((item) => {
       item.forEach((value) => testArr.push(value));
     });
     return Math.max(...testArr);
-  };
+  }
 
-  const getMinValue = () => {
+  function getMinValue() {
     const test1 = data.datasets.map((dataset) => dataset.data);
     const testArr: number[] = [];
     test1.forEach((item) => {
       item.forEach((value) => testArr.push(value));
     });
     return Math.min(...testArr);
-  };
+  }
 
   const options = {
     responsive: true,
