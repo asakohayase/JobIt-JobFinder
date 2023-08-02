@@ -8,6 +8,7 @@ import PageTitle from "@/components/Reusable/PageTitle";
 import JDJobCardLarge from "@/components/JDJobCardLarge";
 import InlineJobCard from "@/components/Home/Cards/InlineJobCard";
 import { fetchJob } from "@/utils/fetchJob";
+import { getAllJobs } from "@/utils/getAllJobs";
 
 export const metadata: Metadata = {
   title: "Jobit - Job Details",
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
 
 const page = async ({ params }: { params: { id: String } }) => {
   const jobDetails = await fetchJob(params.id);
+  const allJobs = await getAllJobs();
   const [data] = jobDetails.data;
 
   return (
@@ -23,16 +25,18 @@ const page = async ({ params }: { params: { id: String } }) => {
       <PageTitle />
       <section>
         <div className="hidden pb-6 md:flex">
-          <button className="flex items-center justify-around gap-2 rounded-jobit px-[10px] py-[7px] dark:bg-darkBG-3">
-            <Image
-              src={"/img/icons/cheveron.svg"}
-              priority
-              height={18}
-              width={18}
-              alt={"back arrow icon"}
-            />
-            <a className="pr-1">Back</a>
-          </button>
+          <a href="/" className="w-full pr-1">
+            <button className="flex items-center justify-around gap-2 rounded-jobit px-[10px] py-[7px] dark:bg-darkBG-3">
+              <Image
+                src={"/img/icons/cheveron.svg"}
+                priority
+                height={18}
+                width={18}
+                alt={"back arrow icon"}
+              />
+              Back
+            </button>
+          </a>
         </div>
         <section className="flex flex-col gap-6 md:flex-row">
           <article className="flex h-[1549px] items-center justify-center rounded-jobit bg-white dark:bg-darkBG-3 md:w-2/3">
@@ -41,13 +45,8 @@ const page = async ({ params }: { params: { id: String } }) => {
             </div>
           </article>
           <article className="flex flex-col gap-4 md:w-1/3">
-            {[...Array(9)].map((i) => (
-              <article
-                key={i}
-                className="flex h-36 items-center justify-center rounded-jobit bg-white dark:bg-darkBG-3"
-              >
-                <h1>Inline Similar jobs Component</h1>
-              </article>
+            {allJobs?.map((item, index) => (
+              <InlineJobCard key={item.job_id} data={item} />
             ))}
           </article>
         </section>
