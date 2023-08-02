@@ -152,7 +152,7 @@ const JDJobCardLarge = ({ data }: Props) => {
           About The Job
         </h2>
 
-        <p className="text-sm font-normal not-italic leading-5 text-natural-7  md:text-base md:leading-6 md:line-clamp-6">
+        <p className="line-clamp-[12] text-sm font-normal not-italic leading-5 text-natural-7 md:text-base md:leading-6 md:line-clamp-6">
           {description}
         </p>
       </div>
