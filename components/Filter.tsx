@@ -13,7 +13,7 @@ type Props = {
 const Filter = ({ data, length, title }: Props) => {
   const [clicked, setClicked] = useState(false);
   return (
-    <aside className="hidden lg:block lg:max-w-[250px]">
+    <section className="hidden lg:block lg:max-w-[250px]">
       <Link
         href={"#!"}
         scroll={false}
@@ -69,7 +69,7 @@ const Filter = ({ data, length, title }: Props) => {
             );
           })}
       </section>
-    </aside>
+    </section>
   );
 };
 

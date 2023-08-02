@@ -17,14 +17,14 @@ const SidebarFilter = (props: Props) => {
     "BlaBlaBla",
   ];
   return (
-    <div>
+    <aside className="grid gap-[30px] py-10">
       <Filter data={data} title={"Type Of Employment"} length={10} />
       <Filter data={data} title={"Experience Level"} length={10} />
       <Filter data={data} title={"Salary Range"} length={10} />
       <Filter data={data} title={"Location"} length={10} />
       <Filter data={data} title={"Language"} length={10} />
       <Filter data={data} title={"Facility"} length={10} />
-    </div>
+    </aside>
   );
 };
 
