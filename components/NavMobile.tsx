@@ -12,7 +12,7 @@ const NavMobile = () => {
 
   return (
     <motion.div className="sticky top-0 z-50">
-      <nav className="flex h-70 items-center justify-between border border-transparent border-b-natural-5 bg-white  px-10 dark:border-b-darkBG-3 dark:bg-darkBG-1">
+      <nav className="padding-layout flex h-70 items-center justify-between border border-transparent border-b-natural-5  bg-white dark:border-b-darkBG-3 dark:bg-darkBG-1">
         {open ? (
           <Image
             src={"/img/company-logo/jobit.svg"}
@@ -57,10 +57,10 @@ const NavMobile = () => {
                     <Link href="/">Overview</Link>
                   </li>
                   <li className=" py-3 pl-4 pr-32 font-bold text-natural-7 hover:rounded-md hover:border-primary hover:bg-natural-1 hover:text-primary active:border-b-primary dark:hover:bg-darkBG-3">
-                    <Link href="/">Job Search</Link>
+                    <Link href="/jobsearch">Job Search</Link>
                   </li>
                   <li className=" py-3 pl-4 pr-32 font-bold text-natural-7 hover:rounded-md hover:border-primary hover:bg-natural-1 hover:text-primary active:border-b-primary dark:hover:bg-darkBG-3">
-                    <Link href="/">Estimated Salaries</Link>
+                    <Link href="/estimatedsalaries">Estimated Salaries</Link>
                   </li>
                 </ul>
               </div>
