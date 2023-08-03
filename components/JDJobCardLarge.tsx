@@ -164,12 +164,12 @@ const JDJobCardLarge = ({
         </div>
       </div>
 
-      {/* <div className="ml-[20px] mt-8 flex w-[280px] flex-col items-start gap-[12px] md:ml-10 md:w-[778px]">
+      <div className="ml-[20px] mt-8 flex w-[280px] flex-col items-start gap-[12px] md:ml-10 md:w-[778px]">
         <h2 className="text-base font-bold not-italic leading-6 text-black dark:text-white md:text-lg">
           Qualifications and Skill Sets
         </h2>
 
-        <span className="line-clamp-3 text-sm font-normal not-italic leading-5 text-natural-7 md:line-clamp-2  md:text-base md:leading-6">
+        {/* <span className="line-clamp-3 text-sm font-normal not-italic leading-5 text-natural-7 md:line-clamp-2  md:text-base md:leading-6">
           <ul className="list-none">
             {qualifications.map((qualification, i) => (
               <li key={i} className="flex gap-2 md:items-center">
@@ -178,8 +178,8 @@ const JDJobCardLarge = ({
               </li>
             ))}
           </ul>
-        </span> 
-      </div>  */}
+        </span> */}
+      </div>
 
       <span className="ml-[20px] mt-8 h-px w-[780px] bg-natural-2 md:ml-10" />
       <h2 className="ml-10 mt-8 font-bold not-italic leading-6 md:text-lg">
@@ -209,7 +209,7 @@ const JDJobCardLarge = ({
         </div>
 
         <Button
-          href={job_title}
+          href={job_apply_link}
           style={
             "flex justify-center items-center gap-[6px] px-2.5 py-[7px] round-[10px] border border-primary text-primary rounded-[10px]"
           }
