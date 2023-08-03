@@ -33,15 +33,13 @@ const page = ({ params }: { params: { id: String } }) => {
           </button>
         </div>
         <section className="flex flex-col gap-6 md:flex-row">
-          <article className="flex h-[2000px] rounded-jobit bg-white dark:bg-darkBG-3 md:w-2/3">
+          <article className="flex rounded-jobit bg-white dark:bg-darkBG-3 md:w-2/3">
             <div>
-              <p>
-                <JDJobCardLarge data={JDJobCardLargeData} />
-              </p>
+              <JDJobCardLarge data={JDJobCardLargeData} />
             </div>
           </article>
           <article className="flex flex-col gap-4 md:w-1/3">
-            {[...Array(9)].map((i) => (
+            {[...Array(9)].map((_, i) => (
               <article
                 key={i}
                 className="flex h-36 items-center justify-center rounded-jobit bg-white dark:bg-darkBG-3"

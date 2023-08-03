@@ -152,7 +152,7 @@ const JDJobCardLarge = ({ data }: Props) => {
           About The Job
         </h2>
 
-        <p className="line-clamp-[12] text-sm font-normal not-italic leading-5 text-natural-7 md:text-base md:leading-6 md:line-clamp-6">
+        <p className="line-clamp-[12] text-sm font-normal not-italic leading-5 text-natural-7 md:line-clamp-6 md:text-base md:leading-6">
           {description}
         </p>
       </div>
@@ -162,7 +162,7 @@ const JDJobCardLarge = ({ data }: Props) => {
           Responsibilities
         </h2>
 
-        <div className="text-sm font-normal not-italic leading-5 text-natural-7 line-clamp-3 md:text-base md:leading-6 md:line-clamp-2">
+        <div className="line-clamp-3 text-sm font-normal not-italic leading-5 text-natural-7 md:line-clamp-2 md:text-base md:leading-6">
           <ul className="list-none">
             {responsibilities.map((responsibility, i) => (
               <li key={i} className="flex gap-2 md:items-center">
@@ -179,7 +179,7 @@ const JDJobCardLarge = ({ data }: Props) => {
           Qualifications and Skill Sets
         </h2>
 
-        <span className="text-sm font-normal not-italic leading-5 text-natural-7 line-clamp-3 md:text-base  md:leading-6 md:line-clamp-2">
+        <span className="line-clamp-3 text-sm font-normal not-italic leading-5 text-natural-7 md:line-clamp-2  md:text-base md:leading-6">
           <ul className="list-none">
             {qualifications.map((qualification, i) => (
               <li key={i} className="flex gap-2 md:items-center">
