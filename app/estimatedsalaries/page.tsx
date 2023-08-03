@@ -1,7 +1,7 @@
 import React from "react";
 import { Metadata } from "next";
-import PageTitle from "@components/Reusable/PageTitle";
-import Input from "@components/Input";
+import PageTitle from "@/components/Reusable/PageTitle";
+import Input from "@/components/Input";
 
 export const metadata: Metadata = {
   title: "Jobit - Estimated Salaries",
@@ -16,7 +16,7 @@ const estimatedSalaries = () => {
         <section>
           <Input />
         </section>
-        <section className="mt-10 flex h-[332px] items-center justify-center rounded-jobit bg-white shadow-1 dark:bg-darkBG-2 md:w-[616px]">
+        <section className="mt-10 flex items-center justify-center rounded-jobit bg-white shadow-1 dark:bg-darkBG-2 md:w-[616px]">
           <h1>Estimated Salaries Graph</h1>
         </section>
       </section>

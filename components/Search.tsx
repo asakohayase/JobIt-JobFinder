@@ -11,7 +11,7 @@ const Search = () => {
 
   return (
     <form className="mt-6 flex w-full flex-col gap-2 rounded-xl bg-white dark:bg-darkBG-2 md:flex-row md:gap-0">
-      <div className="mx-4 flex h-16 items-center justify-around gap-4 border-b pl-6 text-natural-6 dark:border-b-2 dark:border-[#44444F] md:mx-0 md:w-1/3 md:border-b-0 md:border-r-2 dark:md:border-b-0">
+      <div className="mx-4 flex h-20 items-center justify-around gap-4 border-b pl-6 text-natural-6 dark:border-b-2 dark:border-[#44444F] md:mx-0 md:w-1/3 md:border-b-0 md:border-r-2 dark:md:border-b-0">
         <Image
           alt="Search Icon - Magnifying Glass"
           src="/img/iconography/search.svg"
@@ -26,7 +26,7 @@ const Search = () => {
           onChange={(event) => setInput(event.target.value)}
         />
       </div>
-      <div className="mx-4 flex h-16 items-center justify-around gap-4 border-b pl-6 dark:border-b-2 dark:border-[#44444F] md:mx-0 md:w-1/3 md:border-b-0 md:border-r-2 dark:md:border-b-0">
+      <div className="mx-4 flex h-20 items-center justify-around gap-4 border-b pl-6 dark:border-b-2 dark:border-[#44444F] md:mx-0 md:w-1/3 md:border-b-0 md:border-r-2 dark:md:border-b-0">
         <Image
           alt="Location Pin Icon"
           src="/img/iconography/pin.svg"
@@ -50,7 +50,7 @@ const Search = () => {
           ))}
         </select>
       </div>
-      <div className="mx-4 flex h-16 items-center justify-around gap-4 border-b pl-6 dark:border-b-2 dark:border-[#44444F] md:mx-0 md:w-1/3 md:border-b-0 md:pr-6 dark:md:border-b-0">
+      <div className="mx-4 flex h-20 items-center justify-around gap-4 border-b pl-6 dark:border-b-2 dark:border-[#44444F] md:mx-0 md:w-1/3 md:border-b-0 md:pr-6 dark:md:border-b-0">
         <Image
           alt="Briefcase Icon"
           src="/img/iconography/briefcase.svg"
@@ -72,7 +72,7 @@ const Search = () => {
           <option value="FULLTIME">Full Time</option>
         </select>
       </div>
-      <div className="mx-4 my-6 md:relative md:right-6 md:top-2 md:m-0">
+      <div className="mx-4 my-6 md:relative md:right-6 md:top-4 md:m-0">
         <Button
           title={"Find Jobs"}
           style="flex items-center justify-center bg-primary w-full h-14 md:h-12 rounded-lg px-3 mr-6 body-6 text-white"

@@ -123,4 +123,8 @@
   .btn-outline-green {
     @apply rounded-jobit outline-1 outline-offset-[-1px] outline outline-primary text-primary text-[15px] leading-6 font-semibold hover:opacity-80;
   }
+
+  .btn-page-number {
+    @apply body-13 flex w-[40px] cursor-pointer items-center justify-center  gap-2 rounded-lg bg-primary p-3 text-white shadow-1 dark:bg-darkBG-2 dark:text-white;
+  }
 }

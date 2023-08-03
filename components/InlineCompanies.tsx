@@ -34,7 +34,7 @@ const SimilarCompanies = ({ data }: Props) => {
 
       <div>
         <Button
-          title={"Follow"}
+          title={"View"}
           href={"#"}
           style={
             "px-2.5 py-1.5 btn-outline-green hover:bg-primary hover:text-white"
