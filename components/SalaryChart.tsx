@@ -4,46 +4,42 @@ import React, { useEffect, useState } from "react";
 import "chart.js/auto";
 import { Bar } from "react-chartjs-2";
 import Image from "next/image";
-import { Job } from "@/types";
+import { EstimatedSalaryData, Job } from "@/types";
 import Loader from "./Loader";
 
 type Props = {
-  allJobs: Job[] | null;
+  EstimatedSalary: EstimatedSalaryData[] | null;
 };
 
 /**
  *
- * @example <SalaryChart allJobs={jobData} />
- * @param allJobs Array with all of the Jobs
+ * @example <SalaryChart EstimatedSalary={salaryData} />
+ * @param EstimatedSalary Estimated salary **Data**
  * @returns Functional Graph Component
  *
  */
 
-const SalaryChart = ({ allJobs }: Props) => {
-  const [jobResults, setJobResults] = useState<Job[]>([]);
+const SalaryChart = ({ EstimatedSalary }: Props) => {
+  const [salaryResults, setSalaryResults] = useState<EstimatedSalaryData[]>([]);
 
   useEffect(() => {
     async function getJobs() {
-      const jobDetail = allJobs;
-      if (!allJobs) return;
-      if (!jobDetail) return;
-      const filter = jobDetail.filter(
-        (job) => job.job_min_salary !== null && job.job_max_salary !== null
+      const salaryData = EstimatedSalary;
+      if (!EstimatedSalary) return;
+      if (!salaryData) return;
+      const filter = salaryData.filter(
+        (salary) => salary.min_salary !== null && salary.max_salary !== null
       );
-      setJobResults(filter);
+      setSalaryResults(filter);
     }
     getJobs();
-  }, [allJobs]);
+  }, [EstimatedSalary]);
 
-  const employers = jobResults.map((job) => job.employer_name);
+  const employers = salaryResults.map((salary) => salary.publisher_name);
   const labels = employers;
-  const minSalaries = jobResults.map((job) => job.job_min_salary);
-  const maxSalaries = jobResults.map((job) => job.job_max_salary);
-  const medianSalaries = [];
-
-  for (let index = 0; index < minSalaries.length; index++) {
-    medianSalaries.push((maxSalaries[index] + minSalaries[index]) / 2);
-  }
+  const minSalaries = salaryResults.map((salary) => salary.min_salary);
+  const maxSalaries = salaryResults.map((salary) => salary.max_salary);
+  const medianSalaries = salaryResults.map((salary) => salary.median_salary);
 
   const data = {
     labels,
@@ -168,7 +164,7 @@ const SalaryChart = ({ allJobs }: Props) => {
         </div>
       </div>
       <figure className="w-full">
-        {jobResults.length ? (
+        {salaryResults.length ? (
           <Bar options={options} data={data} className="mt-4" />
         ) : (
           <Loader />
