@@ -3,11 +3,10 @@ import { generateSync } from "text-to-image";
 import { companyInfo } from "./companyInfo";
 
 function generateLogo(name: string) {
-  const firstLetters = name
+  const joinedLetters = name
     .split(" ", 2)
-    .map((substring) => substring.charAt(0));
-
-  const joinedLetters = firstLetters.join("");
+    .map((substring) => substring[0])
+    .join("");
 
   const uri = generateSync(joinedLetters, {
     bgColor: "#0BAB7C",
