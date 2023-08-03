@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import "chart.js/auto";
 import { Bar } from "react-chartjs-2";
 import Image from "next/image";
-import { EstimatedSalaryData, Job } from "@/types";
+import { EstimatedSalaryData } from "@/types";
 import Loader from "./Loader";
 
 type Props = {
