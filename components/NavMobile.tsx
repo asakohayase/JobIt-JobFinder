@@ -12,7 +12,7 @@ const NavMobile = () => {
 
   return (
     <motion.div className="sticky top-0 z-50">
-      <nav className="flex h-70 items-center justify-between border border-transparent border-b-natural-5 bg-white  px-10 dark:border-b-darkBG-3 dark:bg-darkBG-1">
+      <nav className="padding-layout flex h-70 items-center justify-between border border-transparent border-b-natural-5  bg-white dark:border-b-darkBG-3 dark:bg-darkBG-1">
         {open ? (
           <Image
             src={"/img/company-logo/jobit.svg"}
