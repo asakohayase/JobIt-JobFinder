@@ -1,4 +1,31 @@
 /**
+ * Estimated Salary
+ */
+
+export type EstimatedSalaryData = {
+  location: string;
+  job_title: string;
+  publisher_name: string;
+  publisher_link: string;
+  min_salary: number;
+  max_salary: number;
+  median_salary: number;
+  salary_period: string;
+  salary_currency: string;
+};
+
+export type EstimatedSalaryResponse = {
+  status: string;
+  request_id: string;
+  parameters: {
+    job_title: string;
+    location: string;
+    radius: number;
+  };
+  data: EstimatedSalaryData[];
+};
+
+/**
  * All Jobs
  * Used in getAllJobs
  */

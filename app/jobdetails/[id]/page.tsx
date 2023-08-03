@@ -39,7 +39,7 @@ const page = async ({ params }: { params: { id: String } }) => {
           </a>
         </div>
         <section className="flex flex-col gap-6 md:flex-row">
-          <article className="flex h-[1549px] items-center justify-center rounded-jobit bg-white dark:bg-darkBG-3 md:w-2/3">
+          <article className="flex rounded-jobit bg-white dark:bg-darkBG-3 md:w-2/3">
             <div>
               <JDJobCardLarge data={data} />
             </div>
