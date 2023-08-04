@@ -1,7 +1,5 @@
 import { JobDetails, JobDetailsResponse, jobResponse } from "@/types";
-import { removeDuplicatesByName } from "@/utils";
 import { companyInfo } from "@/utils/companyInfo";
-import console from "console";
 import { NextResponse } from "next/server";
 
 export async function GET() {
