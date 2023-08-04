@@ -22,8 +22,10 @@ export async function getAllJobs() {
     const jobs = result.data;
 
     return jobs as Job[];
-  } catch (error: any) {
-    console.error(`An error occurred: ${error.message}`);
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(`An error occurred: ${error.message}`);
+    }
     return null;
   }
 }
