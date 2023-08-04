@@ -9,6 +9,7 @@ import JDJobCardLarge from "@/components/JDJobCardLarge";
 import InlineJobCard from "@/components/Home/Cards/InlineJobCard";
 import { fetchJob } from "@/utils/fetchJob";
 import { getAllJobs } from "@/utils/getAllJobs";
+import JDInlineJobCard from "@/components/JDInlineJobCard";
 
 export const metadata: Metadata = {
   title: "Jobit - Job Details",
@@ -47,16 +48,16 @@ const page = async ({ params }: { params: { id: String } }) => {
               </button>
             </a>
           </div>
-          <section className="flex flex-col gap-6 md:flex-row">
-            <article className="flex rounded-jobit bg-white dark:bg-darkBG-3 md:w-2/3">
+          <section className="flex flex-col gap-6 lg:flex-row">
+            <article className="flex grow flex-col gap-8 xl:flex-row">
               <div>
                 <JDJobCardLarge data={data} />
               </div>
-            </article>
-            <article className="flex flex-col gap-4 md:w-1/3">
-              {allJobs?.map((item, index) => (
-                <InlineJobCard key={item.job_id} data={item} />
-              ))}
+              <article className="flex flex-col gap-4">
+                {allJobs?.map((item, index) => (
+                  <JDInlineJobCard key={item.job_id} data={item} />
+                ))}
+              </article>
             </article>
           </section>
         </section>
