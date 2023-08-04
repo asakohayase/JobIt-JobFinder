@@ -1,20 +1,12 @@
-import { GeoResponse, jobResponse } from "@/types";
+import { jobResponse } from "@/types";
 import { NextResponse } from "next/server";
 
-export async function GET(
-  request: Request,
-  { params }: { params: { location: string } }
-) {
-  const loc: GeoResponse = JSON.parse(
-    '{"' +
-      decodeURI(params.location)
-        .replace(/"/g, '\\"')
-        .replace(/&/g, '","')
-        .replace(/=/g, '":"')
-        .replace(/\s/g, "") +
-      '"}'
-  );
-  const url = `https://jsearch.p.rapidapi.com/search?query=${loc.country},${loc.regionName}&radius=200`;
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const country = searchParams.get("country");
+  const regionName = searchParams.get("regionName");
+
+  const url = `https://jsearch.p.rapidapi.com/search?query=${country},${regionName}&radius=200`;
 
   const res = await fetch(url, {
     headers: {

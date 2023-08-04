@@ -7,10 +7,11 @@ import PageTitle from "@/components/Reusable/PageTitle";
 import HomepageJobPosts from "@/components/Home/HomepageJobPosts";
 import HomepageFeatured from "@/components/Home/HomepageFeatured";
 import HomepageRecommended from "@/components/Home/HomepageRecommended";
+import { GeoResponse } from "@/types";
 
 const Home = () => {
   const [jobListings, setJobListings] = useState(null);
-  const [location, setLocation] = useState(null);
+  const [location, setLocation] = useState<GeoResponse>();
 
   useEffect(() => {
     async function fetchLocation() {
@@ -28,8 +29,9 @@ const Home = () => {
   useEffect(() => {
     async function fetchData() {
       if (!location) return "no location available";
-      const queryParams = new URLSearchParams(location).toString();
-      const response = await fetch(`/api/alljobs/${queryParams}`);
+      const response = await fetch(
+        `/api/alljobs?country=${location.country}&regionName=${location.regionName}`
+      );
       const data = await response.json();
 
       setJobListings(data);
