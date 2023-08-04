@@ -125,6 +125,6 @@
   }
 
   .btn-page-number {
-    @apply body-13 flex w-[40px] cursor-pointer items-center justify-center  gap-2 rounded-lg bg-primary p-3 text-white shadow-1 dark:bg-darkBG-2 dark:text-white;
+    @apply rounded-lg bg-primary text-white;
   }
 }

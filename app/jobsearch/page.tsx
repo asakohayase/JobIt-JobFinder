@@ -145,6 +145,21 @@ const page = () => {
                 />
                 <span className="hidden md:inline">Previous</span>
               </div>
+              <div className="inline md:hidden">
+                <p className="font-medium text-natural-8 dark:text-natural-6">
+                  Page <span className="font-semibold dark:text-white">1</span>{" "}
+                  of 10
+                </p>
+              </div>
+              <div className="hidden w-[300px] items-center justify-around text-center font-semibold text-natural-7 dark:text-natural-6 md:flex">
+                <p className="w-10 rounded-lg bg-primary p-3  text-white">1</p>
+                <p className="hover:btn-page-number w-10 p-3">2</p>
+                <p className="hover:btn-page-number w-10 p-3">3</p>
+                <p>...</p>
+                <p className="hover:btn-page-number w-10 p-3">8</p>
+                <p className="hover:btn-page-number w-10 p-3">9</p>
+                <p className="hover:btn-page-number w-10 p-3">10</p>
+              </div>
               <div className="body-13 flex cursor-pointer items-center  justify-center gap-2 rounded-lg bg-white px-3.5 py-2 shadow-1 dark:bg-darkBG-2 dark:text-white">
                 <span className="hidden md:inline">Next</span>
                 <Image
@@ -164,3 +179,5 @@ const page = () => {
 };
 
 export default page;
+
+// w-10 hover:rounded-lg hover:bg-primary hover:p-3 hover:text-center hover:text-white

@@ -22,36 +22,36 @@ const Nav = () => {
           </Link>
         </li>
         <div className="flex gap-x-9 ">
-          <li className="border-b-2 border-transparent py-6 text-natural-6 hover:border-primary hover:text-primary active:border-b-primary">
+          <li className="border-b border-transparent py-6 text-natural-6  hover:text-primary active:border-b-primary">
             <Link
               href="/"
               className={
                 currentRoute === "/"
-                  ? "border-b-2 border-primary py-6"
+                  ? "border-b border-primary py-6"
                   : "border-transparent"
               }
             >
               Overview
             </Link>
           </li>
-          <li className="border-b-2 border-transparent py-6 text-natural-6 hover:border-primary hover:text-primary active:border-b-primary">
+          <li className="border-b border-transparent py-6 text-natural-6 hover:text-primary active:border-b-primary">
             <Link
               href="/jobsearch"
               className={
                 currentRoute === "/jobsearch"
-                  ? "border-b-2 border-primary py-6"
+                  ? "border-b border-primary py-6"
                   : "border-transparent "
               }
             >
               Job Search
             </Link>
           </li>
-          <li className="border-b-2 border-transparent py-6 text-natural-6 hover:border-primary hover:text-primary active:border-b-primary">
+          <li className="border-b border-transparent py-6 text-natural-6 hover:text-primary active:border-b-primary">
             <Link
               href="/estimatedsalaries"
               className={
                 currentRoute === "/estimatedsalaries"
-                  ? "border-b-2 border-primary py-6"
+                  ? "border-b border-primary py-6"
                   : "border-transparent "
               }
             >
