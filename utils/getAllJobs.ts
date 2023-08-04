@@ -1,4 +1,5 @@
 import { jobResponse, Job } from "@/types";
+import error from "next/error";
 import { companyInfo } from "./companyInfo";
 
 export async function getAllJobs() {
@@ -23,7 +24,7 @@ export async function getAllJobs() {
     const jobs = result.data;
 
     return jobs as Job[];
-  } catch (error: any) {
+  } catch (error) {
     console.error(`An error occurred: ${error.message}`);
     return null;
   }
