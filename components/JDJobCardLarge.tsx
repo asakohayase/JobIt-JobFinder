@@ -29,9 +29,9 @@ const JDJobCardLarge = ({
   const averagePay = averagePayPerHour(job_min_salary, job_max_salary);
 
   return (
-    <section className="flex h-[1549px] w-[327px] shrink-0 flex-col md:w-[860px]">
+    <section className="flex w-full shrink-0 flex-col lg:w-[860px]">
       <div className="relative">
-        <div className="h-48 w-full md:w-[820px]">
+        <div className="h-48 w-full lg:w-[820px]">
           <Image
             src={"/img/widgets/header.png"}
             alt="header"
@@ -52,17 +52,17 @@ const JDJobCardLarge = ({
           </div>
         </div>
       </div>
-      <div className="ml-[20px] mt-[40px] flex flex-col items-center gap-[30px] md:ml-[37.5px] md:mt-[72px] md:flex-row md:gap-[150px]">
+      <div className="ml-[20px] mt-[40px] flex flex-col items-center gap-[30px] md:ml-[37.5px] md:mt-[72px] md:flex-row md:justify-between">
         <div className="inline-flex flex-col items-start gap-[6px]">
           <div className="flex items-center gap-[20px]">
             <span className="text-base font-semibold not-italic  leading-6 dark:text-white md:text-2xl md:font-bold md:leading-8">
               {job_title}
             </span>
-            <Button
+            {/* <Button
               href={"google.com"}
               style={"h-5 w-5"}
               icon={"/img/iconography/saved.png"}
-            />
+            /> */}
           </div>
           <div className="flex items-center gap-[5px]">
             <span className="text-xs font-medium not-italic leading-4 text-natural-7 md:text-base md:leading-6">
@@ -82,20 +82,20 @@ const JDJobCardLarge = ({
         <div className="flex items-start gap-[15px] md:justify-end">
           <Button
             href={job_apply_link}
-            style={"btn-primary px-[22px] py-[10px]"}
+            style={"btn-primary px-[14px] py-2 md:py-3 "}
             title={"Apply Now"}
           />
           <Button
             href={job_apply_link}
-            style={"px-[14px] py-2 md:py-3 btn-outline"}
-            title={"Share"}
+            style={"px-[14px] py-2 md:py-3 btn-outline-green"}
+            title={"View Company"}
           />
-
+          {/* 
           <Button
             href={job_apply_link}
             style={"btn-tag-icon"}
             icon={"/img/icons/more.svg"}
-          />
+          /> */}
         </div>
       </div>
 
@@ -155,8 +155,8 @@ const JDJobCardLarge = ({
         <div className="line-clamp-3 text-sm font-normal not-italic leading-5 text-natural-7 md:line-clamp-2 md:text-base md:leading-6">
           <ul className="list-none">
             {job_highlights?.Responsibilities.map((responsibility, i) => (
-              <li key={i} className="flex gap-2 md:items-center">
-                <div className="mt-2 h-2 w-2 shrink-0 rounded-full border-2 border-primary md:mt-0 md:h-2.5 md:w-2.5" />
+              <li key={i} className="flex gap-2 md:items-start">
+                <div className="mt-1.5 h-2 w-2 shrink-0 rounded-full border-2 border-primary md:h-2.5 md:w-2.5" />
                 {responsibility}
               </li>
             ))}
@@ -164,12 +164,12 @@ const JDJobCardLarge = ({
         </div>
       </div>
 
-      <div className="ml-[20px] mt-8 flex w-[280px] flex-col items-start gap-[12px] md:ml-10 md:w-[778px]">
+      {/* <div className="ml-[20px] mt-8 flex w-[280px] flex-col items-start gap-[12px] md:ml-10 md:w-[778px]">
         <h2 className="text-base font-bold not-italic leading-6 text-black dark:text-white md:text-lg">
           Qualifications and Skill Sets
         </h2>
 
-        {/* <span className="line-clamp-3 text-sm font-normal not-italic leading-5 text-natural-7 md:line-clamp-2  md:text-base md:leading-6">
+        <span className="line-clamp-3 text-sm font-normal not-italic leading-5 text-natural-7 md:line-clamp-2  md:text-base md:leading-6">
           <ul className="list-none">
             {qualifications.map((qualification, i) => (
               <li key={i} className="flex gap-2 md:items-center">
@@ -178,16 +178,16 @@ const JDJobCardLarge = ({
               </li>
             ))}
           </ul>
-        </span> */}
-      </div>
+        </span>
+      </div> */}
 
       <span className="ml-[20px] mt-8 h-px w-[780px] bg-natural-2 md:ml-10" />
       <h2 className="ml-10 mt-8 font-bold not-italic leading-6 md:text-lg">
         About The Company
       </h2>
 
-      <div className="ml-[20px] mt-5 inline-flex flex-col items-center gap-[14px] md:ml-10 md:flex-row md:gap-[487px]">
-        <div className="flex items-start gap-[20px] md:items-center">
+      <div className="ml-[20px] mt-5 inline-flex flex-col gap-[14px] md:ml-10 md:flex-row md:gap-[487px]">
+        <div className="flex gap-[20px]">
           <div className="relative h-12 w-12 shrink-0">
             <Image
               src={"/img/company-logo/ui-hut.svg"}
@@ -198,7 +198,7 @@ const JDJobCardLarge = ({
             />
           </div>
 
-          <div className="flex flex-col gap-[2px] self-start">
+          <div className="flex flex-col gap-[2px]">
             <span className="text-base font-semibold not-italic leading-6 text-black dark:text-natural-2 md:text-lg md:font-bold">
               {employer_name}
             </span>
@@ -210,11 +210,8 @@ const JDJobCardLarge = ({
 
         <Button
           href={job_apply_link}
-          style={
-            "flex justify-center items-center gap-[6px] px-2.5 py-[7px] round-[10px] border border-primary text-primary rounded-[10px]"
-          }
-          title={"Follow"}
-          icon={"/img/iconography/plus.svg"}
+          style={"px-[14px] py-2 md:py-3 text-center btn-outline-green"}
+          title={"View Company"}
         />
       </div>
     </section>

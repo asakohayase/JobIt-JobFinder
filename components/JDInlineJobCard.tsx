@@ -53,26 +53,17 @@ const JDInlineJobCard = ({ data }: Props) => {
 
       <div className="flex items-center gap-[150px]">
         <div className="text-xs font-medium not-italic leading-5 text-natural-6 lg:text-sm">
-          {`${getSincePostedDate(job_posted_at_datetime_utc)} days left`}
+          {`${getSincePostedDate(job_posted_at_datetime_utc)}`}
         </div>
 
-        <div className="flex items-center gap-[11px]">
-          <div className="flex items-center justify-center gap-[7px] rounded-md border border-natural-5 p-2 dark:border-darkBG-3">
-            <Button
-              href={job_apply_link}
-              style={"w-4 h-4"}
-              icon={"/img/icons/archive.svg"}
-            />
-          </div>
-          <div className="flex items-center justify-center gap-[10px] rounded-md bg-primary/10 px-[14px] py-[8px]">
-            <Button
-              href={job_apply_link}
-              style={
-                "text-center text-sm not-italic font-medium leading-5 text-primary"
-              }
-              title={"View"}
-            />
-          </div>
+        <div className="flex items-center justify-center gap-[10px] rounded-md bg-primary/10 px-[14px] py-[8px]">
+          <Button
+            href={job_apply_link}
+            style={
+              "text-center text-sm not-italic font-medium leading-5 text-primary"
+            }
+            title={"View"}
+          />
         </div>
       </div>
     </aside>
