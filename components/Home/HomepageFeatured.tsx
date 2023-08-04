@@ -1,54 +1,55 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import FeaturedCard from "./Cards/FeaturedCard";
+import { JobDetails, jobResponse } from "@/types";
+import { getLogo } from "@/utils/getLogo";
 
 const HomepageFeatured = () => {
-  return (
+  const [featured, setFeatured] = useState<string[]>();
+  const [data, setData] = useState<JobDetails[]>();
+  useEffect(() => {
+    async function getFeatured() {
+      const query = await fetch("/api/featuredjobs");
+      const result = await query.json();
+
+      setFeatured(result);
+    }
+    getFeatured();
+  }, []);
+
+  useEffect(() => {
+    async function getData() {
+      const jobData: JobDetails[] = [];
+      if (!featured) return;
+      featured.forEach(async (id: string) => {
+        const result = await fetch(`/api/fetchjob/${id}`);
+        const jobResponse: jobResponse = await result.json();
+        if (!jobResponse.data) return;
+        jobData.push(jobResponse.data[0]);
+      });
+      setData(jobData);
+    }
+    getData();
+  }, [featured]);
+
+  return featured?.length === 0 ? null : (
     <section className="flex flex-col gap-4">
       {/* Dummy components */}
       <h5 className="headline-5">Featured Companies</h5>
       <div className="flex flex-wrap gap-6 md:gap-6">
-        <FeaturedCard
-          title="Mailchimp"
-          location="California, USA"
-          logo="/img/company-logo/mailchimp.svg"
-          reviews={{
-            publisher: "test",
-            employer_name: "test",
-            score: 4,
-            num_stars: 5,
-            max_score: 5,
-            review_count: 10000,
-            reviews_link: "/",
-          }}
-        />
-        <FeaturedCard
-          title="Apple"
-          location="California, USA"
-          logo="/img/company-logo/apple.svg"
-          reviews={{
-            publisher: "test",
-            employer_name: "test",
-            score: 4.5,
-            num_stars: 4.5,
-            max_score: 5,
-            review_count: 10000,
-            reviews_link: "/",
-          }}
-        />
-        <FeaturedCard
-          title="Google"
-          location="California, USA"
-          logo="/img/company-logo/google.svg"
-          reviews={{
-            publisher: "test",
-            employer_name: "test",
-            score: 4,
-            num_stars: 3.5,
-            max_score: 5,
-            review_count: 10000,
-            reviews_link: "/",
-          }}
-        />
+        {data?.map((job) => {
+          console.log(job.employer_reviews);
+          return !job.employer_reviews ? null : (
+            <FeaturedCard
+              key={job.employer_logo}
+              title={job.employer_name || ""}
+              location={job.job_city || ""}
+              logo={getLogo(job.employer_name || "")}
+              reviews={job.employer_reviews[0]}
+            />
+          );
+        })}
       </div>
     </section>
   );
