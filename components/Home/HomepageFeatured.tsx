@@ -28,7 +28,7 @@ const HomepageFeatured = () => {
             <FeaturedCard
               key={job.employer_logo}
               title={job.employer_name || ""}
-              location={job.job_city || ""}
+              location={`${job.job_city}, ${job.job_state}` || ""}
               logo={getLogo(job.employer_name || "")}
               reviews={job.employer_reviews[0]}
             />
