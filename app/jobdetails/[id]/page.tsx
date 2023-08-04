@@ -63,10 +63,12 @@ const page = async ({ params }: { params: { id: String } }) => {
       </main>
     );
   } catch (error) {
-    console.error(
-      "An error occurred while fetching job details:",
-      error.message
-    );
+    if (error instanceof Error) {
+      console.error(
+        "An error occurred while fetching job details:",
+        error.message
+      );
+    }
     return (
       <main className="padding-layout flex flex-col gap-y-9 pb-[90px] pt-[46px]">
         <PageTitle />
