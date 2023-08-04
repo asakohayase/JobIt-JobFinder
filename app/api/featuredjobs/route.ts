@@ -1,4 +1,5 @@
 import { JobDetails, JobDetailsResponse, jobResponse } from "@/types";
+import { options } from "@/utils";
 import { companyInfo } from "@/utils/companyInfo";
 import { NextResponse } from "next/server";
 
@@ -38,13 +39,6 @@ export async function GET() {
 
   for (const { id } of filteredJobs) {
     const url = `https://jsearch.p.rapidapi.com/job-details?job_id=${id}&extended_publisher_details=false`;
-    const options = {
-      method: "GET",
-      headers: {
-        "X-RapidAPI-Key": process.env.API_KEY || "",
-        "X-RapidAPI-Host": "jsearch.p.rapidapi.com",
-      },
-    };
 
     const response = await fetch(url, options);
     const result: JobDetailsResponse = await response.json();
