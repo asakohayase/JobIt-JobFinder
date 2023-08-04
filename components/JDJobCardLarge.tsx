@@ -24,6 +24,7 @@ const JDJobCardLarge = ({
     employer_company_type,
     job_min_salary,
     job_max_salary,
+    employer_website,
   },
 }: Props) => {
   const averagePay = averagePayPerHour(job_min_salary, job_max_salary);
@@ -86,7 +87,7 @@ const JDJobCardLarge = ({
             title={"Apply Now"}
           />
           <Button
-            href={job_apply_link}
+            href={employer_website}
             style={"px-[14px] py-2 md:py-3 btn-outline-green"}
             title={"View Company"}
           />
@@ -98,7 +99,7 @@ const JDJobCardLarge = ({
           /> */}
         </div>
       </div>
-
+      <div></div>
       <div className="ml-4 mr-[5px] mt-8 inline-flex flex-wrap items-center justify-center gap-[10px] rounded-[10px] bg-natural-3 dark:bg-darkBG-3 md:ml-10 md:gap-[40px] md:rounded-[20px]">
         <div className="flex flex-col items-start gap-[10px] px-[24px] py-[16px] md:justify-center">
           <span className="text-xs not-italic leading-4 text-natural-6 md:text-sm md:font-semibold md:leading-6">
@@ -181,7 +182,7 @@ const JDJobCardLarge = ({
         </span>
       </div> */}
 
-      <span className="ml-[20px] mt-8 h-px w-[780px] bg-natural-2 md:ml-10" />
+      <span className="ml-[20px] mt-8 h-px w-full bg-natural-2 md:ml-10" />
       <h2 className="ml-10 mt-8 font-bold not-italic leading-6 md:text-lg">
         About The Company
       </h2>
@@ -209,7 +210,7 @@ const JDJobCardLarge = ({
         </div>
 
         <Button
-          href={job_apply_link}
+          href={employer_website}
           style={"px-[14px] py-2 md:py-3 text-center btn-outline-green"}
           title={"View Company"}
         />

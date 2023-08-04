@@ -23,7 +23,7 @@ const JDInlineJobCard = ({ data }: Props) => {
 
   return (
     <aside className="inline-flex flex-col items-start justify-center gap-[20px] rounded-jobit bg-white p-5 shadow-1 dark:bg-darkBG-3 dark:text-natural-6">
-      <div className="flex items-start gap-[30px]">
+      <div className="flex w-full items-start justify-between">
         <div className="flex items-center gap-[15px]">
           <div className="relative">
             <Image
@@ -51,7 +51,7 @@ const JDInlineJobCard = ({ data }: Props) => {
         </span>
       </div>
 
-      <div className="flex items-center gap-[150px]">
+      <div className="flex w-full items-center justify-between">
         <div className="text-xs font-medium not-italic leading-5 text-natural-6 lg:text-sm">
           {`${getSincePostedDate(job_posted_at_datetime_utc)}`}
         </div>
