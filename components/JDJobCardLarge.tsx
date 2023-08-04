@@ -181,7 +181,7 @@ const JDJobCardLarge = ({
         </span>
       </div> */}
 
-      <span className="ml-[20px] mt-8 h-px w-[780px] bg-natural-2 md:ml-10 md:ml-[20px]" />
+      <span className="ml-[20px] mt-8 h-px w-[780px] bg-natural-2 md:ml-10" />
       <h2 className="ml-10 mt-8 font-bold not-italic leading-6 md:text-lg">
         About The Company
       </h2>
