@@ -2,12 +2,11 @@
 
 import React, { useEffect, useState } from "react";
 import FeaturedCard from "./Cards/FeaturedCard";
-import { JobDetails, jobResponse } from "@/types";
+import { JobDetails } from "@/types";
 import { getLogo } from "@/utils/getLogo";
 
 const HomepageFeatured = () => {
-  const [featured, setFeatured] = useState<string[]>();
-  const [data, setData] = useState<JobDetails[]>();
+  const [featured, setFeatured] = useState<JobDetails[] | null>(null);
   useEffect(() => {
     async function getFeatured() {
       const query = await fetch("/api/featuredjobs");
@@ -18,29 +17,14 @@ const HomepageFeatured = () => {
     getFeatured();
   }, []);
 
-  useEffect(() => {
-    async function getData() {
-      const jobData: JobDetails[] = [];
-      if (!featured) return;
-      featured.forEach(async (id: string) => {
-        const result = await fetch(`/api/fetchjob/${id}`);
-        const jobResponse: jobResponse = await result.json();
-        if (!jobResponse.data) return;
-        jobData.push(jobResponse.data[0]);
-      });
-      setData(jobData);
-    }
-    getData();
-  }, [featured]);
-
   return featured?.length === 0 ? null : (
     <section className="flex flex-col gap-4">
       {/* Dummy components */}
       <h5 className="headline-5">Featured Companies</h5>
       <div className="flex flex-wrap gap-6 md:gap-6">
-        {data?.map((job) => {
-          console.log(job.employer_reviews);
-          return !job.employer_reviews ? null : (
+        {featured?.map((job) => {
+          if (!job.employer_reviews) return <></>;
+          return (
             <FeaturedCard
               key={job.employer_logo}
               title={job.employer_name || ""}
