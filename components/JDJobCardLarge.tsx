@@ -4,6 +4,7 @@ import Image from "next/image";
 import React from "react";
 import Button from "@/components/Reusable/Button";
 import { JobDetails } from "@/types";
+import { getLogo } from "@/utils/getLogo";
 
 type Props = {
   data: JobDetails;
@@ -27,6 +28,7 @@ const JDJobCardLarge = ({
     employer_website,
   },
 }: Props) => {
+  const logo = getLogo(employer_name);
   const averagePay = averagePayPerHour(job_min_salary, job_max_salary);
 
   return (
@@ -44,7 +46,7 @@ const JDJobCardLarge = ({
         <div className="absolute -bottom-5 left-[40px] flex items-center justify-center rounded-[10px] bg-natural-3 md:-bottom-10">
           <div className="relative m-[3px] h-10 w-10 shrink-0 md:h-16 md:w-16 ">
             <Image
-              src={"/img/company-logo/ui-hut.svg"}
+              src={logo}
               alt="logo"
               fill
               priority
@@ -53,17 +55,12 @@ const JDJobCardLarge = ({
           </div>
         </div>
       </div>
-      <div className="ml-[20px] mt-[40px] flex flex-col items-center gap-[30px] md:ml-[37.5px] md:mt-[72px] md:flex-row md:justify-between">
-        <div className="inline-flex flex-col items-start gap-[6px]">
+      <div className="ml-[20px] mt-[40px] flex flex-col gap-[30px] md:ml-[37.5px] md:mt-[72px] md:flex-row md:justify-between">
+        <div className="inline-flex flex-col gap-[6px]">
           <div className="flex items-center gap-[20px]">
             <span className="text-base font-semibold not-italic  leading-6 dark:text-white md:text-2xl md:font-bold md:leading-8">
               {job_title}
             </span>
-            {/* <Button
-              href={"google.com"}
-              style={"h-5 w-5"}
-              icon={"/img/iconography/saved.png"}
-            /> */}
           </div>
           <div className="flex items-center gap-[5px]">
             <span className="text-xs font-medium not-italic leading-4 text-natural-7 md:text-base md:leading-6">
@@ -75,12 +72,12 @@ const JDJobCardLarge = ({
             </span>
             <span className="h-[3px] w-[3px] rounded-full dark:bg-natural-7 md:bg-[#d8d8d8]" />
             <span className="text-xs font-medium not-italic leading-4 text-natural-7 md:text-base md:leading-6">
-              {getSincePostedDate(job_posted_at_datetime_utc)} days ago
+              {getSincePostedDate(job_posted_at_datetime_utc)}
             </span>
           </div>
         </div>
 
-        <div className="flex items-start gap-[15px] md:justify-end">
+        <div className="flex items-center justify-center gap-[15px] md:justify-end">
           <Button
             href={job_apply_link}
             style={"btn-primary px-[14px] py-2 md:py-3 "}
@@ -91,12 +88,6 @@ const JDJobCardLarge = ({
             style={"px-[14px] py-2 md:py-3 btn-outline-green"}
             title={"View Company"}
           />
-          {/* 
-          <Button
-            href={job_apply_link}
-            style={"btn-tag-icon"}
-            icon={"/img/icons/more.svg"}
-          /> */}
         </div>
       </div>
       <div></div>
@@ -138,7 +129,7 @@ const JDJobCardLarge = ({
         </div>
       </div>
 
-      <div className="ml-[20px] mt-8 flex w-[280px]  flex-col items-start gap-[12px] md:ml-10 md:w-[778px]">
+      <div className="ml-[20px] mt-8 flex w-full  flex-col items-start gap-[12px] md:ml-10 md:w-[778px]">
         <h2 className="text-base font-bold not-italic leading-6 text-black dark:text-white md:text-lg">
           About The Job
         </h2>
@@ -148,7 +139,7 @@ const JDJobCardLarge = ({
         </p>
       </div>
 
-      <div className="ml-[20px] mt-8 flex w-[280px] flex-col items-start gap-[12px] md:ml-10 md:w-[778px]">
+      <div className="ml-[20px] mt-8 flex w-full flex-col items-start gap-[12px] md:ml-10 md:w-[778px]">
         <h2 className="text-base font-bold not-italic leading-6 text-black dark:text-white md:text-lg">
           Responsibilities
         </h2>
@@ -165,25 +156,8 @@ const JDJobCardLarge = ({
         </div>
       </div>
 
-      {/* <div className="ml-[20px] mt-8 flex w-[280px] flex-col items-start gap-[12px] md:ml-10 md:w-[778px]">
-        <h2 className="text-base font-bold not-italic leading-6 text-black dark:text-white md:text-lg">
-          Qualifications and Skill Sets
-        </h2>
-
-        <span className="line-clamp-3 text-sm font-normal not-italic leading-5 text-natural-7 md:line-clamp-2  md:text-base md:leading-6">
-          <ul className="list-none">
-            {qualifications.map((qualification, i) => (
-              <li key={i} className="flex gap-2 md:items-center">
-                <div className="mt-2 h-2 w-2 shrink-0 rounded-full border-2 border-primary md:mt-0 md:h-2.5 md:w-2.5" />
-                {qualification}
-              </li>
-            ))}
-          </ul>
-        </span>
-      </div> */}
-
       <span className="ml-[20px] mt-8 h-px w-full bg-natural-2 md:ml-10" />
-      <h2 className="ml-10 mt-8 font-bold not-italic leading-6 md:text-lg">
+      <h2 className="ml-[20px] mt-8 font-bold not-italic leading-6 md:ml-10 md:text-lg">
         About The Company
       </h2>
 
@@ -191,7 +165,7 @@ const JDJobCardLarge = ({
         <div className="flex gap-[20px]">
           <div className="relative h-12 w-12 shrink-0">
             <Image
-              src={"/img/company-logo/ui-hut.svg"}
+              src={logo}
               alt="logo"
               fill
               priority
