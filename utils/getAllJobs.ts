@@ -1,13 +1,12 @@
 import { jobResponse, Job } from "@/types";
-import { companyInfo } from "./companyInfo";
 
 export async function getAllJobs() {
   try {
-    let url = "https://jsearch.p.rapidapi.com/search?query=developer&employer=";
+    const url = "https://jsearch.p.rapidapi.com/search?query=developer";
 
-    Object.values(companyInfo).forEach(({ id }) => {
-      url += `${id},`;
-    });
+    // Object.values(companyInfo).forEach(({ id }) => {
+    //   url += `${id},`;
+    // });
 
     const res = await fetch(url, {
       headers: {
