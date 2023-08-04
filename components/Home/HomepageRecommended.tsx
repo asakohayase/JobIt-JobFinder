@@ -3,7 +3,7 @@ import Button from "../Reusable/Button";
 import InlineJobCard from "./Cards/InlineJobCard";
 import { HomepageCardProps } from "@/types";
 
-const HomepageRecommended = async ({ jobListings }: HomepageCardProps) => {
+const HomepageRecommended = ({ jobListings }: HomepageCardProps) => {
   // Need to create algo for recommended
   return (
     <section className="flex w-full max-w-full shrink-0 flex-col gap-4 xl:max-w-[23rem]">
