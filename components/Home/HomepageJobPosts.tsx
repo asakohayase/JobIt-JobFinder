@@ -4,7 +4,7 @@ import Button from "../Reusable/Button";
 import JobCard from "./Cards/JobCard";
 import { HomepageCardProps } from "@/types";
 
-const HomepageJobPosts = async ({ jobListings }: HomepageCardProps) => {
+const HomepageJobPosts = ({ jobListings }: HomepageCardProps) => {
   return (
     <section className="flex flex-col gap-4">
       <article className="flex flex-col gap-4">
