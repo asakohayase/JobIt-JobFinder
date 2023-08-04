@@ -26,7 +26,7 @@ const JDInlineJobCard = ({ data }: Props) => {
 
   return (
     <aside className="inline-flex flex-col items-start justify-center gap-[20px] rounded-jobit bg-white p-5 shadow-1 dark:bg-darkBG-3 dark:text-natural-6">
-      <div className="flex w-full items-start justify-between gap-1 lg:gap-2">
+      <div className="flex w-full items-start justify-between">
         <div className="flex items-center gap-[15px]">
           <div className="relative">
             <Image
@@ -38,7 +38,7 @@ const JDInlineJobCard = ({ data }: Props) => {
               className="object-contain"
             />
           </div>
-          <div className="flex w-48 flex-col items-start gap-[6px] pr-0">
+          <div className="md:w-46 flex w-40 flex-col items-start gap-[6px] pr-0">
             <h1 className="line-clamp-1 text-base font-bold not-italic leading-6 text-black dark:text-white lg:font-medium">
               {job_title.length > 30 ? job_title.slice(0, 30) : job_title}
             </h1>
