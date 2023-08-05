@@ -1,18 +1,9 @@
 import { JobDetails, JobDetailsResponse } from "@/types";
-import { companyInfo } from "./companyInfo";
 import { options } from ".";
 
 export async function getFirstCompany(companyId: string) {
   try {
-    const company = Object.keys(companyInfo).find(
-      (key) =>
-        companyInfo[key].id.toLocaleLowerCase() ===
-        companyId.toLocaleLowerCase()
-    );
-    if (!company) {
-      throw new Error("Company with the specified job_id not found.");
-    }
-    const url = "https://jsearch.p.rapidapi.com/search?query=" + company;
+    const url = "https://jsearch.p.rapidapi.com/search?query=" + companyId;
 
     const res = await fetch(url, options);
 
@@ -21,6 +12,7 @@ export async function getFirstCompany(companyId: string) {
     }
     const result: JobDetailsResponse = await res.json();
     const companies = result.data;
+    if (!companies) return;
     const firstCompany = companies[0];
 
     return firstCompany as JobDetails;
