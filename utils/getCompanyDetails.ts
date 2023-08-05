@@ -4,8 +4,9 @@ import { options } from ".";
 export async function getCompanyDetails(companyId: string, query: string) {
   try {
     let url = "https://jsearch.p.rapidapi.com/search?";
-    url += query ? `query=${query}` : "query=job";
-    url += `&employer=${companyId}`;
+    url += query
+      ? `query=${query},%20${companyId}`
+      : `query=job,%20${companyId}`;
 
     const res = await fetch(url, options);
 
