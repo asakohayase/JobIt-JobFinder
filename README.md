@@ -112,7 +112,7 @@ Here we are going to focus on 2. Creating a Topical Branch:
 
 8. You have successfully created a pull request. Add at least one of the mentors as a code reviewer.
 
-9. Now wait for mentor approval. Once approved, you can merge the pull request.
+9. Now, wait for mentor approval. Once approved, you can merge the pull request.
 
 #
 
