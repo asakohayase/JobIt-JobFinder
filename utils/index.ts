@@ -27,3 +27,11 @@ export const getEmployementType = (type: string) => {
   }
   return type;
 };
+
+export const options = {
+  method: "GET",
+  headers: {
+    "X-RapidAPI-Key": process.env.API_KEY || "",
+    "X-RapidAPI-Host": "jsearch.p.rapidapi.com",
+  },
+};

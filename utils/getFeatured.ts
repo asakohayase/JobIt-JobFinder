@@ -1,13 +1,14 @@
 import { jobResponse, Job } from "@/types";
+import { companyInfo } from "./companyInfo";
 import { options } from ".";
 
-export async function getAllJobs() {
+export async function getFeatured() {
   try {
-    const url = "https://jsearch.p.rapidapi.com/search?query=developer";
+    let url = "https://jsearch.p.rapidapi.com/search?query=developer&employer=";
 
-    // Object.values(companyInfo).forEach(({ id }) => {
-    //   url += `${id},`;
-    // });
+    Object.values(companyInfo).forEach(({ id }) => {
+      url += `${id},`;
+    });
 
     const res = await fetch(url, options);
 

@@ -53,6 +53,7 @@ const displayStars = (starGrade: number) => {
 };
 
 const FeaturedCard = ({ title, location, logo, reviews }: Props) => {
+  if (!reviews.num_stars) return;
   const stars = displayStars(reviews.num_stars);
 
   return (
