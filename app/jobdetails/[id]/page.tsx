@@ -6,7 +6,6 @@ import React from "react";
 
 import PageTitle from "@/components/Reusable/PageTitle";
 import JDJobCardLarge from "@/components/JDJobCardLarge";
-import InlineJobCard from "@/components/Home/Cards/InlineJobCard";
 import { fetchJob } from "@/utils/fetchJob";
 import { getAllJobs } from "@/utils/getAllJobs";
 import JDInlineJobCard from "@/components/JDInlineJobCard";

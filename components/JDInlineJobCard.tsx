@@ -5,6 +5,7 @@ import React from "react";
 import Button from "@/components/Reusable/Button";
 import { Job } from "@/types";
 import { averagePayPerHour, getSincePostedDate } from "@/utils";
+import { getLogo } from "@/utils/getLogo";
 
 type Props = {
   data: Job;
@@ -18,16 +19,18 @@ const JDInlineJobCard = ({ data }: Props) => {
     job_apply_link,
     job_min_salary,
     job_max_salary,
+    employer_name,
   } = data;
+  const logo = getLogo(employer_name);
   const averagePay = averagePayPerHour(job_min_salary, job_max_salary);
 
   return (
     <aside className="inline-flex flex-col items-start justify-center gap-[20px] rounded-jobit bg-white p-5 shadow-1 dark:bg-darkBG-3 dark:text-natural-6">
-      <div className="flex items-start gap-[30px]">
+      <div className="flex w-full items-start justify-between">
         <div className="flex items-center gap-[15px]">
           <div className="relative">
             <Image
-              src={"/img/company-logo/adobe-illustrator.svg"}
+              src={logo}
               priority
               alt="Logo"
               width={48}
@@ -35,9 +38,9 @@ const JDInlineJobCard = ({ data }: Props) => {
               className="object-contain"
             />
           </div>
-          <div className="flex w-48 flex-col items-start gap-[6px] pr-0">
-            <h1 className="text-base font-bold not-italic leading-6 text-black dark:text-white lg:text-lg">
-              {job_title}
+          <div className="md:w-46 flex w-40 flex-col items-start gap-[6px] pr-0">
+            <h1 className="line-clamp-1 text-base font-bold not-italic leading-6 text-black dark:text-white lg:font-medium">
+              {job_title.length > 30 ? job_title.slice(0, 30) : job_title}
             </h1>
             <span className="text-sm font-normal not-italic leading-5 text-natural-6 lg:font-medium">
               {job_city}
@@ -51,7 +54,7 @@ const JDInlineJobCard = ({ data }: Props) => {
         </span>
       </div>
 
-      <div className="flex items-center gap-[150px]">
+      <div className="flex w-full items-center justify-between">
         <div className="text-xs font-medium not-italic leading-5 text-natural-6 lg:text-sm">
           {`${getSincePostedDate(job_posted_at_datetime_utc)}`}
         </div>
