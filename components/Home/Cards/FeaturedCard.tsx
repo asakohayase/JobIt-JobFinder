@@ -78,24 +78,39 @@ const FeaturedCard = ({ title, location, logo, reviews }: Props) => {
           <div className="flex">{stars}</div>
         </div>
         {/* Location */}
-        <div className="flex gap-2">
-          <div className="relative w-5">
-            <Image
-              src={"/img/iconography/pin.svg"}
-              alt={"Location Pin"}
-              fill
-              priority
-              className="object-contain"
-            />
+        {location.includes("null") ? (
+          <div className="flex gap-2">
+            <div className="relative w-5">
+              <Image
+                src={"/img/iconography/pin.svg"}
+                alt={"Location Pin"}
+                fill
+                priority
+                className="object-contain"
+              />
+            </div>
+            <p>Unavailable</p>
           </div>
-          <p>{location}</p>
-        </div>
+        ) : (
+          <div className="flex gap-2">
+            <div className="relative w-5">
+              <Image
+                src={"/img/iconography/pin.svg"}
+                alt={"Location Pin"}
+                fill
+                priority
+                className="object-contain"
+              />
+            </div>
+            <p>{location}</p>
+          </div>
+        )}
       </div>
       {/* See All Button */}
       <Button
         title={"See All"}
         style="flex justify-center align-center p-2 dark:bg-darkBG-3 rounded-jobit text-natural-6 body-11 bg-natural-4 hover:bg-natural-5 hover:dark:bg-darkBG-3/60"
-        href="/"
+        href={`/company/${title.toLowerCase()}`}
         icon=""
       />
     </div>
