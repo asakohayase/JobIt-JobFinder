@@ -28,7 +28,7 @@ export const getLogo = (name: string) => {
 
   const logo =
     companyInfo[<keyof typeof companyInfo>company[0]]?.logo ??
-    "/img/company-logo/adobeXD.svg";
+    "/img/company-logo/placeholder.svg";
 
   return logo;
 };
