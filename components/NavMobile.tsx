@@ -51,7 +51,7 @@ const NavMobile = () => {
             exit="hide"
           >
             <div className="flex w-full flex-col items-start justify-center bg-white dark:bg-darkBG-1">
-              <div className="absolute right-[260px] h-full w-[600px] bg-black opacity-20 dark:bg-white dark:opacity-5"></div>
+              <div className="absolute right-[262px] h-full w-[600px] bg-black opacity-20 dark:bg-white dark:opacity-5"></div>
               <div className="mb-6 pl-5">
                 <ul>
                   <li className=" py-3 pl-4 pr-32 font-bold text-natural-7 hover:rounded-md hover:border-primary hover:bg-natural-1 hover:text-primary active:border-b-primary dark:hover:bg-darkBG-3">
