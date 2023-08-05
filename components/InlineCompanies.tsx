@@ -14,28 +14,28 @@ const SimilarCompanies = ({ data }: Props) => {
   const logo = getLogo(employer_name);
 
   return (
-    <section className="lg:body-16 flex w-full items-center justify-between rounded-[10px] bg-white  p-5 shadow-sm dark:bg-darkBG-3 dark:text-natural-6 lg:max-w-[360px]">
+    <section className="lg:body-16 flex h-[90px] w-full items-center justify-between rounded-[10px] bg-white  p-5 shadow-sm dark:bg-darkBG-3 dark:text-natural-6 lg:max-w-[360px]">
       <div className="flex">
         <Image
           src={logo}
           priority
           alt="Logo"
-          className="object-cover"
+          className="object-fit"
           width={48}
           height={48}
         />
         <div className="pl-5">
-          <h2 className="body-1 text-black  dark:text-white">
+          <h2 className="body-1 line-clamp-1  text-black dark:text-white">
             {employer_name}
           </h2>
-          <p className=" text-natural-6">{employer_name}</p>
+          <p className=" line-clamp-1 text-natural-6">{employer_name}</p>
         </div>
       </div>
 
       <div>
         <Button
           title={"View"}
-          href={"#"}
+          href={`/company/${data.employer_name}`}
           style={
             "px-2.5 py-1.5 btn-outline-green hover:bg-primary hover:text-white"
           }
