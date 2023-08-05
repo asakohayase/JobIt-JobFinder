@@ -1,4 +1,5 @@
 import { Job, jobResponse } from "@/types";
+import { options } from ".";
 
 export async function getCompanyDetails(companyId: string, query: string) {
   try {
@@ -6,12 +7,7 @@ export async function getCompanyDetails(companyId: string, query: string) {
     url += query ? `query=${query}` : "query=job";
     url += `&employer=${companyId}`;
 
-    const res = await fetch(url, {
-      headers: {
-        "X-RapidAPI-Key": process.env.API_KEY || "",
-        "X-RapidAPI-Host": "jsearch.p.rapidapi.com",
-      },
-    });
+    const res = await fetch(url, options);
 
     if (!res.ok) {
       throw new Error(`HTTP error! status: ${res.status}`);

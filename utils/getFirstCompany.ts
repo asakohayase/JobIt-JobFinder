@@ -1,5 +1,6 @@
 import { JobDetails, JobDetailsResponse } from "@/types";
 import { companyInfo } from "./companyInfo";
+import { options } from ".";
 
 export async function getFirstCompany(companyId: string) {
   try {
@@ -13,12 +14,7 @@ export async function getFirstCompany(companyId: string) {
     }
     const url = "https://jsearch.p.rapidapi.com/search?query=" + company;
 
-    const res = await fetch(url, {
-      headers: {
-        "X-RapidAPI-Key": process.env.API_KEY || "",
-        "X-RapidAPI-Host": "jsearch.p.rapidapi.com",
-      },
-    });
+    const res = await fetch(url, options);
 
     if (!res.ok) {
       throw new Error(`HTTP error! status: ${res.status}`);
