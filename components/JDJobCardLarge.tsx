@@ -59,8 +59,8 @@ const JDJobCardLarge = ({
         <div className="mt-[40px] flex flex-col gap-[30px] md:mt-[72px] md:flex-row md:justify-between">
           <div className="inline-flex flex-col gap-[6px]">
             <div className="flex items-center gap-[20px]">
-              <span className="text-base font-semibold not-italic  leading-6 dark:text-white md:text-2xl md:font-bold md:leading-8">
-                {job_title}
+              <span className="text-base font-semibold not-italic leading-6 dark:text-white md:text-2xl md:font-bold md:leading-8">
+                {job_title.length > 30 ? job_title.slice(0, 30) : job_title}
               </span>
             </div>
             <div className="flex items-center gap-[5px]">
@@ -130,7 +130,7 @@ const JDJobCardLarge = ({
           </div>
         </div>
 
-        <div className="mt-8 flex w-full  flex-col items-start gap-[12px] md:w-[778px]">
+        <div className="mt-8 flex w-full  flex-col items-start gap-[12px]">
           <h2 className="text-base font-bold not-italic leading-6 text-black dark:text-white md:text-lg">
             About The Job
           </h2>
@@ -140,7 +140,7 @@ const JDJobCardLarge = ({
           </p>
         </div>
 
-        <div className="mt-8 flex w-full flex-col items-start gap-[12px] md:w-[778px]">
+        <div className="mt-8 flex w-full flex-col items-start gap-[12px]">
           <h2 className="text-base font-bold not-italic leading-6 text-black dark:text-white md:text-lg">
             Responsibilities
           </h2>
@@ -162,7 +162,7 @@ const JDJobCardLarge = ({
           About The Company
         </h2>
 
-        <div className="mt-5 inline-flex flex-col gap-[14px] md:flex-row md:gap-[487px]">
+        <div className="mt-5 inline-flex w-full flex-col gap-[14px] md:flex-row md:justify-between">
           <div className="flex gap-[20px]">
             <div className="relative h-12 w-12 shrink-0">
               <Image
@@ -175,7 +175,7 @@ const JDJobCardLarge = ({
             </div>
 
             <div className="flex flex-col gap-[2px]">
-              <span className="text-base font-semibold not-italic leading-6 text-black dark:text-natural-2 md:text-lg md:font-bold">
+              <span className="line-clamp-1 text-base font-semibold not-italic leading-6 text-black dark:text-natural-2 md:text-lg md:font-bold">
                 {employer_name}
               </span>
               <span className="text-sm font-medium not-italic leading-6 text-natural-7 md:text-base">
