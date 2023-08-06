@@ -45,12 +45,13 @@ const NavMobile = () => {
       <AnimatePresence mode="sync">
         {open && (
           <motion.div
-            className="absolute right-0 flex h-screen w-80 items-center bg-white dark:bg-darkBG-1"
+            className="absolute right-0 flex h-screen w-[262px] items-center bg-white dark:bg-darkBG-1"
             initial="hide"
             animate="show"
             exit="hide"
           >
             <div className="flex w-full flex-col items-start justify-center bg-white dark:bg-darkBG-1">
+              <div className="absolute right-[262px] h-full w-[600px] bg-black opacity-20 dark:bg-white dark:opacity-5"></div>
               <div className="mb-6 pl-5">
                 <ul>
                   <li className=" py-3 pl-4 pr-32 font-bold text-natural-7 hover:rounded-md hover:border-primary hover:bg-natural-1 hover:text-primary active:border-b-primary dark:hover:bg-darkBG-3">
@@ -59,7 +60,7 @@ const NavMobile = () => {
                   <li className=" py-3 pl-4 pr-32 font-bold text-natural-7 hover:rounded-md hover:border-primary hover:bg-natural-1 hover:text-primary active:border-b-primary dark:hover:bg-darkBG-3">
                     <Link href="/jobsearch">Job Search</Link>
                   </li>
-                  <li className=" py-3 pl-4 pr-32 font-bold text-natural-7 hover:rounded-md hover:border-primary hover:bg-natural-1 hover:text-primary active:border-b-primary dark:hover:bg-darkBG-3">
+                  <li className="py-3 pl-4 font-bold text-natural-7 hover:rounded-md hover:border-primary hover:bg-natural-1 hover:text-primary active:border-b-primary dark:hover:bg-darkBG-3">
                     <Link href="/estimatedsalaries">Estimated Salaries</Link>
                   </li>
                 </ul>
