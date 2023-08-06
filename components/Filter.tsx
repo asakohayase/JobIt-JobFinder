@@ -1,5 +1,5 @@
 "use client";
-import { JobDetails, jobResponse } from "@/types";
+import { JobDetails } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -21,7 +21,6 @@ const Filter = ({ data: { list, title }, setJobs, jobs }: Props) => {
     key: string
   ) => {
     e.preventDefault();
-
   };
   return (
     <section className="hidden shrink-0 lg:block lg:max-w-[250px]">
@@ -38,15 +37,17 @@ const Filter = ({ data: { list, title }, setJobs, jobs }: Props) => {
           src={"/img/icons/cheveron.svg"}
           width={20}
           height={20}
-          className={`${clicked === true ? "rotate-90" : "-rotate-90"
-            } object-cover`}
+          className={`${
+            clicked === true ? "rotate-90" : "-rotate-90"
+          } object-cover`}
           alt="Icon"
         />
       </Link>
 
       <section
-        className={`flex ${clicked === true && "mt-5  pr-3"
-          } flex-col gap-3 overflow-hidden overflow-y-auto lg:max-h-[240px]`}
+        className={`flex ${
+          clicked === true && "mt-5  pr-3"
+        } flex-col gap-3 overflow-hidden overflow-y-auto lg:max-h-[240px]`}
       >
         {clicked === true &&
           Object.entries(list)?.map(([key, value], i: number) => {

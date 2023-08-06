@@ -22,8 +22,11 @@ const InlineJobCard = ({
     job_id,
   },
 }: Props) => {
-  const logo = getLogo(employer_name);
-  const averagePay = averagePayPerHour(job_min_salary, job_max_salary);
+  const logo = getLogo(employer_name ?? "");
+  const averagePay =
+    job_min_salary && job_max_salary
+      ? averagePayPerHour(job_min_salary, job_max_salary)
+      : "0";
 
   return (
     <Link
@@ -57,7 +60,9 @@ const InlineJobCard = ({
         )}
 
         <span className="capitalize text-natural-7">
-          {getEmployementType(job_employment_type.toLocaleLowerCase())}
+          {job_employment_type
+            ? getEmployementType(job_employment_type.toLocaleLowerCase())
+            : ""}
         </span>
       </div>
     </Link>

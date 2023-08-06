@@ -32,8 +32,11 @@ const JobCard = ({
     job_id,
   },
 }: Props) => {
-  const logo = getLogo(employer_name);
-  const averagePay = averagePayPerHour(job_min_salary, job_max_salary);
+  const logo = getLogo(employer_name ?? "");
+  const averagePay =
+    job_min_salary && job_max_salary
+      ? averagePayPerHour(job_min_salary, job_max_salary)
+      : 0;
   return (
     <article className="flex w-full flex-col gap-y-[30px] rounded-jobit bg-white p-5 shadow-1 dark:bg-darkBG-2">
       <header className="flex items-center gap-5">
@@ -77,9 +80,11 @@ const JobCard = ({
       <section className="flex space-x-3">
         <Badge
           style={"btn-tag-icon"}
-          title={`${getEmployementType(
-            job_employment_type.toLocaleLowerCase()
-          )}`}
+          title={`${
+            job_employment_type
+              ? getEmployementType(job_employment_type.toLocaleLowerCase())
+              : ""
+          }`}
           icon={"/img/iconography/briefcase.svg"}
         />
         <Badge
@@ -89,7 +94,11 @@ const JobCard = ({
         />
         <Badge
           style={"btn-tag-icon"}
-          title={`${getSincePostedDate(job_posted_at_datetime_utc)}`}
+          title={`${
+            job_posted_at_datetime_utc
+              ? getSincePostedDate(job_posted_at_datetime_utc)
+              : "N/A"
+          }`}
           icon={"/img/iconography/clock.svg"}
         />
       </section>
