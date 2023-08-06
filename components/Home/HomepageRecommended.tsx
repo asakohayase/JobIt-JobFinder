@@ -16,7 +16,7 @@ const HomepageRecommended = ({ jobListings }: HomepageCardProps) => {
         />
       </div>
       <div className="flex flex-col items-center gap-2 rounded-jobit bg-white p-4 dark:bg-darkBG-2">
-        {jobListings.slice(5, 10).map((jobListing) => (
+        {jobListings?.slice(5, 10).map((jobListing) => (
           <React.Fragment key={jobListing.job_id}>
             <InlineJobCard data={jobListing} />
           </React.Fragment>

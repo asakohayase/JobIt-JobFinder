@@ -21,7 +21,7 @@ const HomepageJobPosts = ({ jobListings }: HomepageCardProps) => {
           </div>
         </section>
         <article className="grid grid-cols-1 gap-10 lg:grid-cols-2">
-          {jobListings.slice(0, 4).map((jobListing) => (
+          {jobListings?.slice(0, 4).map((jobListing) => (
             <React.Fragment key={jobListing.job_id}>
               <JobCard data={jobListing} />
             </React.Fragment>

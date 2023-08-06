@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, ChangeEvent, FormEvent, Suspense } from "react";
-import { Metadata } from "next";
 
 import PageTitle from "@/components/Reusable/PageTitle";
 import Search from "@/components/Search";
@@ -9,11 +8,6 @@ import { JobDetails } from "@/types";
 import JobCard from "@/components/Home/Cards/JobCard";
 import Loader from "@/components/Loader";
 import Pagination, { paginate } from "../api/search/Pagination";
-
-export const metadata: Metadata = {
-  title: "Jobit - Job Search",
-  description: "Job Finder Web Application",
-};
 
 interface HomePageState {
   searchInput: string;

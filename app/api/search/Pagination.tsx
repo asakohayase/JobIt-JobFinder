@@ -15,8 +15,8 @@ const Pagination = ({ jobs, currentPage, onPageChange, pageSize }: Props) => {
   const pages = Array.from({ length: pagesCount }, (_, i) => i + 1);
 
   return (
-    <section className="mt-4">
-      <ul className={"flex items-center justify-center gap-1"}>
+    <section className="mt-4 flex">
+      <ul className={"flex flex-wrap items-center justify-center md:gap-1"}>
         {pages.map((page) => (
           <li
             key={page}
