@@ -14,7 +14,7 @@ const SimilarCompanies = ({ data }: Props) => {
   const logo = getLogo(employer_name ?? "");
 
   return (
-    <section className="lg:body-16 flex h-[90px] w-full items-center justify-between rounded-[10px] bg-white  p-5 shadow-sm dark:bg-darkBG-3 dark:text-natural-6 lg:max-w-[360px]">
+    <section className="lg:body-16 flex w-full items-center justify-between rounded-[10px] bg-white p-5 shadow-sm dark:bg-darkBG-3 dark:text-natural-6 md:gap-1">
       <div className="flex">
         <Image
           src={logo}
