@@ -8,10 +8,21 @@ import HomepageJobPosts from "@/components/Home/HomepageJobPosts";
 import HomepageFeatured from "@/components/Home/HomepageFeatured";
 import HomepageRecommended from "@/components/Home/HomepageRecommended";
 import { GeoResponse } from "@/types";
+import Loader from "@/components/Loader";
 
 const Home = () => {
   const [jobListings, setJobListings] = useState(null);
   const [location, setLocation] = useState<GeoResponse>();
+
+  const [showLoading, setShowLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowLoading(false);
+    }, 2500);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     async function fetchLocation() {
@@ -41,7 +52,7 @@ const Home = () => {
 
   if (!jobListings) return;
 
-  return (
+  return !showLoading ? (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       <main className="padding-layout flex flex-col gap-8 py-6 dark:bg-darkBG-1 md:py-10">
         <PageTitle title="Welcome to the Job Search Platform for Developers" />
@@ -57,6 +68,8 @@ const Home = () => {
         </section>
       </main>
     </ErrorBoundary>
+  ) : (
+    <Loader />
   );
 };
 
