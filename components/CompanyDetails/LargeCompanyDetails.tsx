@@ -3,11 +3,11 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
-import Button from "./Reusable/Button";
+import Button from "../Reusable/Button";
 import { Job } from "@/types";
 import { getLogo } from "@/utils/getLogo";
-import JobCard from "./Home/Cards/JobCard";
-import Loader from "./Loader";
+import JobCard from "./Cards/JobCard";
+import Loader from "../Loader";
 
 type Props = {
   firstCompany: Job;
@@ -110,7 +110,7 @@ const LargeCompanyDetails = ({
                   jobResults.slice(0, 4).map((jobDetail: Job) => (
                     <div
                       key={jobDetail.job_id}
-                      className="flex h-56 w-[360px] grow items-center justify-center rounded-lg shadow-lg dark:bg-darkBG-3 dark:shadow-none md:shadow-lg"
+                      className="flex w-[360px] grow items-center justify-center rounded-lg shadow-lg dark:bg-darkBG-3 dark:shadow-none md:shadow-lg"
                     >
                       <JobCard data={jobDetail} />
                     </div>
