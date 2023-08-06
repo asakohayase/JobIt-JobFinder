@@ -202,3 +202,9 @@ export interface HomepageCardProps {
 export interface CompanyPageProps {
   jobDetails?: Job[];
 }
+
+export type InitialValuesType = {
+  position: string;
+  location: string;
+  radius: string;
+};
