@@ -26,7 +26,10 @@ const JobCard = ({
     job_title,
   },
 }: Props) => {
-  const averagePay = averagePayPerHour(job_min_salary, job_max_salary);
+  const averagePay =
+    job_min_salary && job_max_salary
+      ? averagePayPerHour(job_min_salary, job_max_salary)
+      : 0;
 
   return (
     <div className="relative flex w-full max-w-[950px] shrink-0 flex-col gap-y-[30px] rounded-jobit bg-white p-5 dark:bg-darkBG-2">
@@ -68,7 +71,11 @@ const JobCard = ({
               )}
               <span>{job_city}</span>
               <span className="h-[3px] w-[3px] rounded-full bg-natural-7" />
-              <span>{getSincePostedDate(job_posted_at_datetime_utc)}</span>
+              <span>
+                {job_posted_at_datetime_utc
+                  ? getSincePostedDate(job_posted_at_datetime_utc)
+                  : null}
+              </span>
             </div>
           </div>
         </div>
@@ -101,7 +108,7 @@ const JobCard = ({
 
           <div className="body-6 lg:body-2 text-black dark:text-white">
             <span className="body-8 lg:body-3 text-natural-7">
-              {`${job_is_remote === true ? "Remote" : "In-Office"} `}
+              {`${job_is_remote ? "Remote" : "In-Office"} `}
             </span>
           </div>
         </div>
