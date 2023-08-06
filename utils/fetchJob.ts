@@ -1,6 +1,6 @@
 import { JobDetailsResponse } from "@/types";
 
-export const fetchJob = async (id: String) => {
+export const fetchJob = async (id: string) => {
   const url = `https://jsearch.p.rapidapi.com/job-details?job_id=${id}&extended_publisher_details=false`;
   const options = {
     method: "GET",
