@@ -5,7 +5,7 @@ import React from "react";
 
 export default function Loader() {
   return (
-    <div className="padding-layout mt-96 flex w-full items-center justify-center">
+    <div className="padding-layout flex w-full items-center justify-center">
       <div className="rounded-jobit bg-primary px-16 py-10 dark:bg-transparent">
         <motion.svg
           xmlns="http://www.w3.org/2000/svg"
@@ -18,7 +18,6 @@ export default function Loader() {
           transition={{
             duration: 1,
             ease: "easeInOut",
-            // times: [0, 0.2, 0.5, 0.8, 1],
             repeat: Infinity,
             repeatType: "reverse",
           }}

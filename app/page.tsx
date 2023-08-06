@@ -69,7 +69,9 @@ const Home = () => {
       </main>
     </ErrorBoundary>
   ) : (
-    <Loader />
+    <main className="mt-96">
+      <Loader />
+    </main>
   );
 };
 
