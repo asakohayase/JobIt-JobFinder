@@ -21,21 +21,7 @@ const Filter = ({ data: { list, title }, setJobs, jobs }: Props) => {
     key: string
   ) => {
     e.preventDefault();
-    try {
-      const res = await fetch("/api/filter", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ key }),
-      });
 
-      const { data }: jobResponse = await res.json();
-      setJobs(data);
-      console.log(data);
-    } catch (error) {
-      console.log(error);
-    }
   };
   return (
     <section className="hidden shrink-0 lg:block lg:max-w-[250px]">
