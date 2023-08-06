@@ -1,14 +1,30 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, ChangeEvent, FormEvent } from "react";
 import { State } from "country-state-city";
 
-import Button from "./Reusable/Button";
 import { GeoResponse } from "@/types";
 
-const Search = () => {
-  const [input, setInput] = useState("");
+interface SearchProps {
+  input: string;
+  onInputChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  selectedLocation: string;
+  onLocationChange: (event: ChangeEvent<HTMLSelectElement>) => void;
+  selectedJobType: string;
+  onJobTypeChange: (event: ChangeEvent<HTMLSelectElement>) => void;
+  handleSubmit: (event: FormEvent) => void;
+}
+
+const Search: React.FC<SearchProps> = ({
+  input,
+  onInputChange,
+  selectedLocation,
+  onLocationChange,
+  selectedJobType,
+  onJobTypeChange,
+  handleSubmit,
+}) => {
   const [location, setLocation] = useState<GeoResponse>();
 
   useEffect(() => {
@@ -25,7 +41,10 @@ const Search = () => {
   }, []);
 
   return (
-    <form className="mt-6 flex w-full flex-col gap-2 rounded-xl bg-white dark:bg-darkBG-2 md:flex-row md:gap-0">
+    <form
+      className="mt-6 flex w-full flex-col gap-2 rounded-xl bg-white dark:bg-darkBG-2 md:flex-row md:gap-0"
+      onSubmit={handleSubmit}
+    >
       <div className="mx-4 flex h-20 items-center justify-around gap-4 border-b pl-6 text-natural-6 dark:border-b-2 dark:border-[#44444F] md:mx-0 md:w-1/3 md:border-b-0 md:border-r-2 dark:md:border-b-0">
         <Image
           alt="Search Icon - Magnifying Glass"
@@ -38,7 +57,7 @@ const Search = () => {
           id="searchInput"
           placeholder="Job Title, Company, or Keywords"
           value={input}
-          onChange={(event) => setInput(event.target.value)}
+          onChange={onInputChange}
         />
       </div>
       <div className="mx-4 flex h-20 items-center justify-around gap-4 border-b pl-6 dark:border-b-2 dark:border-[#44444F] md:mx-0 md:w-1/3 md:border-b-0 md:border-r-2 dark:md:border-b-0">
@@ -49,7 +68,8 @@ const Search = () => {
           height={28}
         />
         <select
-          defaultValue={""}
+          value={selectedLocation}
+          onChange={onLocationChange}
           aria-labelledby="location"
           id="searchLocation"
           className="body-6 md:body-14 mr-6 h-full w-full rounded-r-xl bg-white text-natural-6 focus:outline-none  dark:bg-darkBG-2"
@@ -73,7 +93,8 @@ const Search = () => {
           height={28}
         />
         <select
-          defaultValue={""}
+          value={selectedJobType}
+          onChange={onJobTypeChange}
           aria-labelledby="jobType"
           id="jobType"
           className="body-6 md:body-14 mr-6 h-full w-full rounded-r-xl bg-white text-natural-6 focus:outline-none dark:bg-darkBG-2"
@@ -88,11 +109,9 @@ const Search = () => {
         </select>
       </div>
       <div className="mx-4 my-6 md:relative md:right-6 md:top-4 md:m-0">
-        <Button
-          title={"Find Jobs"}
-          style="flex items-center justify-center bg-primary w-full h-14 md:h-12 rounded-lg px-3 mr-6 body-6 text-white"
-          href=""
-        />
+        <button className="body-6 mr-6 flex h-14 w-full items-center justify-center rounded-lg bg-primary px-3 text-white md:h-12">
+          Find Jobs
+        </button>
       </div>
     </form>
   );
