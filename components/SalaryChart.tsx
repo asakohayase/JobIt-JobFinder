@@ -8,6 +8,8 @@ import { EstimatedSalaryData } from "@/types";
 import Loader from "./Loader";
 
 type Props = {
+  jobTitle: string;
+  location: string;
   EstimatedSalary: EstimatedSalaryData[] | null;
 };
 
@@ -19,7 +21,7 @@ type Props = {
  *
  */
 
-const SalaryChart = ({ EstimatedSalary }: Props) => {
+const SalaryChart = ({ jobTitle, location, EstimatedSalary }: Props) => {
   const [salaryResults, setSalaryResults] = useState<EstimatedSalaryData[]>([]);
 
   useEffect(() => {
@@ -72,7 +74,11 @@ const SalaryChart = ({ EstimatedSalary }: Props) => {
     const test1 = data.datasets.map((dataset) => dataset.data);
     const testArr: number[] = [];
     test1.forEach((item) => {
-      item.forEach((value) => testArr.push(value));
+      item.forEach((value) => {
+        if (typeof value !== "undefined") {
+          testArr.push(value);
+        }
+      });
     });
     return Math.max(...testArr);
   }
@@ -81,7 +87,11 @@ const SalaryChart = ({ EstimatedSalary }: Props) => {
     const test1 = data.datasets.map((dataset) => dataset.data);
     const testArr: number[] = [];
     test1.forEach((item) => {
-      item.forEach((value) => testArr.push(value));
+      item.forEach((value) => {
+        if (typeof value !== "undefined") {
+          testArr.push(value);
+        }
+      });
     });
     return Math.min(...testArr);
   }
@@ -128,8 +138,8 @@ const SalaryChart = ({ EstimatedSalary }: Props) => {
   return (
     <figure className="flex h-full w-full flex-col gap-3 rounded-2xl bg-white px-7 py-6 dark:bg-darkBG-2">
       <h1 className="headline-5 md:font-bold">
-        Estimated Salary <span className="font-normal">for</span> NodeJS
-        Developer <span className="font-normal">in</span> New York
+        Estimated Salary <span className="font-normal">for</span> {jobTitle}{" "}
+        <span className="font-normal">in</span> {location}
       </h1>
       <div className="body-20 flex justify-around md:justify-start md:gap-4">
         <div className="md:body-12 flex items-center gap-2">

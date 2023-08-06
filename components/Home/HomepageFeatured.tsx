@@ -19,7 +19,6 @@ const HomepageFeatured = () => {
 
   return featured?.length === 0 ? null : (
     <section className="flex flex-col gap-4">
-      {/* Dummy components */}
       <h5 className="headline-5">Featured Companies</h5>
       <div className="flex flex-wrap gap-6 md:gap-6">
         {featured?.map((job) => {

@@ -3,11 +3,11 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
-import Button from "./Reusable/Button";
+import Button from "../Reusable/Button";
 import { Job } from "@/types";
 import { getLogo } from "@/utils/getLogo";
-import JobCard from "./Home/Cards/JobCard";
-import Loader from "./Loader";
+import JobCard from "./Cards/JobCard";
+import Loader from "../Loader";
 
 type Props = {
   firstCompany: Job;
@@ -45,8 +45,8 @@ const LargeCompanyDetails = ({
   }, [jobDetails]);
 
   return (
-    <article className="flex flex-col md:gap-14">
-      <section className="md:max-h-48">
+    <article className="flex w-full flex-col bg-natural-3 md:gap-14">
+      <section className="max-h-48">
         <div>
           <Image
             src={"/img/widgets/header.png"}
@@ -65,20 +65,23 @@ const LargeCompanyDetails = ({
           />
         </div>
       </section>
-      <section className="flex flex-col md:gap-8">
-        <section>
-          <hgroup className="ml-2 flex flex-col gap-2 md:ml-6">
-            <h2 className="headline-2">{firstCompany.employer_name}</h2>
-            <div className="flex items-center gap-2">
-              <h3 className="body-6 text-natural-7">
-                {firstCompany.employer_name}
-              </h3>
-              <span className="h-[3px] w-[3px] rounded-full bg-black dark:bg-natural-7" />
-              <h3 className="body-6 text-natural-7">{firstCompany.job_city}</h3>
-            </div>
-          </hgroup>
+      <section className="flex flex-col gap-5 md:gap-8">
+        <section className="ml-2 flex flex-col gap-2 md:ml-6">
+          <h2 className="headline-2">{firstCompany.employer_name ?? "N/A"}</h2>
+          <div className="flex items-center gap-2">
+            <h3 className="body-6 text-natural-7">
+              {firstCompany.employer_name ?? "N/A"}
+            </h3>
+            {firstCompany.job_city && (
+              <>
+                <span className="h-[3px] w-[3px] rounded-full bg-black dark:bg-natural-7" />
+                <h3 className="body-6 text-natural-7">
+                  {firstCompany.job_city}
+                </h3>
+              </>
+            )}
+          </div>
         </section>
-        <hr className="my-4 h-1 w-full border-t-natural-2 dark:border-t-darkBG-3 md:hidden" />
         <section className="w-full">
           <article className="flex flex-col gap-12 rounded-jobit bg-white p-6 dark:bg-darkBG-2 md:ml-6">
             <section>
@@ -91,7 +94,7 @@ const LargeCompanyDetails = ({
                   className="ml-3 md:ml-5"
                 />
                 <input
-                  className="body-7 h-full w-2/3 bg-natural-3 p-3 focus:outline-none dark:bg-darkBG-3"
+                  className="md:body-7 h-full w-2/3 bg-natural-3 p-3 text-sm focus:outline-none dark:bg-darkBG-3"
                   placeholder={"Search Job Title or Keyword"}
                   type="text"
                   onChange={handleInputChange}
@@ -110,7 +113,7 @@ const LargeCompanyDetails = ({
                   jobResults.slice(0, 4).map((jobDetail: Job) => (
                     <div
                       key={jobDetail.job_id}
-                      className="flex h-56 w-[360px] grow items-center justify-center rounded-lg shadow-lg dark:bg-darkBG-3 dark:shadow-none md:shadow-lg"
+                      className="flex w-[360px] grow items-center justify-center rounded-lg shadow-lg dark:bg-darkBG-3 dark:shadow-none md:shadow-lg"
                     >
                       <JobCard data={jobDetail} />
                     </div>
@@ -124,7 +127,7 @@ const LargeCompanyDetails = ({
               <Button
                 title="See All Jobs"
                 style="px-3 py-2 dark:bg-darkBG-3 body-15 text-natural-6 rounded-jobit"
-                href=""
+                href="/jobsearch"
               />
             </div>
           </article>

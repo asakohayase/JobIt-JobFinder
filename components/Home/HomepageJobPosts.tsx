@@ -15,7 +15,7 @@ const HomepageJobPosts = ({ jobListings }: HomepageCardProps) => {
               <Button
                 style="body-11 border border-natural-2 dark:border-darkBG-2 px-2 py-1 rounded-jobit text-natural-6"
                 title={"See All"}
-                href=""
+                href="/jobsearch"
               />
             </div>
           </div>
