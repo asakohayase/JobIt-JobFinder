@@ -20,7 +20,7 @@ const LargeCompanyDetails = ({
   companyId,
   jobDetails,
 }: Props) => {
-  const logo = getLogo(firstCompany.employer_name);
+  const logo = getLogo(firstCompany.employer_name ?? "");
   const [query, setQuery] = useState("");
   const [jobResults, setJobResults] = useState<Job[]>([]);
 

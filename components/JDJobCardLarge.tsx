@@ -74,17 +74,21 @@ const JDJobCardLarge = ({
               <span className="text-xs font-medium not-italic leading-4 text-natural-7 md:text-base md:leading-6">
                 {employer_name ?? "N/A"}
               </span>
-              <span className="h-[3px] w-[3px] rounded-full dark:bg-natural-7 md:bg-[#d8d8d8]" />
               {job_city !== undefined && (
-                <span className="text-xs font-medium not-italic leading-4 text-natural-7 md:text-base md:leading-6">
-                  {job_city}
-                </span>
+                <>
+                  <span className="h-[3px] w-[3px] rounded-full dark:bg-natural-7 md:bg-[#d8d8d8]" />
+                  <span className="text-xs font-medium not-italic leading-4 text-natural-7 md:text-base md:leading-6">
+                    {job_city}
+                  </span>
+                </>
               )}
-              <span className="h-[3px] w-[3px] rounded-full dark:bg-natural-7 md:bg-[#d8d8d8]" />
               {job_posted_at_datetime_utc !== undefined && (
-                <span className="text-xs font-medium not-italic leading-4 text-natural-7 md:text-base md:leading-6">
-                  {getSincePostedDate(job_posted_at_datetime_utc)}
-                </span>
+                <>
+                  <span className="h-[3px] w-[3px] rounded-full dark:bg-natural-7 md:bg-[#d8d8d8]" />
+                  <span className="text-xs font-medium not-italic leading-4 text-natural-7 md:text-base md:leading-6">
+                    {getSincePostedDate(job_posted_at_datetime_utc)}
+                  </span>
+                </>
               )}
             </div>
           </div>
