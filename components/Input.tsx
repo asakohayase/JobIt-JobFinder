@@ -1,9 +1,9 @@
-import { EstimatedSalaryData, EstimatedSalaryResponse } from "@/types";
-import React, { useState } from "react";
+import { EstimatedSalaryData } from "@/types";
+import { options } from "@/utils";
+import React, { useEffect, useState } from "react";
 
 type Props = {
   setEstimatedSalaries: React.Dispatch<React.SetStateAction<EstimatedSalaryData>>
-  estimatedSalaries: EstimatedSalaryData
 }
 
 const initialValues = {
@@ -11,12 +11,12 @@ const initialValues = {
   location: "",
   radius: "",
 }
-const Input = ({setEstimatedSalaries, estimatedSalaries}: Props) => {
+const Input = ({setEstimatedSalaries}: Props) => {
 
   const [values, setValues] = useState(initialValues)
 
 
-const handleInpuChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   const {name, value} = e.target
   setValues({
     ...values, [name]: value,
@@ -25,39 +25,33 @@ const handleInpuChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 
 const handleKeyPress = (e: React.KeyboardEvent<HTMLFormElement>) => {
   if (e.key === "Enter") {
-    handleSubmit(e);
+    fetchData();
   }
 };
 
-const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault()
-  console.log(values)
-  try {
-    const res = await fetch("/api/estimatedsalaries", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({...values}),
-    });
+const fetchData = async () => {
+  const { position, location, radius } = values;
+  if (!location || !position || !radius) return "No information provided";
+  const response = await fetch(
+    `/api/estimatedsalaries?position=${position}&location=${location}&radius=${radius}`,
+    options
+  );
+  const data = await response.json();
+  setEstimatedSalaries(data);
+};
 
-    const { data }: EstimatedSalaryResponse = await res.json();
-    setEstimatedSalaries(data);
-
-  } catch (error) {
-    console.log(error);
-  }
-
-}
+useEffect(() => {
+  fetchData();
+}, [values]);
 
   return (
-    <form className="flex h-full flex-col justify-center" onKeyPress={handleKeyPress}>
+    <form className="flex h-full flex-col justify-center" onKeyPress={handleKeyPress} >
       <label htmlFor="job" className="body-10 text-natural-6 mb-3">
         Job Title
       </label>
       <input
-      value={values.postion}
-      onChange={handleInpuChange}
+      value={values.position}
+      onChange={handleInputChange}
         type="text"
         id="job"
         name="position"
@@ -72,7 +66,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
           </label>
           <input
             value={values.location}
-            onChange={handleInpuChange}
+            onChange={handleInputChange}
             type="text"
             id="loc"
             name="location"
@@ -86,7 +80,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
           </label>
           <input
           value={values.radius}
-          onChange={handleInpuChange}
+          onChange={handleInputChange}
             type="text"
             id="rad"
             name="radius"
