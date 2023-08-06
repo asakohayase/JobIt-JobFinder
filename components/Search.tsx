@@ -1,13 +1,28 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState } from "react";
-import states from "states-us";
+import React, { useState, useEffect } from "react";
+import { State } from "country-state-city";
 
 import Button from "./Reusable/Button";
+import { GeoResponse } from "@/types";
 
 const Search = () => {
   const [input, setInput] = useState("");
+  const [location, setLocation] = useState<GeoResponse>();
+
+  useEffect(() => {
+    async function fetchLocation() {
+      const url = "http://ip-api.com/json/";
+
+      const response = await fetch(url, {
+        method: "GET",
+      });
+      const result = await response.json();
+      setLocation(result);
+    }
+    fetchLocation();
+  }, []);
 
   return (
     <form className="mt-6 flex w-full flex-col gap-2 rounded-xl bg-white dark:bg-darkBG-2 md:flex-row md:gap-0">
@@ -43,8 +58,8 @@ const Search = () => {
             Location
           </option>
           <option value="REMOTE">Remote</option>
-          {states.map((state) => (
-            <option key={state.abbreviation} value={state.abbreviation}>
+          {State.getStatesOfCountry(location?.countryCode).map((state) => (
+            <option key={state.name} value={state.name}>
               {state.name}
             </option>
           ))}
