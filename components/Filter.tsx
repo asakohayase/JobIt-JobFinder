@@ -1,19 +1,30 @@
 "use client";
-import { getEmployementType } from "@/utils";
+import { JobDetails, jobResponse } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 
 type Props = {
-  data: string[];
-  length?: number;
-  title: string;
+  data: {
+    title: string;
+    list: string[];
+  };
+  jobs: JobDetails[];
+  setJobs: React.Dispatch<React.SetStateAction<JobDetails[]>>;
 };
 
-const Filter = ({ data, length, title }: Props) => {
-  const [clicked, setClicked] = useState(false);
+const Filter = ({ data: { list, title }, setJobs, jobs }: Props) => {
+  const [clicked, setClicked] = useState(true);
+
+  const handleClick = async (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>,
+    key: string
+  ) => {
+    e.preventDefault();
+
+  };
   return (
-    <section className="hidden lg:block lg:max-w-[250px]">
+    <section className="hidden shrink-0 lg:block lg:max-w-[250px]">
       <Link
         href={"#!"}
         scroll={false}
@@ -27,26 +38,30 @@ const Filter = ({ data, length, title }: Props) => {
           src={"/img/icons/cheveron.svg"}
           width={20}
           height={20}
-          className={`${
-            clicked === true ? "rotate-90" : "-rotate-90"
-          } object-cover`}
+          className={`${clicked === true ? "rotate-90" : "-rotate-90"
+            } object-cover`}
           alt="Icon"
         />
       </Link>
 
       <section
-        className={`flex ${
-          clicked === true && "mt-5  pr-3"
-        } flex-col gap-3 overflow-hidden overflow-y-auto lg:max-h-[240px]`}
+        className={`flex ${clicked === true && "mt-5  pr-3"
+          } flex-col gap-3 overflow-hidden overflow-y-auto lg:max-h-[240px]`}
       >
         {clicked === true &&
-          data?.map((item: string, i: number) => {
+          Object.entries(list)?.map(([key, value], i: number) => {
             return (
               <div key={i} className="flex flex-col gap-5">
                 <ul className="flex flex-col gap-y-3">
                   <li className="flex h-[24px] items-center justify-between">
-                    <div className="flex items-center space-x-[14px]">
+                    <div
+                      className="flex items-center space-x-[14px]"
+                      onClick={(e) => {
+                        handleClick(e, key);
+                      }}
+                    >
                       <input
+                        value={key}
                         type="checkbox"
                         id={`check${i}`}
                         className="relative h-[18px] w-[18px] shrink-0 cursor-pointer appearance-none rounded-[5px] border-[1px] border-natural-6 after:absolute after:left-0 after:top-0 after:h-full after:w-full after:bg-[length:10px] after:bg-center after:bg-no-repeat after:content-[''] checked:border-transparent checked:bg-primary after:checked:bg-[url('/img/icons/check.svg')] focus:outline-none dark:border-natural-8 dark:checked:border-transparent"
@@ -55,14 +70,9 @@ const Filter = ({ data, length, title }: Props) => {
                         htmlFor={`check${i}`}
                         className="body-15 cursor-pointer capitalize text-natural-8 dark:text-natural-5"
                       >
-                        {getEmployementType(item.toLocaleLowerCase())}
+                        {value}
                       </label>
                     </div>
-                    {length && (
-                      <span className="body-15 rounded-[5px] bg-natural-2 px-[6px] py-[2px] text-natural-8 dark:bg-darkBG-3 dark:text-natural-2">
-                        {length}
-                      </span>
-                    )}
                   </li>
                 </ul>
               </div>
