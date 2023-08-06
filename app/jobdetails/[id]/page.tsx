@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description: "Job Finder Web Application",
 };
 
-const page = async ({ params }: { params: { id: String } }) => {
+const page = async ({ params }: { params: { id: string } }) => {
   try {
     const jobDetails = await fetchJob(params.id);
     if (!jobDetails || !jobDetails.data || jobDetails.data.length === 0) {

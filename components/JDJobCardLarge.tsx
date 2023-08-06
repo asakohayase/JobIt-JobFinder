@@ -28,9 +28,12 @@ const JDJobCardLarge = ({
     employer_website,
   },
 }: Props) => {
-  const logo = getLogo(employer_name);
-  const averagePay = averagePayPerHour(job_min_salary, job_max_salary);
+  const logo = getLogo(employer_name ?? "");
 
+  const averagePay =
+    job_min_salary === undefined || job_max_salary === undefined
+      ? 0
+      : averagePayPerHour(job_min_salary, job_max_salary);
   return (
     <section className="flex w-full shrink-0 flex-col shadow-1 lg:w-[860px]">
       <div className="relative">
@@ -60,32 +63,44 @@ const JDJobCardLarge = ({
           <div className="inline-flex flex-col gap-[6px]">
             <div className="flex items-center gap-[20px]">
               <span className="text-base font-semibold not-italic leading-6 dark:text-white md:text-2xl md:font-bold md:leading-8">
-                {job_title.length > 30 ? job_title.slice(0, 30) : job_title}
+                {job_title
+                  ? job_title.length > 30
+                    ? job_title.slice(0, 30)
+                    : job_title
+                  : "N/A"}
               </span>
             </div>
             <div className="flex items-center gap-[5px]">
               <span className="text-xs font-medium not-italic leading-4 text-natural-7 md:text-base md:leading-6">
-                {employer_name}
+                {employer_name ?? "N/A"}
               </span>
-              <span className="h-[3px] w-[3px] rounded-full dark:bg-natural-7 md:bg-[#d8d8d8]" />
-              <span className="text-xs font-medium not-italic leading-4 text-natural-7 md:text-base md:leading-6">
-                {job_city}
-              </span>
-              <span className="h-[3px] w-[3px] rounded-full dark:bg-natural-7 md:bg-[#d8d8d8]" />
-              <span className="text-xs font-medium not-italic leading-4 text-natural-7 md:text-base md:leading-6">
-                {getSincePostedDate(job_posted_at_datetime_utc)}
-              </span>
+              {job_city !== undefined && (
+                <>
+                  <span className="h-[3px] w-[3px] rounded-full dark:bg-natural-7 md:bg-[#d8d8d8]" />
+                  <span className="text-xs font-medium not-italic leading-4 text-natural-7 md:text-base md:leading-6">
+                    {job_city}
+                  </span>
+                </>
+              )}
+              {job_posted_at_datetime_utc !== undefined && (
+                <>
+                  <span className="h-[3px] w-[3px] rounded-full dark:bg-natural-7 md:bg-[#d8d8d8]" />
+                  <span className="text-xs font-medium not-italic leading-4 text-natural-7 md:text-base md:leading-6">
+                    {getSincePostedDate(job_posted_at_datetime_utc)}
+                  </span>
+                </>
+              )}
             </div>
           </div>
 
           <div className="flex items-center justify-center gap-[15px] md:justify-end">
             <Button
-              href={job_apply_link}
+              href={job_apply_link ?? "/"}
               style={"btn-primary px-[14px] py-2 md:py-3 "}
               title={"Apply Now"}
             />
             <Button
-              href={employer_website}
+              href={`/company/${employer_name?.toLowerCase() ?? "/"}`}
               style={"px-[14px] py-2 md:py-3 btn-outline-green"}
               title={"View Company"}
             />
@@ -116,7 +131,7 @@ const JDJobCardLarge = ({
               Employee Type
             </span>
             <span className="text-sm font-semibold not-italic leading-6 text-natural-8 dark:text-white md:text-base">
-              {job_employment_type}
+              {job_employment_type ?? "N/A"}
             </span>
           </div>
 
@@ -125,36 +140,65 @@ const JDJobCardLarge = ({
               Offer Salary
             </span>
             <span className="text-sm font-semibold not-italic leading-6 text-natural-8 dark:text-white md:text-base">
-              {averagePay}
+              {averagePay ?? "N/A"}
             </span>
           </div>
         </div>
 
-        <div className="mt-8 flex w-full  flex-col items-start gap-[12px]">
-          <h2 className="text-base font-bold not-italic leading-6 text-black dark:text-white md:text-lg">
-            About The Job
-          </h2>
+        {job_description && (
+          <div className="mt-8 flex w-full  flex-col items-start gap-[12px]">
+            <h2 className="text-base font-bold not-italic leading-6 text-black dark:text-white md:text-lg">
+              About The Job
+            </h2>
 
-          <p className="line-clamp-[12] text-sm font-normal not-italic leading-5 text-natural-7 md:line-clamp-6 md:text-base md:leading-6">
-            {job_description}
-          </p>
+            <p className="line-clamp-[12] text-sm font-normal not-italic leading-5 text-natural-7 md:line-clamp-6 md:text-base md:leading-6">
+              {job_description}
+            </p>
+          </div>
+        )}
+
+        <div className="mt-8 flex w-full flex-col items-start gap-[12px]">
+          {job_highlights?.Responsibilities &&
+          job_highlights.Responsibilities.length > 0 ? (
+            <>
+              <h2 className="text-base font-bold not-italic leading-6 text-black dark:text-white md:text-lg">
+                Responsibilities
+              </h2>
+
+              <div className="line-clamp-3 text-sm font-normal not-italic leading-5 text-natural-7 md:line-clamp-2 md:text-base md:leading-6">
+                <ul className="list-none">
+                  {job_highlights.Responsibilities.map((responsibility, i) => (
+                    <li key={i} className="flex gap-2 md:items-start">
+                      <div className="mt-1.5 h-2 w-2 shrink-0 rounded-full border-2 border-primary md:h-2.5 md:w-2.5" />
+                      {responsibility}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </>
+          ) : null}
         </div>
 
         <div className="mt-8 flex w-full flex-col items-start gap-[12px]">
-          <h2 className="text-base font-bold not-italic leading-6 text-black dark:text-white md:text-lg">
-            Responsibilities
-          </h2>
+          {job_highlights?.Qualifications &&
+          job_highlights.Qualifications.length > 0 ? (
+            <>
+              <h2 className="text-base font-bold not-italic leading-6 text-black dark:text-white md:text-lg">
+                Qualifications
+              </h2>
 
-          <div className="line-clamp-3 text-sm font-normal not-italic leading-5 text-natural-7 md:line-clamp-2 md:text-base md:leading-6">
-            <ul className="list-none">
-              {job_highlights?.Responsibilities.map((responsibility, i) => (
-                <li key={i} className="flex gap-2 md:items-start">
-                  <div className="mt-1.5 h-2 w-2 shrink-0 rounded-full border-2 border-primary md:h-2.5 md:w-2.5" />
-                  {responsibility}
-                </li>
-              ))}
-            </ul>
-          </div>
+              <div className="line-clamp-3 text-sm font-normal not-italic leading-5 text-natural-7 md:line-clamp-2 md:text-base md:leading-6">
+                <ul className="list-none">
+                  {job_highlights.Qualifications.map((qualification, i) => (
+                    <li key={i} className="flex gap-2 md:items-start">
+                      <div className="mt-1.5 h-2 w-2 shrink-0 rounded-full border-2 border-primary md:h-2.5 md:w-2.5" />
+                      {qualification}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </>
+          ) : null}
         </div>
 
         <span className="mt-8 h-px w-full bg-natural-2" />
@@ -176,16 +220,18 @@ const JDJobCardLarge = ({
 
             <div className="flex flex-col gap-[2px]">
               <span className="line-clamp-1 text-base font-semibold not-italic leading-6 text-black dark:text-natural-2 md:text-lg md:font-bold">
-                {employer_name}
+                {employer_name ?? "N/A"}
               </span>
-              <span className="text-sm font-medium not-italic leading-6 text-natural-7 md:text-base">
-                {employer_company_type}
-              </span>
+              {employer_company_type && (
+                <span className="text-sm font-medium not-italic leading-6 text-natural-7 md:text-base">
+                  {employer_company_type}
+                </span>
+              )}
             </div>
           </div>
 
           <Button
-            href={employer_website}
+            href={`/company/${employer_name?.toLowerCase() ?? "/"}`}
             style={"px-[14px] py-2 md:py-3 text-center btn-outline-green"}
             title={"View Company"}
           />

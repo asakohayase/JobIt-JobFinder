@@ -11,7 +11,7 @@ type Props = {
 
 const SimilarCompanies = ({ data }: Props) => {
   const { employer_name } = data;
-  const logo = getLogo(employer_name);
+  const logo = getLogo(employer_name ?? "");
 
   return (
     <section className="lg:body-16 flex w-full items-center justify-between rounded-[10px] bg-white p-5 shadow-sm dark:bg-darkBG-3 dark:text-natural-6 md:gap-1">
@@ -20,22 +20,24 @@ const SimilarCompanies = ({ data }: Props) => {
           src={logo}
           priority
           alt="Logo"
-          className="object-fit"
+          className="object-contain"
           width={48}
           height={48}
         />
         <div className="pl-5">
           <h2 className="body-1 line-clamp-1  text-black dark:text-white">
-            {employer_name}
+            {employer_name ?? "N/A"}
           </h2>
-          <p className=" line-clamp-1 text-natural-6">{employer_name}</p>
+          <p className=" line-clamp-1 text-natural-6">
+            {employer_name ?? "N/A"}
+          </p>
         </div>
       </div>
 
       <div>
         <Button
           title={"View"}
-          href={`/company/${data.employer_name}`}
+          href={data.employer_name ? `/company/${data.employer_name}` : "/"}
           style={
             "px-2.5 py-1.5 btn-outline-green hover:bg-primary hover:text-white"
           }
