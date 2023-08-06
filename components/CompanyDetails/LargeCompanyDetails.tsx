@@ -45,7 +45,7 @@ const LargeCompanyDetails = ({
   }, [jobDetails]);
 
   return (
-    <article className="flex w-full flex-col bg-natural-3 md:gap-14">
+    <article className="flex w-full flex-col bg-natural-3 dark:bg-darkBG-2 md:gap-14">
       <section className="max-h-48">
         <div>
           <Image
