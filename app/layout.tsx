@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
-import React from "react";
+import React, { Suspense } from "react";
 import { Providers } from "./providers";
 
 import Nav from "@/components/Nav";
 import "./globals.css";
+import Loader from "@/components/Loader";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -25,7 +26,7 @@ export default function RootLayout({
       >
         <Providers>
           <Nav />
-          {children}
+          <Suspense fallback={<Loader />}>{children}</Suspense>
         </Providers>
       </body>
     </html>
