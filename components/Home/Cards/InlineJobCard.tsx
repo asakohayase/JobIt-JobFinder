@@ -38,7 +38,7 @@ const InlineJobCard = ({
         <div className="relative flex h-9 w-9 shrink-0 items-center justify-center">
           <Image src={logo} fill priority alt="Logo" className="object-cover" />
         </div>
-        <div className="flex max-w-[200px] flex-col gap-y-1 lg:max-w-full">
+        <div className="flex max-w-[155px] flex-col gap-y-1 md:max-w-[500px] xl:max-w-[200px]">
           <span className="lg:body-6 body-10 lg:body-15 line-clamp-1 text-black dark:text-white">
             {job_title}
           </span>

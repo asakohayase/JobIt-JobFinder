@@ -113,7 +113,11 @@ const JDJobCardLarge = ({
               Experience
             </span>
             <span className="text-sm font-semibold not-italic leading-6 text-natural-8 dark:text-white md:text-base">
-              {job_required_experience?.required_experience_in_months ?? "N/A"}
+              {job_required_experience?.required_experience_in_months
+                ? `${Math.round(
+                    job_required_experience.required_experience_in_months / 12
+                  )} years`
+                : "N/A"}
             </span>
           </div>
 
