@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import Image from "next/image";
 import React from "react";
 
@@ -52,7 +51,9 @@ const InlineJobCard = ({
       </div>
 
       <div className="flex shrink-0 flex-col items-end justify-between gap-y-1 place-self-start">
-        {averagePay !== "0" && (
+        {averagePay == null || averagePay === "0" ? (
+          <span className="body-15 text-black dark:text-white">N/A</span>
+        ) : (
           <span className="body-15 text-black dark:text-white">
             $ {averagePay}
             <span className="text-natural-7">/ Hr</span>

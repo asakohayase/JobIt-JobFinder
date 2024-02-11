@@ -56,8 +56,14 @@ const JDInlineJobCard = ({ data }: Props) => {
         </div>
 
         <span className="text-right text-xs font-semibold not-italic leading-6 text-gray-900 dark:text-white lg:text-sm">
-          ${averagePay}
-          <span className="dark:text-natural-6">/ Hr</span>
+          {averagePay == null || averagePay === "0" ? (
+            <span className="body-15 text-black dark:text-white">N/A</span>
+          ) : (
+            <span className="body-15 text-black dark:text-white">
+              $ {averagePay}
+              <span className="dark:text-natural-6">/ Hr</span>
+            </span>
+          )}
         </span>
       </div>
 

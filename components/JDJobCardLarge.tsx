@@ -140,7 +140,7 @@ const JDJobCardLarge = ({
               Offer Salary
             </span>
             <span className="text-sm font-semibold not-italic leading-6 text-natural-8 dark:text-white md:text-base">
-              {averagePay ?? "N/A"}
+              {averagePay ?? averagePay === "0" ? "N/A" : `$${averagePay}`}
             </span>
           </div>
         </div>
