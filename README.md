@@ -27,28 +27,28 @@
 ## Features
 
 **・Jobs** : Comprehensive up-to-date job listings curated from top career sites. Job seekers can search thousands of open positions.
-<img width="1437" alt="Screenshot 2024-02-03 at 9 36 39 AM" src="https://github.com/asakohayase/JobIt-JobFinder/assets/76857882/488be1ad-a6ae-418a-88da-f34d25015214">
+<img width="1437" alt="j1" src="https://github.com/asakohayase/JobIt-JobFinder/assets/76857882/31dcb383-7ffe-4c7b-b7cf-5e465486d5ef">
 
 <br />
 <br />
 
 **・Search Jobs** : Intelligent search functionality to easily find relevant jobs by keyword, location, or job type.
 
-<img width="1412" alt="Screenshot 2024-02-03 at 9 39 19 AM" src="https://github.com/asakohayase/JobIt-JobFinder/assets/76857882/e522ead4-597d-4638-a7e4-7955c84f896f">
+<img width="1412" alt="j2" src="https://github.com/asakohayase/JobIt-JobFinder/assets/76857882/3eca2baa-de3e-4a4a-a756-7b27bdeedc97">
 
 <br />
 <br />
 
 **・Job Details** : Detailed job descriptions and information including salary/pay range, job responsibilities, and required qualifications.
 
-<img width="1437" alt="Screenshot 2024-02-03 at 9 44 16 AM" src="https://github.com/asakohayase/JobIt-JobFinder/assets/76857882/e49124f1-c346-429d-9318-59dbc66c605f">
+<img width="1437" alt="j3" src="https://github.com/asakohayase/JobIt-JobFinder/assets/76857882/79ec369b-cf4f-4d1a-9c0b-7baca5c1db73">
 
 <br />
 <br />
 
 **・Estimated Salaries** : Salary estimations pulled from leading career sites.
 
-<img width="1413" alt="Screenshot 2024-02-03 at 9 38 07 AM" src="https://github.com/asakohayase/JobIt-JobFinder/assets/76857882/3504bf4f-ce7b-41ab-900d-969d1a7f4943">
+<img width="1413" alt="j4" src="https://github.com/asakohayase/JobIt-JobFinder/assets/76857882/3f90251b-78b9-4482-b078-35a6609a39f4">
 
 <br />
 <br />
