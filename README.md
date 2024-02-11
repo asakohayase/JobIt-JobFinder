@@ -15,7 +15,6 @@
     <li><a href="#features">Features</a> </li>
     <li><a href="#built-with">Built With</a></li>
     <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#co-authors">Co-Authors</a></li>
   </ol>
@@ -82,20 +81,13 @@ Stars ⭐ from you will brighten our day! Thanks for checking out our project.
 
 
 
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. 
-
-
-
 
 <!-- CONTACT -->
 ## Contact
 
 Asako Hayase- [LinkedIn](https://www.linkedin.com/in/asako-hayase-924508ba/)
 
-Project Link: []() *To be updated
+Project Link: [https://job-it-job-finder.vercel.app/](https://job-it-job-finder.vercel.app/)
 
 
 
