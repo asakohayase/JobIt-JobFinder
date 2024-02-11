@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+
 import Image from "next/image";
 import React from "react";
 
