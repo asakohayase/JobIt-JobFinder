@@ -1,118 +1,109 @@
-# Project JobIt
+<a id="readme-top"></a>
+<h1>JobIt</h1>
 
-Build a Job Finder Application
+<div align="left">
+  <p>
+   JobIt, a job search web application, to help job seekers find and apply for jobs more efficiently.
+  </p>
+</div>
 
-Check out the complete project requirements [here](https://docs.google.com/document/d/1torjiFuc0l2DmaVy3ANgnsFanH0VQae5A34CAzcCJpA/edit?usp=sharing)
 
-# Contributing
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#features">Features</a> </li>
+    <li><a href="#built-with">Built With</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#co-authors">Co-Authors</a></li>
+  </ol>
+</details>
 
-When contributing to this repository, please first discuss the change you wish to make via issue.
-Please note we have a [code of conduct](CODE_OF_CONDUCT.md), please follow it in all your interactions with the project.
 
-## System Requirements
 
-To get started with development, you need to install few tools
+<!-- ABOUT THE PROJECT -->
+## Features
 
-1. git
+**・Jobs** : Comprehensive up-to-date job listings curated from top career sites. Job seekers can search thousands of open positions.
+<img width="1437" alt="Screenshot 2024-02-03 at 9 36 39 AM" src="https://github.com/asakohayase/JobIt-JobFinder/assets/76857882/488be1ad-a6ae-418a-88da-f34d25015214">
 
-   `git` version 2.13.1 or higher. Download [git](https://git-scm.com/downloads) if you don't have it already.
+<br />
+<br />
 
-   To check your version of git, run:
+**・Search Jobs** : Intelligent search functionality to easily find relevant jobs by keyword, location, or job type.
 
-   ```shell
-    git --version
-   ```
+<img width="1412" alt="Screenshot 2024-02-03 at 9 39 19 AM" src="https://github.com/asakohayase/JobIt-JobFinder/assets/76857882/e522ead4-597d-4638-a7e4-7955c84f896f">
 
-2. node
+<br />
+<br />
 
-   `node` version 16.15.1 or higher. Download [node](https://nodejs.org/en/download/) if you don't have it already.
+**・Job Details** : Detailed job descriptions and information including salary/pay range, job responsibilities, and required qualifications.
 
-   To check your version of node, run:
+<img width="1437" alt="Screenshot 2024-02-03 at 9 44 16 AM" src="https://github.com/asakohayase/JobIt-JobFinder/assets/76857882/e49124f1-c346-429d-9318-59dbc66c605f">
 
-   ```shell
-    node --version
-   ```
+<br />
+<br />
 
-3. npm
+**・Estimated Salaries** : Salary estimations pulled from leading career sites.
 
-   `npm` version 5.6.1 or higher. You will have it after you install node
+<img width="1413" alt="Screenshot 2024-02-03 at 9 38 07 AM" src="https://github.com/asakohayase/JobIt-JobFinder/assets/76857882/3504bf4f-ce7b-41ab-900d-969d1a7f4943">
 
-   To check your version of npm, run:
+<br />
+<br />
 
-   ```shell
-    npm --version
-   ```
 
-## Setup
 
-To set up a development environment, please follow these steps:
 
-1. Clone the repo
+## Built With
 
-   ```shell
-    git clone https://github.com/JavaScript-Mastery-PRO/Cohort5_DivineDomain_JobIt.git
-   ```
+* Next.js
+* Typescript
+* Tailwind CSS
+* JSearch API
 
-2. Change directory to the project directory
 
-   ```shell
-   cd Cohort5_DivineDomain_JobIt
-   ```
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-You have successfully cloned the repo. Go ahead and start developing the project with your chosen framework (React.js or Next.js)!
 
-## Issues
+<!-- CONTRIBUTING -->
+## Contributing
 
-You've found a bug in the source code, a mistake in the documentation or maybe you'd like a new feature? You can help us by [submitting an issue on GitHub](https://github.com/orgs/JavaScript-Mastery-PRO/projects/8). Before you create an issue, make sure to search the issue archive -- your issue may have already been addressed!
+If you have an idea to improve this, kindly fork the repository and open a pull request. We also welcome enhancement suggestions filed as issues. 
+Stars ⭐ from you will brighten our day! Thanks for checking out our project.
 
-Please try to create bug reports that are:
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/NewFeature`)
+3. Commit your Changes (`git commit -m 'Add some NewFeature'`)
+4. Push to the Branch (`git push origin feature/NewFeature`)
+5. Open a Pull Request
 
-- _Reproducible._ Include steps to reproduce the problem.
-- _Specific._ Include as much detail as possible: which version, what environment, etc.
-- _Unique._ Do not duplicate existing opened issues.
-- _Scoped to a Single Bug._ One bug per report.
 
-## Pull Request
 
-There are 2 main work flows when dealing with pull requests:
 
-- Pull Request from a [forked repository](https://help.github.com/articles/fork-a-repo)
-- Pull Request from a branch within a repository
+<!-- LICENSE -->
+## License
 
-Here we are going to focus on 2. Creating a Topical Branch:
+Distributed under the MIT License. 
 
-1. First, we will need to create a branch from the latest commit on master. Make sure your repository is up to date first using
 
-   ```bash
-    git pull origin main
-   ```
 
-   _Note:_ `git pull` does a `git fetch` followed by a `git merge` to update the local repo with the remote repo. For a more detailed explanation, see [this stackoverflow post](http://stackoverflow.com/questions/292357/whats-the-difference-between-git-pull-and-git-fetch).
 
-2. To create a branch, use `git checkout -b <new-branch-name> [<base-branch-name>]`, where `base-branch-name` is optional and defaults to `main`.
+<!-- CONTACT -->
+## Contact
 
-   Use a standard convention for branch names. For example, `<your-name>-dev`. It will be easier to track your pull requests if you use this convention.
+Asako Hayase- [LinkedIn](https://www.linkedin.com/in/asako-hayase-924508ba/)
 
-   I'm going to create a new branch called `jsm-dev` from the `main` branch and push it to github.
+Project Link: []() *To be updated
 
-   ```bash
-    git checkout -b jsm-dev main
-    git push origin jsm-dev
-   ```
 
-3. To create a pull request, you must have changes committed to your new branch.
 
-4. Go to [Pull Requests](https://github.com/JavaScript-Mastery-PRO/Cohort5_DivineDomain_JobIt/pulls) and click on the `New Pull Request` button.
 
-5. Select the `main` branch as the `base` branch and the `jsm-dev` branch as the `compare` branch.
+<!-- Co-Authors -->
+## Co-Authors
+* Abbo Adamou - [Github Profile](https://www.linkedin.com/in/abboadamou/)
+* Matthew Gajo - [Github Profile](https://github.com/lushi-liu)
+* Ryan Carpenter - [Github Profile](https://www.linkedin.com/in/ryanjcarpenter/)
 
-6. Follow the template and fill in the proper information for the pull request.
-
-7. Click on the `Submit` button.
-
-8. You have successfully created a pull request. Add at least one of the mentors as a code reviewer.
-
-9. Now, wait for mentor approval. Once approved, you can merge the pull request.
-
-#
-
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
