@@ -34,9 +34,13 @@ const JobCard = ({
 }: Props) => {
   const logo = getLogo(employer_name ?? "");
   const averagePay =
-    job_min_salary && job_max_salary
+    job_min_salary &&
+    job_max_salary &&
+    job_min_salary !== 0 &&
+    job_max_salary !== 0
       ? averagePayPerHour(job_min_salary, job_max_salary)
       : 0;
+
   return (
     <article className="flex w-full flex-col gap-y-[30px] rounded-jobit bg-white p-5 shadow-1 dark:bg-darkBG-2">
       <header className="flex items-center gap-5">
@@ -103,7 +107,7 @@ const JobCard = ({
         />
       </section>
       <section className="flex items-center justify-between">
-        {averagePay !== "0" ? (
+        {averagePay !== 0 ? (
           <span className="body-6 lg:body-2 text-black dark:text-white">
             ${averagePay}
             <span className="body-8 lg:body-3 text-natural-7"> /month</span>
@@ -112,12 +116,10 @@ const JobCard = ({
           <span className="body-6 lg:body-2 text-black dark:text-white">
             $
             <span className="body-8 lg:body-3 text-natural-7">
-              {" "}
               Not specified
             </span>
           </span>
         )}
-
         <Button
           href={`/jobdetails/${job_id}`}
           style={"btn-primary lg:py-[14px] px-[14px] py-2 lg:px-3"}
